@@ -2,9 +2,10 @@
 
 namespace PatientManagement.Core.Entities
 {
-    public class Room : BaseEntity
+    public class Doctor : BaseEntity
     {
-        public int RoomNumber { get; set; }
         public int DepartmentId { get; set; }
+        public int TypeOfStuffMemberId { get; set; }
+        public string FullName { get; set; }
     }
 }
