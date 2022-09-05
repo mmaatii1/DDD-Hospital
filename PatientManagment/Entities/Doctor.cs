@@ -1,6 +1,4 @@
-﻿using PatientManagement.Core.Interfaces;
-
-namespace PatientManagement.Core.Entities
+﻿namespace PatientManagement.Core.Entities
 {
     public class Doctor : BaseEntity
     {

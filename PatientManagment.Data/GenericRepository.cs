@@ -5,10 +5,10 @@ namespace PatientManagement.Data
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly PatientManagmentContext _context;
+        private readonly PatientManagementContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public GenericRepository(PatientManagmentContext context)
+        public GenericRepository(PatientManagementContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
