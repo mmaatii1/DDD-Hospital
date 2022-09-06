@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hospital.SharedKernel;
-
-namespace Hospital.Core.Entities;
-internal class StuffMember : EntityBase<int>
+﻿namespace PatientManagement.Core.Entities
 {
+    public class StuffMember : BaseEntity
+    {
+        public int? DepartmentId { get; set; }
+        public int TypeOfStuffMemberId { get; set; }
+        public string FullName { get; set; }
+    }
 }

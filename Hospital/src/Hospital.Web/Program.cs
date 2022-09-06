@@ -1,4 +1,5 @@
-﻿using Ardalis.ListStartupServices;
+﻿using System.Configuration;
+using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Hospital.Core;
@@ -6,6 +7,7 @@ using Hospital.Infrastructure;
 using Hospital.Infrastructure.Data;
 using Hospital.Web;
 using Microsoft.OpenApi.Models;
+using PatientManagement.Data;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 string connectionString = builder.Configuration.GetConnectionString("SqliteConnection");  //Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext(connectionString);
+
+builder.Services.AddPatientManagementData(builder.Configuration);
 
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 builder.Services.AddRazorPages();

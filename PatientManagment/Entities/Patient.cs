@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hospital.SharedKernel;
-
-namespace Hospital.Core.Entities;
-internal class Patient : EntityBase<int>
+﻿using Hospital.SharedKernel.Enums;
+namespace PatientManagement.Core.Entities;
+public class Patient : BaseEntity
 {
+    public string FullName { get; set; }
+    public int InsuranceNumber { get; set; }
+    public string EmailAddress { get; set; }
+    public Gender Gender { get; set; }
 }

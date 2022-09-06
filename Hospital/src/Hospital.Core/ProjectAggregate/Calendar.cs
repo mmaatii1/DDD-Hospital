@@ -5,7 +5,7 @@ using Hospital.SharedKernel.Interfaces;
 
 namespace Hospital.Core.ProjectAggregate
 {
-    public class Calendar : EntityBase<Guid>, IAggregateRoot
+    public class Calendar : EntityBase, IAggregateRoot
     {
         public string Name { get; private set; }
 

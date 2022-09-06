@@ -17,25 +17,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.IntegrationTests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.UnitTests", "Hospital\tests\Hospital.UnitTests\Hospital.UnitTests.csproj", "{A63843C2-A5DA-4D6F-A1E2-B7E2EE9863BC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Managment", "Managment", "{75A8F249-21B4-45A9-A158-01DB4B328497}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management", "Management", "{75A8F249-21B4-45A9-A158-01DB4B328497}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagment.Core", "PatientManagment\PatientManagment.Core.csproj", "{7AD27031-309E-43E8-A38F-B40782953BF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.Core", "PatientManagment\PatientManagement.Core.csproj", "{7AD27031-309E-43E8-A38F-B40782953BF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagment.Data", "PatientManagment.Data\PatientManagment.Data.csproj", "{5409C30F-C209-4800-88BB-ECF07AE4DBC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.Data", "PatientManagment.Data\PatientManagement.Data.csproj", "{5409C30F-C209-4800-88BB-ECF07AE4DBC4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagment.IntegrationTests", "PatientManagment.IntegrationTests\PatientManagment.IntegrationTests.csproj", "{04479D0D-DF9F-4B25-94C8-37751223423D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.IntegrationTests", "PatientManagment.IntegrationTests\PatientManagement.IntegrationTests.csproj", "{04479D0D-DF9F-4B25-94C8-37751223423D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagment.UnitTests", "PatientManagment.UnitTests\PatientManagment.UnitTests.csproj", "{55B1402A-5790-4D4E-A0FF-B8F83008D9B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.UnitTests", "PatientManagment.UnitTests\PatientManagement.UnitTests.csproj", "{55B1402A-5790-4D4E-A0FF-B8F83008D9B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scheduler", "Scheduler", "{656E0A7A-C29C-4B01-8EB3-519C1C56D819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Core", "Scheduler.Core\Scheduler.Core.csproj", "{9D629C6C-C211-4356-8FCE-60BE4DF2F18D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.Core", "Scheduler.Core\Scheduler.Core.csproj", "{9D629C6C-C211-4356-8FCE-60BE4DF2F18D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Data", "Scheduler.Data\Scheduler.Data.csproj", "{9BD816C9-EC59-4603-AD79-9C3E5FB2DAD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.Data", "Scheduler.Data\Scheduler.Data.csproj", "{9BD816C9-EC59-4603-AD79-9C3E5FB2DAD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.UnitTests", "Scheduler.UnitTests\Scheduler.UnitTests.csproj", "{B6971420-C7EE-44B7-9CA8-D84801909AD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.UnitTests", "Scheduler.UnitTests\Scheduler.UnitTests.csproj", "{B6971420-C7EE-44B7-9CA8-D84801909AD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.IntegrationTests", "Scheduler.IntegrationTests\Scheduler.IntegrationTests.csproj", "{7F7DB6A8-F434-463E-AAE6-3A2CEE93508C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.IntegrationTests", "Scheduler.IntegrationTests\Scheduler.IntegrationTests.csproj", "{7F7DB6A8-F434-463E-AAE6-3A2CEE93508C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

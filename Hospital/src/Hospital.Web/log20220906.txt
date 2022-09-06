@@ -1,0 +1,112 @@
+2022-09-06 15:49:31.598 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 15:50:02.158 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 15:52:01.226 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 15:52:01.790 +02:00 [INF] Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [PatientManagement];
+2022-09-06 15:52:01.833 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [PatientManagement] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2022-09-06 15:52:01.848 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-09-06 15:52:01.962 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2022-09-06 15:52:01.965 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-09-06 15:52:01.987 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-09-06 15:52:01.993 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-09-06 15:52:02.012 +02:00 [INF] Applying migration '20220906134931_Initial'.
+2022-09-06 15:52:02.072 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Department] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Department] PRIMARY KEY ([Id])
+);
+2022-09-06 15:52:02.074 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Patients] (
+    [Id] int NOT NULL IDENTITY,
+    [FullName] nvarchar(max) NOT NULL,
+    [InsuranceNumber] int NOT NULL,
+    [EmailAddress] nvarchar(max) NOT NULL,
+    [Gender] int NOT NULL,
+    CONSTRAINT [PK_Patients] PRIMARY KEY ([Id])
+);
+2022-09-06 15:52:02.075 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TypesOfStuffMember] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_TypesOfStuffMember] PRIMARY KEY ([Id])
+);
+2022-09-06 15:52:02.077 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Rooms] (
+    [Id] int NOT NULL IDENTITY,
+    [RoomNumber] int NOT NULL,
+    [DepartmentId] int NOT NULL,
+    CONSTRAINT [PK_Rooms] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Rooms_Department_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Department] ([Id]) ON DELETE CASCADE
+);
+2022-09-06 15:52:02.078 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Doctors] (
+    [Id] int NOT NULL IDENTITY,
+    [DepartmentId] int NULL,
+    [TypeOfStuffMemberId] int NOT NULL,
+    [FullName] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Doctors] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Doctors_Department_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Department] ([Id]),
+    CONSTRAINT [FK_Doctors_TypesOfStuffMember_TypeOfStuffMemberId] FOREIGN KEY ([TypeOfStuffMemberId]) REFERENCES [TypesOfStuffMember] ([Id]) ON DELETE CASCADE
+);
+2022-09-06 15:52:02.419 +02:00 [INF] Executed DbCommand (341ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Department]'))
+    SET IDENTITY_INSERT [Department] ON;
+INSERT INTO [Department] ([Id], [Description], [Name])
+VALUES (1, N'Department where the surgeries are carried out', N'Surgeon');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[Department]'))
+    SET IDENTITY_INSERT [Department] OFF;
+2022-09-06 15:52:02.465 +02:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'EmailAddress', N'FullName', N'Gender', N'InsuranceNumber') AND [object_id] = OBJECT_ID(N'[Patients]'))
+    SET IDENTITY_INSERT [Patients] ON;
+INSERT INTO [Patients] ([Id], [EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (1, N'majkelreszka@gmail.com', N'Majkel Reszka', 0, 12353123);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'EmailAddress', N'FullName', N'Gender', N'InsuranceNumber') AND [object_id] = OBJECT_ID(N'[Patients]'))
+    SET IDENTITY_INSERT [Patients] OFF;
+2022-09-06 15:52:02.510 +02:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[TypesOfStuffMember]'))
+    SET IDENTITY_INSERT [TypesOfStuffMember] ON;
+INSERT INTO [TypesOfStuffMember] ([Id], [Description], [Name])
+VALUES (1, N'Doctors which are qualified to do surgery', N'Surgeons');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Description', N'Name') AND [object_id] = OBJECT_ID(N'[TypesOfStuffMember]'))
+    SET IDENTITY_INSERT [TypesOfStuffMember] OFF;
+2022-09-06 15:52:02.571 +02:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DepartmentId', N'FullName', N'TypeOfStuffMemberId') AND [object_id] = OBJECT_ID(N'[Doctors]'))
+    SET IDENTITY_INSERT [Doctors] ON;
+INSERT INTO [Doctors] ([Id], [DepartmentId], [FullName], [TypeOfStuffMemberId])
+VALUES (1, 1, N'Kamil Ollik', 1);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DepartmentId', N'FullName', N'TypeOfStuffMemberId') AND [object_id] = OBJECT_ID(N'[Doctors]'))
+    SET IDENTITY_INSERT [Doctors] OFF;
+2022-09-06 15:52:02.619 +02:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DepartmentId', N'RoomNumber') AND [object_id] = OBJECT_ID(N'[Rooms]'))
+    SET IDENTITY_INSERT [Rooms] ON;
+INSERT INTO [Rooms] ([Id], [DepartmentId], [RoomNumber])
+VALUES (1, 1, 10);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'DepartmentId', N'RoomNumber') AND [object_id] = OBJECT_ID(N'[Rooms]'))
+    SET IDENTITY_INSERT [Rooms] OFF;
+2022-09-06 15:52:02.651 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Doctors_DepartmentId] ON [Doctors] ([DepartmentId]);
+2022-09-06 15:52:02.682 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Doctors_TypeOfStuffMemberId] ON [Doctors] ([TypeOfStuffMemberId]);
+2022-09-06 15:52:02.791 +02:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Rooms_DepartmentId] ON [Rooms] ([DepartmentId]);
+2022-09-06 15:52:02.823 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220906134931_Initial', N'6.0.8');
