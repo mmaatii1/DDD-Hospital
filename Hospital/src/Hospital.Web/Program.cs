@@ -5,8 +5,10 @@ using Autofac.Extensions.DependencyInjection;
 using Hospital.Core;
 using Hospital.Infrastructure;
 using Hospital.Infrastructure.Data;
+using Hospital.Infrastructure.Middleware;
 using Hospital.Web;
 using Microsoft.OpenApi.Models;
+using PatientManagement.Core;
 using PatientManagement.Data;
 using Serilog;
 
@@ -26,8 +28,8 @@ string connectionString = builder.Configuration.GetConnectionString("SqliteConne
 
 builder.Services.AddDbContext(connectionString);
 
-builder.Services.AddPatientManagementData(builder.Configuration);
-
+//think about installing ngets in infra and register it 
+builder.Services.AddPatientManagement(builder.Configuration);
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 builder.Services.AddRazorPages();
 
@@ -74,6 +76,7 @@ app.UseStaticFiles();
 app.UseCookiePolicy();
 
 // Enable middleware to serve generated Swagger as a JSON endpoint.
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseSwagger();
 
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
