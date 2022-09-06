@@ -10,7 +10,7 @@ namespace PatientManagement.Data
         {
             services.AddDbContext<PatientManagementContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
+                    configuration.GetConnectionString("PatientManagement"),
                     b => b.MigrationsAssembly(typeof(PatientManagementContext).Assembly.FullName)));
         }
     }

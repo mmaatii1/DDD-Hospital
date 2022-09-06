@@ -41,31 +41,14 @@ namespace PatientManagement.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Department");
-                });
 
-            modelBuilder.Entity("PatientManagement.Core.Entities.Doctor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TypeOfStuffMemberId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TypeOfStuffMemberId");
-
-                    b.ToTable("Doctors");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Department where the surgeries are carried out",
+                            Name = "Surgeon"
+                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Patient", b =>
@@ -90,12 +73,19 @@ namespace PatientManagement.Data.Migrations
                     b.Property<int>("InsuranceNumber")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PreferredDoctorId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Patients");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EmailAddress = "majkelreszka@gmail.com",
+                            FullName = "Majkel Reszka",
+                            Gender = 0,
+                            InsuranceNumber = 12353123
+                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Room", b =>
@@ -117,6 +107,50 @@ namespace PatientManagement.Data.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DepartmentId = 1,
+                            RoomNumber = 10
+                        });
+                });
+
+            modelBuilder.Entity("PatientManagement.Core.Entities.StuffMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TypeOfStuffMemberId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("TypeOfStuffMemberId");
+
+                    b.ToTable("Doctors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DepartmentId = 1,
+                            FullName = "Kamil Ollik",
+                            TypeOfStuffMemberId = 1
+                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.TypeOfStuffMember", b =>
@@ -138,15 +172,14 @@ namespace PatientManagement.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TypesOfStuffMember");
-                });
 
-            modelBuilder.Entity("PatientManagement.Core.Entities.Doctor", b =>
-                {
-                    b.HasOne("PatientManagement.Core.Entities.TypeOfStuffMember", null)
-                        .WithMany("Doctors")
-                        .HasForeignKey("TypeOfStuffMemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Doctors which are qualified to do surgery",
+                            Name = "Surgeons"
+                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Room", b =>
@@ -158,14 +191,29 @@ namespace PatientManagement.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PatientManagement.Core.Entities.StuffMember", b =>
+                {
+                    b.HasOne("PatientManagement.Core.Entities.Department", null)
+                        .WithMany("StuffMembers")
+                        .HasForeignKey("DepartmentId");
+
+                    b.HasOne("PatientManagement.Core.Entities.TypeOfStuffMember", null)
+                        .WithMany("StuffMembers")
+                        .HasForeignKey("TypeOfStuffMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PatientManagement.Core.Entities.Department", b =>
                 {
                     b.Navigation("Rooms");
+
+                    b.Navigation("StuffMembers");
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.TypeOfStuffMember", b =>
                 {
-                    b.Navigation("Doctors");
+                    b.Navigation("StuffMembers");
                 });
 #pragma warning restore 612, 618
         }
