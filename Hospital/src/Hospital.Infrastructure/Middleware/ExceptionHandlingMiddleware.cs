@@ -69,7 +69,7 @@ namespace Hospital.Infrastructure.Middleware
         errors = validationException.ErrorsDictionary;
       }
 
-      return errors;
+      return errors!;
     }
   }
 }
