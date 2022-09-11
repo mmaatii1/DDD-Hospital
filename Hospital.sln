@@ -27,15 +27,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.Integrati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.UnitTests", "PatientManagment.UnitTests\PatientManagement.UnitTests.csproj", "{55B1402A-5790-4D4E-A0FF-B8F83008D9B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scheduler", "Scheduler", "{656E0A7A-C29C-4B01-8EB3-519C1C56D819}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppointmentSchedule", "AppointmentSchedule", "{656E0A7A-C29C-4B01-8EB3-519C1C56D819}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.Core", "Scheduler.Core\Scheduler.Core.csproj", "{9D629C6C-C211-4356-8FCE-60BE4DF2F18D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentSchedule.Core", "Scheduler.Core\AppointmentSchedule.Core.csproj", "{9D629C6C-C211-4356-8FCE-60BE4DF2F18D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.Data", "Scheduler.Data\Scheduler.Data.csproj", "{9BD816C9-EC59-4603-AD79-9C3E5FB2DAD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentSchedule.Data", "Scheduler.Data\AppointmentSchedule.Data.csproj", "{9BD816C9-EC59-4603-AD79-9C3E5FB2DAD3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.UnitTests", "Scheduler.UnitTests\Scheduler.UnitTests.csproj", "{B6971420-C7EE-44B7-9CA8-D84801909AD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentSchedule.UnitTests", "Scheduler.UnitTests\AppointmentSchedule.UnitTests.csproj", "{B6971420-C7EE-44B7-9CA8-D84801909AD6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler.IntegrationTests", "Scheduler.IntegrationTests\Scheduler.IntegrationTests.csproj", "{7F7DB6A8-F434-463E-AAE6-3A2CEE93508C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentSchedule.IntegrationTests", "Scheduler.IntegrationTests\AppointmentSchedule.IntegrationTests.csproj", "{7F7DB6A8-F434-463E-AAE6-3A2CEE93508C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
