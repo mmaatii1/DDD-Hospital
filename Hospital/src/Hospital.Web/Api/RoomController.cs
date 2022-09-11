@@ -7,9 +7,9 @@ using PatientManagement.Core.CQRS.Room.Requests;
 
 namespace Hospital.Web.Api;
 
-public class RoomApiController : BaseApiController
+public class RoomController : BaseApiController
 {
-  public RoomApiController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
+  public RoomController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
   {
 
   }

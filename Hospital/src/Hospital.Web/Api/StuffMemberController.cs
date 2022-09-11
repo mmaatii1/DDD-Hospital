@@ -7,9 +7,9 @@ using PatientManagement.Core.CQRS.StuffMember.Requests;
 
 namespace Hospital.Web.Api;
 
-public class StuffMemberApiController : BaseApiController
+public class StuffMemberController : BaseApiController
 {
-  public StuffMemberApiController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
+  public StuffMemberController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
   {
 
   }

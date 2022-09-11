@@ -7,9 +7,9 @@ using PatientManagement.Core.CQRS.Department.Requests;
 
 namespace Hospital.Web.Api;
 
-public class DepartmentApiController : BaseApiController
+public class DepartmentController : BaseApiController
 {
-  public DepartmentApiController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
+  public DepartmentController(IMediator mediator, IMapper mapper) : base(mediator, mapper)
   {
 
   }
