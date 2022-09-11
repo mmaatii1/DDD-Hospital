@@ -2,11 +2,11 @@
 
 namespace Hospital.Infrastructure
 {
-    public class FakeEmailSender : IEmailSender
+  public class FakeEmailSender : IEmailSender
+  {
+    public Task SendEmailAsync(string to, string from, string subject, string body)
     {
-        public Task SendEmailAsync(string to, string from, string subject, string body)
-        {
-            return Task.CompletedTask;
-        }
+      return Task.CompletedTask;
     }
+  }
 }

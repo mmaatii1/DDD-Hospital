@@ -1,0 +1,145 @@
+2022-09-08 22:46:12.800 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-08 22:46:14.103 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-08 22:46:14.395 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-08 22:46:14.423 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-08 22:46:14.598 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-08 22:46:14.782 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-08 22:46:14.782 +02:00 [INF] Hosting environment: Development
+2022-09-08 22:46:14.782 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-08 22:46:14.853 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-09-08 22:46:14.937 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-08 22:46:14.982 +02:00 [INF] Executing endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-08 22:46:14.990 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Hospital.Web.Controllers.HomeController (Hospital.Web).
+2022-09-08 22:46:14.998 +02:00 [INF] Executing ViewResult, running view Index.
+2022-09-08 22:46:15.393 +02:00 [INF] Executed ViewResult - view Index executed in 394.4379ms.
+2022-09-08 22:46:15.396 +02:00 [INF] Executed action Hospital.Web.Controllers.HomeController.Index (Hospital.Web) in 405.7944ms
+2022-09-08 22:46:15.397 +02:00 [INF] Executed endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-08 22:46:15.452 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 601.5815ms
+2022-09-08 22:46:15.475 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2022-09-08 22:46:15.475 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2022-09-08 22:46:15.477 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Hospital.Web.styles.css?v=ncTY01NDyI1j0NW2ViIscDf5BGw24UI-KMr2Ujh-eBE - -
+2022-09-08 22:46:15.477 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2022-09-08 22:46:15.477 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2022-09-08 22:46:15.478 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2022-09-08 22:46:15.490 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\css\site.css'
+2022-09-08 22:46:15.490 +02:00 [INF] Sending file. Request path: '/Hospital.Web.styles.css'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\obj\Debug\net6.0\scopedcss\bundle\Hospital.Web.styles.css'
+2022-09-08 22:46:15.490 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\js\site.js'
+2022-09-08 22:46:15.491 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 200 194 text/css 13.3917ms
+2022-09-08 22:46:15.491 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 15.4270ms
+2022-09-08 22:46:15.491 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Hospital.Web.styles.css?v=ncTY01NDyI1j0NW2ViIscDf5BGw24UI-KMr2Ujh-eBE - - - 200 1129 text/css 13.5364ms
+2022-09-08 22:46:15.493 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-08 22:46:15.497 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.4813ms
+2022-09-08 22:46:15.500 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2022-09-08 22:46:15.507 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162726 text/css 29.5948ms
+2022-09-08 22:46:15.521 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2022-09-08 22:46:15.525 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78474 application/javascript 49.5583ms
+2022-09-08 22:46:15.560 +02:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\lib\jquery\dist\jquery.min.js'
+2022-09-08 22:46:15.564 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 200 89478 application/javascript 86.6203ms
+2022-09-08 22:46:15.601 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-08 22:46:15.667 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.9558ms
+2022-09-08 22:46:17.356 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - -
+2022-09-08 22:46:17.359 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - - - 301 - - 2.9124ms
+2022-09-08 22:46:17.363 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-08 22:46:17.416 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 52.5660ms
+2022-09-08 22:46:17.439 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - -
+2022-09-08 22:46:17.439 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-08 22:46:17.439 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - -
+2022-09-08 22:46:17.441 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 1.3732ms
+2022-09-08 22:46:17.449 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-09-08 22:46:17.458 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-09-08 22:46:17.460 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - - - 200 339486 application/javascript 21.0836ms
+2022-09-08 22:46:17.480 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-08 22:46:17.497 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - - - 200 1095087 application/javascript 57.8988ms
+2022-09-08 22:46:17.512 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.1526ms
+2022-09-08 22:46:17.824 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-08 22:46:17.931 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 106.7173ms
+2022-09-08 22:46:39.640 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/RoomApi - -
+2022-09-08 22:46:39.641 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomApiController.GetAllRooms (Hospital.Web)'
+2022-09-08 22:46:39.648 +02:00 [INF] Route matched with {action = "GetAllRooms", controller = "RoomApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomApiController (Hospital.Web).
+2022-09-08 22:46:40.009 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-08 22:46:41.861 +02:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FullName], [p].[Gender], [p].[InsuranceNumber]
+FROM [Patients] AS [p]
+2022-09-08 22:46:41.931 +02:00 [INF] Executed action Hospital.Web.Api.RoomApiController.GetAllRooms (Hospital.Web) in 2283.4019ms
+2022-09-08 22:46:41.932 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomApiController.GetAllRooms (Hospital.Web)'
+2022-09-08 22:46:41.933 +02:00 [ERR] Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[PatientManagement.Core.Entities.Patient, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> IEnumerable`1
+System.Collections.Generic.List`1[[PatientManagement.Core.Entities.Patient, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Patient -> RoomResponse
+PatientManagement.Core.Entities.Patient -> PatientManagement.Core.CQRS.Room.Responses.RoomResponse
+   at lambda_method657(Closure , Patient , RoomResponse , ResolutionContext )
+   at lambda_method656(Closure , Object , IEnumerable`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method656(Closure , Object , IEnumerable`1 , ResolutionContext )
+   at PatientManagement.Core.CQRS.Room.Handlers.GetAllRoomsQueryHandler.Handle(GetAllRoomsQuery request, CancellationToken cancellationToken) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\CQRS\Room\Handlers\GetAllRoomsQueryHandler.cs:line 23
+   at PatientManagement.Core.Validators.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\ValidationBehavior.cs:line 18
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.RoomApiController.GetAllRooms() in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\RoomApiController.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Hospital.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 18
+2022-09-08 22:46:42.116 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/RoomApi - - - 500 - application/json 2476.1284ms
+2022-09-08 22:48:00.747 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-08 22:48:01.585 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-08 22:48:01.659 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-08 22:48:01.668 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-08 22:48:01.847 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-08 22:48:01.906 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-08 22:48:01.906 +02:00 [INF] Hosting environment: Development
+2022-09-08 22:48:01.906 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-08 22:48:01.921 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-08 22:48:01.966 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-08 22:48:02.114 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-08 22:48:02.114 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-08 22:48:02.119 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.6327ms
+2022-09-08 22:48:02.119 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 200.0607ms
+2022-09-08 22:48:02.157 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.7719ms
+2022-09-08 22:48:02.434 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-08 22:48:02.534 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.1440ms
+2022-09-08 22:48:07.039 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/RoomApi - -
+2022-09-08 22:48:07.044 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomApiController.GetAllRooms (Hospital.Web)'
+2022-09-08 22:48:07.058 +02:00 [INF] Route matched with {action = "GetAllRooms", controller = "RoomApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomApiController (Hospital.Web).
+2022-09-08 22:48:07.348 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-08 22:48:08.377 +02:00 [INF] Executed DbCommand (283ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber]
+FROM [Rooms] AS [r]
+2022-09-08 22:48:08.457 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-09-08 22:48:08.599 +02:00 [INF] Executed action Hospital.Web.Api.RoomApiController.GetAllRooms (Hospital.Web) in 1536.4179ms
+2022-09-08 22:48:08.600 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomApiController.GetAllRooms (Hospital.Web)'
+2022-09-08 22:48:08.603 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/RoomApi - - - 200 43 application/json;+charset=utf-8 1563.7418ms

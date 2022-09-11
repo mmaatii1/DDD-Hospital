@@ -110,3 +110,987 @@ CREATE INDEX [IX_Rooms_DepartmentId] ON [Rooms] ([DepartmentId]);
 2022-09-06 15:52:02.823 +02:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20220906134931_Initial', N'6.0.8');
+2022-09-06 17:11:00.617 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 17:11:01.802 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 17:11:02.090 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2022-09-06 17:11:02.206 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Projects" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Projects" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Priority" INTEGER NOT NULL
+);
+2022-09-06 17:11:02.206 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "ToDoItems" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_ToDoItems" PRIMARY KEY AUTOINCREMENT,
+    "Title" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "IsDone" INTEGER NOT NULL,
+    "CalendarId" INTEGER NULL,
+    CONSTRAINT "FK_ToDoItems_Projects_CalendarId" FOREIGN KEY ("CalendarId") REFERENCES "Projects" ("Id")
+);
+2022-09-06 17:11:02.207 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ToDoItems_CalendarId" ON "ToDoItems" ("CalendarId");
+2022-09-06 17:11:02.238 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 17:11:02.435 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 17:11:02.478 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Name", "p"."Priority"
+FROM "Projects" AS "p"
+2022-09-06 17:11:02.484 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."CalendarId", "t"."Description", "t"."IsDone", "t"."Title"
+FROM "ToDoItems" AS "t"
+2022-09-06 17:11:02.684 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 12), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Projects" ("Name", "Priority")
+VALUES (@p0, @p1);
+SELECT "Id"
+FROM "Projects"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-09-06 17:11:02.711 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p3='?' (Size = 31), @p4='?' (DbType = Boolean), @p5='?' (Size = 18)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("CalendarId", "Description", "IsDone", "Title")
+VALUES (@p2, @p3, @p4, @p5);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-09-06 17:11:02.712 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 81), @p2='?' (DbType = Boolean), @p3='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("CalendarId", "Description", "IsDone", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-09-06 17:11:02.713 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 59), @p2='?' (DbType = Boolean), @p3='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("CalendarId", "Description", "IsDone", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-09-06 17:11:02.803 +02:00 [INF] Creating key {961c6dca-18d3-4a10-94b9-f3ef862437fa} with creation date 2022-09-06 15:11:02Z, activation date 2022-09-06 15:11:02Z, and expiration date 2022-12-05 15:11:02Z.
+2022-09-06 17:11:02.810 +02:00 [INF] Writing data to file 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys\key-961c6dca-18d3-4a10-94b9-f3ef862437fa.xml'.
+2022-09-06 17:11:02.907 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 17:11:02.907 +02:00 [INF] Hosting environment: Development
+2022-09-06 17:11:02.907 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 17:11:02.967 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-09-06 17:11:03.038 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 17:11:03.074 +02:00 [INF] Executing endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-06 17:11:03.081 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Hospital.Web.Controllers.HomeController (Hospital.Web).
+2022-09-06 17:11:03.090 +02:00 [INF] Executing ViewResult, running view Index.
+2022-09-06 17:11:03.410 +02:00 [INF] Executed ViewResult - view Index executed in 320.6802ms.
+2022-09-06 17:11:03.412 +02:00 [INF] Executed action Hospital.Web.Controllers.HomeController.Index (Hospital.Web) in 330.8556ms
+2022-09-06 17:11:03.413 +02:00 [INF] Executed endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-06 17:11:03.455 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 489.8510ms
+2022-09-06 17:11:03.467 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2022-09-06 17:11:03.468 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2022-09-06 17:11:03.479 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Hospital.Web.styles.css?v=ncTY01NDyI1j0NW2ViIscDf5BGw24UI-KMr2Ujh-eBE - -
+2022-09-06 17:11:03.484 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2022-09-06 17:11:03.484 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2022-09-06 17:11:03.485 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2022-09-06 17:11:03.487 +02:00 [INF] Sending file. Request path: '/Hospital.Web.styles.css'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\obj\Debug\net6.0\scopedcss\bundle\Hospital.Web.styles.css'
+2022-09-06 17:11:03.487 +02:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\css\site.css'
+2022-09-06 17:11:03.488 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Hospital.Web.styles.css?v=ncTY01NDyI1j0NW2ViIscDf5BGw24UI-KMr2Ujh-eBE - - - 200 1129 text/css 8.3644ms
+2022-09-06 17:11:03.488 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 200 194 text/css 20.6418ms
+2022-09-06 17:11:03.491 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 17:11:03.494 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\js\site.js'
+2022-09-06 17:11:03.494 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 9.0289ms
+2022-09-06 17:11:03.494 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 2.7478ms
+2022-09-06 17:11:03.495 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2022-09-06 17:11:03.502 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162726 text/css 35.1273ms
+2022-09-06 17:11:03.515 +02:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2022-09-06 17:11:03.518 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78474 application/javascript 33.5076ms
+2022-09-06 17:11:03.547 +02:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\lib\jquery\dist\jquery.min.js'
+2022-09-06 17:11:03.550 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 200 89478 application/javascript 66.1318ms
+2022-09-06 17:11:03.930 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.ico - -
+2022-09-06 17:11:03.938 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\wwwroot\favicon.ico'
+2022-09-06 17:11:03.938 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.ico - - - 200 5430 image/x-icon 7.6466ms
+2022-09-06 17:11:05.899 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - -
+2022-09-06 17:11:05.900 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - - - 301 - - 1.8723ms
+2022-09-06 17:11:05.906 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 17:11:05.952 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 45.0770ms
+2022-09-06 17:11:05.971 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - -
+2022-09-06 17:11:05.975 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - -
+2022-09-06 17:11:05.975 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 17:11:05.976 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - -
+2022-09-06 17:11:05.977 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 1.7636ms
+2022-09-06 17:11:05.978 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-09-06 17:11:05.981 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - - - 200 143943 text/css 10.6032ms
+2022-09-06 17:11:05.986 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-09-06 17:11:05.992 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-09-06 17:11:05.997 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - - - 200 339486 application/javascript 21.4306ms
+2022-09-06 17:11:06.033 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - - - 200 1095087 application/javascript 58.2187ms
+2022-09-06 17:11:06.262 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/favicon-32x32.png - -
+2022-09-06 17:11:06.263 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-09-06 17:11:06.263 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/favicon-32x32.png - - - 200 628 image/png 1.1205ms
+2022-09-06 17:11:06.342 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 17:11:06.451 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.5466ms
+2022-09-06 17:11:12.791 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Projects - -
+2022-09-06 17:11:12.791 +02:00 [INF] Executing endpoint 'Hospital.Web.Endpoints.ProjectEndpoints.List.HandleAsync (Hospital.Web)'
+2022-09-06 17:11:12.809 +02:00 [INF] Route matched with {action = "Handle", controller = "List", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Web.Endpoints.ProjectEndpoints.ProjectListResponse]] HandleAsync(System.Threading.CancellationToken) on controller Hospital.Web.Endpoints.ProjectEndpoints.List (Hospital.Web).
+2022-09-06 17:11:12.861 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 17:11:12.874 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Name", "p"."Priority"
+FROM "Projects" AS "p"
+2022-09-06 17:11:12.884 +02:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Web.Endpoints.ProjectEndpoints.ProjectListResponse'.
+2022-09-06 17:11:13.017 +02:00 [INF] Executed action Hospital.Web.Endpoints.ProjectEndpoints.List.HandleAsync (Hospital.Web) in 207.3379ms
+2022-09-06 17:11:13.017 +02:00 [INF] Executed endpoint 'Hospital.Web.Endpoints.ProjectEndpoints.List.HandleAsync (Hospital.Web)'
+2022-09-06 17:11:13.019 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Projects - - - 200 45 application/json;+charset=utf-8 227.5683ms
+2022-09-06 17:11:28.614 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Projects application/json-patch+json 16
+2022-09-06 17:11:28.614 +02:00 [INF] Executing endpoint 'Hospital.Web.Endpoints.ProjectEndpoints.Create.HandleAsync (Hospital.Web)'
+2022-09-06 17:11:28.617 +02:00 [INF] Route matched with {action = "Handle", controller = "Create", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Web.Endpoints.ProjectEndpoints.CreateProjectResponse]] HandleAsync(Hospital.Web.Endpoints.ProjectEndpoints.CreateProjectRequest, System.Threading.CancellationToken) on controller Hospital.Web.Endpoints.ProjectEndpoints.Create (Hospital.Web).
+2022-09-06 17:11:28.657 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-09-06 17:11:28.672 +02:00 [INF] Executed action Hospital.Web.Endpoints.ProjectEndpoints.Create.HandleAsync (Hospital.Web) in 54.312ms
+2022-09-06 17:11:28.672 +02:00 [INF] Executed endpoint 'Hospital.Web.Endpoints.ProjectEndpoints.Create.HandleAsync (Hospital.Web)'
+2022-09-06 17:11:28.672 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Projects application/json-patch+json 16 - 400 241 application/problem+json;+charset=utf-8 58.4710ms
+2022-09-06 19:33:06.377 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:33:07.565 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:33:07.863 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:33:07.895 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:33:08.073 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:33:08.253 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:33:08.253 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:33:08.253 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:33:08.322 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-09-06 19:33:08.385 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:33:08.422 +02:00 [INF] Executing endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-06 19:33:08.429 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Hospital.Web.Controllers.HomeController (Hospital.Web).
+2022-09-06 19:33:08.438 +02:00 [INF] Executing ViewResult, running view Index.
+2022-09-06 19:33:08.769 +02:00 [INF] Executed ViewResult - view Index executed in 332.3797ms.
+2022-09-06 19:33:08.771 +02:00 [INF] Executed action Hospital.Web.Controllers.HomeController.Index (Hospital.Web) in 342.0063ms
+2022-09-06 19:33:08.771 +02:00 [INF] Executed endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-06 19:33:08.859 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 539.4864ms
+2022-09-06 19:33:08.874 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:33:08.874 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Hospital.Web.styles.css?v=ncTY01NDyI1j0NW2ViIscDf5BGw24UI-KMr2Ujh-eBE - -
+2022-09-06 19:33:08.881 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 6.8066ms
+2022-09-06 19:33:08.884 +02:00 [INF] The file /Hospital.Web.styles.css was not modified
+2022-09-06 19:33:08.885 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Hospital.Web.styles.css?v=ncTY01NDyI1j0NW2ViIscDf5BGw24UI-KMr2Ujh-eBE - - - 304 - text/css 11.5921ms
+2022-09-06 19:33:08.984 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:33:09.085 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.3274ms
+2022-09-06 19:33:11.305 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:33:11.351 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 45.7777ms
+2022-09-06 19:33:11.369 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:33:11.371 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 1.3723ms
+2022-09-06 19:33:11.408 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:33:11.441 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.6372ms
+2022-09-06 19:33:11.734 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:33:11.848 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 113.3047ms
+2022-09-06 19:33:34.092 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 96
+2022-09-06 19:33:34.092 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:33:34.109 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:33:34.376 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 266.1966ms
+2022-09-06 19:33:34.376 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:33:34.377 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand,PatientManagement.Core.CQRS.Patient.Responses.PatientResponse]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> Autofac.Core.Registration.ComponentNotRegisteredException: The requested service 'MediatR.IRequestHandler`2[[PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]' has not been registered. To avoid this exception, either register a component to provide the service, check for service registration using IsRegistered(), or use the ResolveOptional() method to resolve an optional dependency.
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Hospital.Infrastructure.DefaultInfrastructureModule.<>c__DisplayClass4_0.<RegisterCommonDependencies>b__1(Type t) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\DefaultInfrastructureModule.cs:line 76
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:33:34.556 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 96 - 500 - text/plain;+charset=utf-8 464.1858ms
+2022-09-06 19:38:34.832 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:38:35.872 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:38:35.971 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:38:35.983 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:38:36.186 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:38:36.247 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:38:36.247 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:38:36.247 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:38:36.264 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:38:36.313 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:38:36.476 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:38:36.476 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:38:36.481 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 219.3515ms
+2022-09-06 19:38:36.481 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.9645ms
+2022-09-06 19:38:36.511 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.7601ms
+2022-09-06 19:38:36.998 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:38:37.120 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 121.6844ms
+2022-09-06 19:38:43.642 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 95
+2022-09-06 19:38:43.648 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:38:43.674 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:38:43.925 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 245.6069ms
+2022-09-06 19:38:43.926 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:38:43.926 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand,PatientManagement.Core.CQRS.Patient.Responses.PatientResponse]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> Autofac.Core.DependencyResolutionException: An exception was thrown while activating PatientManagement.Core.CQRS.Patient.Handlers.CreatePatientCommandHandler.
+ ---> Autofac.Core.DependencyResolutionException: None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'PatientManagement.Core.CQRS.Patient.Handlers.CreatePatientCommandHandler' can be invoked with the available services and parameters:
+Cannot resolve parameter 'PatientManagement.Core.Interfaces.IGenericRepository`1[PatientManagement.Core.Entities.Patient] repo' of constructor 'Void .ctor(PatientManagement.Core.Interfaces.IGenericRepository`1[PatientManagement.Core.Entities.Patient], AutoMapper.IMapper)'.
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.<>c__DisplayClass12_0.<UseSingleConstructorActivation>b__0(ResolveRequestContext ctxt, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.DelegateMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.DisposalTrackingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   --- End of inner exception stack trace ---
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Pipeline.ResolvePipeline.Invoke(ResolveRequestContext ctxt)
+   at Autofac.Core.Resolving.Middleware.RegistrationPipelineInvokeMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.SharingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.CircularDependencyDetectorMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Pipeline.ResolvePipeline.Invoke(ResolveRequestContext ctxt)
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, ResolveRequest request)
+   at Autofac.Core.Resolving.ResolveOperation.ExecuteOperation(ResolveRequest request)
+   at Autofac.Core.Resolving.ResolveOperation.Execute(ResolveRequest request)
+   at Autofac.Core.Lifetime.LifetimeScope.ResolveComponent(ResolveRequest request)
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance)
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType)
+   at Hospital.Infrastructure.DefaultInfrastructureModule.<>c__DisplayClass4_0.<RegisterCommonDependencies>b__1(Type t) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\DefaultInfrastructureModule.cs:line 76
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:38:43.966 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 95 - 500 - text/plain;+charset=utf-8 324.4353ms
+2022-09-06 19:53:54.009 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:53:54.856 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:53:54.944 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:53:54.954 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:53:55.168 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:53:55.239 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:53:55.239 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:53:55.239 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:53:55.256 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-09-06 19:53:55.305 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:53:55.343 +02:00 [INF] Executing endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-06 19:53:55.352 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Hospital.Web.Controllers.HomeController (Hospital.Web).
+2022-09-06 19:53:55.361 +02:00 [INF] Executing ViewResult, running view Index.
+2022-09-06 19:53:55.473 +02:00 [INF] Executed ViewResult - view Index executed in 112.8365ms.
+2022-09-06 19:53:55.475 +02:00 [INF] Executed action Hospital.Web.Controllers.HomeController.Index (Hospital.Web) in 122.3789ms
+2022-09-06 19:53:55.475 +02:00 [INF] Executed endpoint 'Hospital.Web.Controllers.HomeController.Index (Hospital.Web)'
+2022-09-06 19:53:55.505 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 252.0810ms
+2022-09-06 19:53:55.517 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:53:55.522 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 4.3072ms
+2022-09-06 19:53:55.626 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:53:55.662 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.2094ms
+2022-09-06 19:53:58.523 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:53:58.567 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 44.0351ms
+2022-09-06 19:53:58.587 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:53:58.589 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 1.4462ms
+2022-09-06 19:53:58.622 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:53:58.649 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.1311ms
+2022-09-06 19:53:58.927 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:53:59.045 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 117.4896ms
+2022-09-06 19:54:04.556 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93
+2022-09-06 19:54:04.556 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:54:04.573 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:54:04.776 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 202.9553ms
+2022-09-06 19:54:04.776 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:54:04.777 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+CreatePatientRequest -> CreatePatientCommand
+PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest -> PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand
+   at lambda_method553(Closure , Object , CreatePatientCommand , ResolutionContext )
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 19
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:54:04.808 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93 - 500 - text/plain;+charset=utf-8 252.2704ms
+2022-09-06 19:54:35.882 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:54:36.809 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:54:36.889 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:54:36.904 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:54:37.140 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:54:37.207 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:54:37.207 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:54:37.208 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:54:37.228 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:54:37.283 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:54:37.441 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:54:37.442 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:54:37.447 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 223.2693ms
+2022-09-06 19:54:37.448 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.3662ms
+2022-09-06 19:54:37.484 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.0423ms
+2022-09-06 19:54:37.816 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:54:37.948 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 132.2651ms
+2022-09-06 19:54:42.094 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93
+2022-09-06 19:54:42.099 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:54:42.120 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:54:42.307 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 181.9853ms
+2022-09-06 19:54:42.308 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:54:42.309 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+CreatePatientRequest -> CreatePatientCommand
+PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest -> PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand
+   at lambda_method520(Closure , Object , CreatePatientCommand , ResolutionContext )
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 19
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:54:42.339 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93 - 500 - text/plain;+charset=utf-8 244.6685ms
+2022-09-06 19:55:36.988 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:55:37.909 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:55:38.010 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:55:38.022 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:55:38.235 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:55:38.302 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:55:38.303 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:55:38.303 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:55:38.320 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:55:38.377 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:55:38.558 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:55:38.558 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:55:38.562 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 244.6199ms
+2022-09-06 19:55:38.564 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.3620ms
+2022-09-06 19:55:38.601 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.2387ms
+2022-09-06 19:55:38.848 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:55:38.960 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 112.1681ms
+2022-09-06 19:55:41.900 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93
+2022-09-06 19:55:41.904 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:55:41.923 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:55:42.194 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 266.317ms
+2022-09-06 19:55:42.195 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:55:42.195 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Error constructing handler for request of type MediatR.IRequestHandler`2[PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand,PatientManagement.Core.CQRS.Patient.Responses.PatientResponse]. Register your handlers with the container. See the samples in GitHub for examples.
+ ---> Autofac.Core.Registration.ComponentNotRegisteredException: The requested service 'MediatR.IRequestHandler`2[[PatientManagement.Core.CQRS.Patient.Commands.CreatePatientCommand, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]' has not been registered. To avoid this exception, either register a component to provide the service, check for service registration using IsRegistered(), or use the ResolveOptional() method to resolve an optional dependency.
+   at Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType, IEnumerable`1 parameters)
+   at Autofac.ResolutionExtensions.Resolve(IComponentContext context, Type serviceType)
+   at Hospital.Infrastructure.DefaultInfrastructureModule.<>c__DisplayClass4_0.<RegisterCommonDependencies>b__1(Type t) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\DefaultInfrastructureModule.cs:line 76
+   at MediatR.ServiceFactoryExtensions.GetInstance[T](ServiceFactory factory)
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   --- End of inner exception stack trace ---
+   at MediatR.Wrappers.HandlerBase.GetHandler[THandler](ServiceFactory factory)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:55:42.233 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93 - 500 - text/plain;+charset=utf-8 332.8797ms
+2022-09-06 19:55:59.714 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:56:00.733 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:56:00.826 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:56:00.839 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:56:01.063 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:56:01.141 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:56:01.142 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:56:01.142 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:56:01.161 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:56:01.211 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:56:01.375 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:56:01.375 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:56:01.379 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 220.5560ms
+2022-09-06 19:56:01.383 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 8.0549ms
+2022-09-06 19:56:01.422 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.2879ms
+2022-09-06 19:56:01.682 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:56:01.820 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 138.1396ms
+2022-09-06 19:56:06.456 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93
+2022-09-06 19:56:06.461 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:56:06.481 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:56:06.961 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 19:56:15.604 +02:00 [INF] Executed DbCommand (45ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 19:56:15.665 +02:00 [INF] Executing CreatedAtRouteResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 19:56:15.684 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 9198.1744ms
+2022-09-06 19:56:15.684 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:56:15.685 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No route matches the supplied values.
+   at Microsoft.AspNetCore.Mvc.CreatedAtRouteResult.OnFormatting(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.ExecuteAsyncCore(ActionContext context, ObjectResult result, Type objectType, Object value)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.ExecuteAsync(ActionContext context, ObjectResult result)
+   at Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:56:15.704 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93 - 500 - text/plain;+charset=utf-8 9247.7765ms
+2022-09-06 19:57:22.062 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 19:57:22.983 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:57:23.087 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 19:57:23.098 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 19:57:23.317 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 19:57:23.391 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 19:57:23.391 +02:00 [INF] Hosting environment: Development
+2022-09-06 19:57:23.391 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 19:57:23.409 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 19:57:23.464 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 19:57:23.644 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 19:57:23.644 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 19:57:23.647 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 241.1021ms
+2022-09-06 19:57:23.650 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 6.0052ms
+2022-09-06 19:57:23.689 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.3930ms
+2022-09-06 19:57:23.899 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 19:57:24.025 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 125.2834ms
+2022-09-06 19:57:27.343 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93
+2022-09-06 19:57:27.347 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:57:27.367 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 19:57:27.827 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 19:57:28.333 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 19:57:28.401 +02:00 [INF] Executing CreatedAtRouteResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 19:57:28.424 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 1052.1067ms
+2022-09-06 19:57:28.425 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 19:57:28.425 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No route matches the supplied values.
+   at Microsoft.AspNetCore.Mvc.CreatedAtRouteResult.OnFormatting(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.ExecuteAsyncCore(ActionContext context, ObjectResult result, Type objectType, Object value)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.ExecuteAsync(ActionContext context, ObjectResult result)
+   at Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 19:57:28.447 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93 - 500 - text/plain;+charset=utf-8 1104.4947ms
+2022-09-06 20:00:53.726 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 20:00:54.706 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 20:00:54.800 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 20:00:54.811 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 20:00:55.046 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 20:00:55.128 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 20:00:55.129 +02:00 [INF] Hosting environment: Development
+2022-09-06 20:00:55.129 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 20:00:55.150 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 20:00:55.212 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 20:00:55.397 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 20:00:55.397 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 20:00:55.402 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 254.4026ms
+2022-09-06 20:00:55.404 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 6.2693ms
+2022-09-06 20:00:55.442 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.1781ms
+2022-09-06 20:00:55.754 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 20:00:55.892 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 137.9337ms
+2022-09-06 20:00:59.045 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93
+2022-09-06 20:00:59.049 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 20:00:59.072 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 20:00:59.475 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 20:01:00.242 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 20:01:00.319 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 20:01:00.374 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 1297.7344ms
+2022-09-06 20:01:00.374 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 20:01:00.376 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 93 - 201 83 application/json;+charset=utf-8 1331.7312ms
+2022-09-06 21:47:18.738 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 21:47:19.635 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 21:47:19.718 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 21:47:19.728 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 21:47:19.938 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 21:47:20.015 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 21:47:20.015 +02:00 [INF] Hosting environment: Development
+2022-09-06 21:47:20.015 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 21:47:20.034 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 21:47:20.087 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 21:47:20.323 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 291.7201ms
+2022-09-06 21:47:20.340 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 21:47:20.345 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.1926ms
+2022-09-06 21:47:20.448 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 21:47:20.490 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.0248ms
+2022-09-06 21:47:20.882 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 21:47:21.041 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 158.1964ms
+2022-09-06 21:47:28.657 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87
+2022-09-06 21:47:28.661 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 21:47:28.685 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 21:47:29.078 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 21:47:40.953 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 21:47:41.013 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 21:47:41.062 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 12372.3574ms
+2022-09-06 21:47:41.062 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 21:47:41.064 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87 - 201 77 application/json;+charset=utf-8 12407.3530ms
+2022-09-06 21:55:14.074 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 21:55:15.249 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 21:55:15.350 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 21:55:15.362 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 21:55:15.677 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 21:55:15.784 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 21:55:15.785 +02:00 [INF] Hosting environment: Development
+2022-09-06 21:55:15.785 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 21:55:15.805 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 21:55:15.871 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 21:55:16.084 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 21:55:16.084 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 21:55:16.090 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.1022ms
+2022-09-06 21:55:16.091 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 290.0379ms
+2022-09-06 21:55:16.148 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.2913ms
+2022-09-06 21:55:16.800 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 21:55:16.932 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 132.0226ms
+2022-09-06 21:55:24.439 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87
+2022-09-06 21:55:24.444 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 21:55:24.465 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 21:55:24.848 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 21:55:26.474 +02:00 [INF] Executed DbCommand (294ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 21:55:26.536 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 21:55:26.591 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 2120.5158ms
+2022-09-06 21:55:26.591 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 21:55:26.593 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87 - 201 77 application/json;+charset=utf-8 2153.6815ms
+2022-09-06 21:59:23.638 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 21:59:24.782 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 21:59:24.887 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 21:59:24.901 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 21:59:25.196 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 21:59:25.276 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 21:59:25.276 +02:00 [INF] Hosting environment: Development
+2022-09-06 21:59:25.276 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 21:59:25.297 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 21:59:25.372 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 21:59:25.582 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 21:59:25.582 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 21:59:25.584 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 290.9475ms
+2022-09-06 21:59:25.594 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 11.5597ms
+2022-09-06 21:59:25.632 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.4147ms
+2022-09-06 21:59:25.885 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 21:59:26.025 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 140.0045ms
+2022-09-06 21:59:40.687 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 88
+2022-09-06 21:59:40.692 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 21:59:40.713 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 21:59:41.186 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 21:59:41.682 +02:00 [INF] Executed DbCommand (56ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 21:59:41.765 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 21:59:41.821 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 1103.499ms
+2022-09-06 21:59:41.822 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 21:59:41.824 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 88 - 201 78 application/json;+charset=utf-8 1137.2960ms
+2022-09-06 22:04:57.399 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 22:04:58.402 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:04:58.483 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 22:04:58.492 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:04:58.702 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 22:04:58.795 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 22:04:58.795 +02:00 [INF] Hosting environment: Development
+2022-09-06 22:04:58.796 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 22:04:58.823 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 22:04:58.893 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 22:04:59.092 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 22:04:59.092 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 22:04:59.096 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 277.2386ms
+2022-09-06 22:04:59.097 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 4.6572ms
+2022-09-06 22:04:59.139 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.5766ms
+2022-09-06 22:04:59.751 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 22:04:59.894 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 142.2389ms
+2022-09-06 22:05:09.743 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 88
+2022-09-06 22:05:09.747 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:05:09.768 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 22:05:10.200 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 22:05:10.650 +02:00 [INF] Executed DbCommand (67ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 22:05:10.726 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 22:05:10.783 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 1010.3429ms
+2022-09-06 22:05:10.784 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:05:10.786 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 88 - 201 78 application/json;+charset=utf-8 1042.8474ms
+2022-09-06 22:22:39.642 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 22:22:40.665 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:22:40.755 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 22:22:40.769 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:22:41.006 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 22:22:41.086 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 22:22:41.086 +02:00 [INF] Hosting environment: Development
+2022-09-06 22:22:41.087 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 22:22:41.112 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 22:22:41.181 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 22:22:41.404 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 295.0481ms
+2022-09-06 22:22:41.702 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 22:22:41.709 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 7.0906ms
+2022-09-06 22:22:41.825 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 22:22:41.885 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.5723ms
+2022-09-06 22:22:42.445 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 22:22:42.578 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 133.3639ms
+2022-09-06 22:22:51.378 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 88
+2022-09-06 22:22:51.383 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:22:51.405 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 22:22:51.742 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 327.7178ms
+2022-09-06 22:22:51.744 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:22:51.745 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+PatientManagement.Core.Validators.ValidationException: One or more validation errors occurred
+   at PatientManagement.Core.Validators.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\ValidationBehavior.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-09-06 22:22:51.827 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 88 - 500 - text/plain;+charset=utf-8 448.7522ms
+2022-09-06 22:26:39.578 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 22:26:40.685 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:26:40.789 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 22:26:40.812 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:26:41.050 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 22:26:41.122 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 22:26:41.122 +02:00 [INF] Hosting environment: Development
+2022-09-06 22:26:41.122 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 22:26:41.146 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 22:26:41.225 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 22:26:41.399 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 22:26:41.399 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 22:26:41.405 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 264.8509ms
+2022-09-06 22:26:41.405 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.4409ms
+2022-09-06 22:26:41.439 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.3180ms
+2022-09-06 22:26:42.057 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 22:26:42.209 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 151.7773ms
+2022-09-06 22:26:48.502 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87
+2022-09-06 22:26:48.507 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:26:48.528 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 22:26:48.839 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 307.105ms
+2022-09-06 22:26:48.840 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:26:48.840 +02:00 [ERR] One or more validation errors occurred
+PatientManagement.Core.Validators.ValidationException: One or more validation errors occurred
+   at PatientManagement.Core.Validators.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\ValidationBehavior.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Hospital.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 18
+2022-09-06 22:26:48.890 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87 - 500 - application/json 388.0402ms
+2022-09-06 22:29:19.901 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 22:29:21.000 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:29:21.093 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 22:29:21.109 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:29:21.387 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 22:29:21.459 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 22:29:21.459 +02:00 [INF] Hosting environment: Development
+2022-09-06 22:29:21.459 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 22:29:21.478 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 22:29:21.533 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 22:29:21.752 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 22:29:21.752 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 22:29:21.758 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.3536ms
+2022-09-06 22:29:21.759 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 284.5993ms
+2022-09-06 22:29:21.793 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.0307ms
+2022-09-06 22:29:22.183 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 22:29:22.316 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 133.5318ms
+2022-09-06 22:29:28.659 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87
+2022-09-06 22:29:28.664 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:29:28.685 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 22:29:29.003 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 311.6231ms
+2022-09-06 22:29:29.003 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:29:29.004 +02:00 [ERR] One or more validation errors occurred
+PatientManagement.Core.Validators.ValidationException: One or more validation errors occurred
+   at PatientManagement.Core.Validators.ValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\ValidationBehavior.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.PatientApiController.CreatePatient(CreatePatientRequest request) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\PatientApiController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Hospital.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 18
+2022-09-06 22:29:29.052 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 87 - 500 - application/json 392.9155ms
+2022-09-06 22:29:34.832 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 92
+2022-09-06 22:29:34.833 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:29:34.833 +02:00 [INF] Route matched with {action = "CreatePatient", controller = "PatientApi", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientApiController (Hospital.Web).
+2022-09-06 22:29:35.021 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-09-06 22:29:35.551 +02:00 [INF] Executed DbCommand (65ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FullName], [Gender], [InsuranceNumber])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-09-06 22:29:35.621 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-09-06 22:29:35.676 +02:00 [INF] Executed action Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web) in 842.709ms
+2022-09-06 22:29:35.677 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientApiController.CreatePatient (Hospital.Web)'
+2022-09-06 22:29:35.679 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/PatientApi application/json-patch+json 92 - 201 82 application/json;+charset=utf-8 846.8255ms
+2022-09-06 22:32:44.734 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Projects application/json-patch+json 16
+2022-09-06 22:32:44.734 +02:00 [INF] Executing endpoint 'Hospital.Web.Endpoints.ProjectEndpoints.Create.HandleAsync (Hospital.Web)'
+2022-09-06 22:32:44.738 +02:00 [INF] Route matched with {action = "Handle", controller = "Create", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Web.Endpoints.ProjectEndpoints.CreateProjectResponse]] HandleAsync(Hospital.Web.Endpoints.ProjectEndpoints.CreateProjectRequest, System.Threading.CancellationToken) on controller Hospital.Web.Endpoints.ProjectEndpoints.Create (Hospital.Web).
+2022-09-06 22:32:44.759 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-09-06 22:32:44.783 +02:00 [INF] Executed action Hospital.Web.Endpoints.ProjectEndpoints.Create.HandleAsync (Hospital.Web) in 44.1984ms
+2022-09-06 22:32:44.783 +02:00 [INF] Executed endpoint 'Hospital.Web.Endpoints.ProjectEndpoints.Create.HandleAsync (Hospital.Web)'
+2022-09-06 22:32:44.783 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Projects application/json-patch+json 16 - 400 241 application/problem+json;+charset=utf-8 49.4431ms
+2022-09-06 22:33:27.080 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-06 22:33:28.142 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:33:28.222 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-09-06 22:33:28.231 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-09-06 22:33:28.499 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-09-06 22:33:28.584 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-06 22:33:28.584 +02:00 [INF] Hosting environment: Development
+2022-09-06 22:33:28.584 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-09-06 22:33:28.605 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-09-06 22:33:28.657 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-09-06 22:33:28.830 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-09-06 22:33:28.830 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-09-06 22:33:28.835 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.9954ms
+2022-09-06 22:33:28.835 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 233.7311ms
+2022-09-06 22:33:28.870 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.6246ms
+2022-09-06 22:33:29.552 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-09-06 22:33:29.667 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 114.9095ms

@@ -5,8 +5,8 @@ namespace PatientManagement.Data
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly PatientManagementContext _context;
-        private readonly DbSet<TEntity> _dbSet;
+        protected readonly PatientManagementContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
 
         public GenericRepository(PatientManagementContext context)
         {
@@ -15,15 +15,15 @@ namespace PatientManagement.Data
         }
         public async Task<TEntity> AddAsync(TEntity entity)
         {
-            var addedEntity = await _dbSet.AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
-            return addedEntity.Entity;
+            return entity;
         }
 
         public async Task<TEntity> DeleteAsync(int id)
         {
             var entityToDelete = await _dbSet.FindAsync(id);
-            var deletedEntity =  _dbSet.Remove(entityToDelete);
+            _dbSet.Remove(entityToDelete);
             await _context.SaveChangesAsync();
             return entityToDelete;
         }
@@ -35,14 +35,14 @@ namespace PatientManagement.Data
 
         public async Task<TEntity> GetByIdAsync(int id)
         {
-           return await _dbSet.FindAsync(id);
+            return await _dbSet.FindAsync(id);
         }
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-           var updatedEntity = _dbSet.Update(entity);
+           _dbSet.Update(entity);
            await _context.SaveChangesAsync();
-           return Task.FromResult(updatedEntity).Result.Entity;
+           return entity;
         }
     }
 }

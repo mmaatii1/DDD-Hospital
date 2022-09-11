@@ -26,7 +26,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\..\PatientManagment.Data\PatientManagement.Data.csproj" />
     <ProjectReference Include="..\Hospital.Infrastructure\Hospital.Infrastructure.csproj" />
   </ItemGroup>
   
