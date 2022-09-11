@@ -1,27 +1,27 @@
-﻿using Hospital.Web;
-using Xunit;
+﻿//using Hospital.Web;
+//using Xunit;
 
-namespace Hospital.FunctionalTests.ControllerApis
-{
-    [Collection("Sequential")]
-    public class MetaControllerInfo : IClassFixture<CustomWebApplicationFactory<WebMarker>>
-    {
-        private readonly HttpClient _client;
+//namespace Hospital.FunctionalTests.ControllerApis
+//{
+//    [Collection("Sequential")]
+//    public class MetaControllerInfo : IClassFixture<CustomWebApplicationFactory<WebMarker>>
+//    {
+//        private readonly HttpClient _client;
 
-        public MetaControllerInfo(CustomWebApplicationFactory<WebMarker> factory)
-        {
-            _client = factory.CreateClient();
-        }
+//        public MetaControllerInfo(CustomWebApplicationFactory<WebMarker> factory)
+//        {
+//            _client = factory.CreateClient();
+//        }
 
-        [Fact]
-        public async Task ReturnsVersionAndLastUpdateDate()
-        {
-            var response = await _client.GetAsync("/info");
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
+//        [Fact]
+//        public async Task ReturnsVersionAndLastUpdateDate()
+//        {
+//            var response = await _client.GetAsync("/info");
+//            response.EnsureSuccessStatusCode();
+//            var stringResponse = await response.Content.ReadAsStringAsync();
 
-            Assert.Contains("Version", stringResponse);
-            Assert.Contains("Last Updated", stringResponse);
-        }
-    }
-}
+//            Assert.Contains("Version", stringResponse);
+//            Assert.Contains("Last Updated", stringResponse);
+//        }
+//    }
+//}
