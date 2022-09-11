@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CQRS\TypeOfStuffMember\Handlers\UpdateStuffMemberCommandHandler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Hospital\src\Hospital.SharedKernel\Hospital.SharedKernel.csproj" />
   </ItemGroup>
 
