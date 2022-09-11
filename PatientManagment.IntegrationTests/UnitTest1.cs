@@ -1,4 +1,4 @@
-namespace PatientManagment.IntegrationTests
+namespace PatientManagement.IntegrationTests
 {
     public class UnitTest1
     {

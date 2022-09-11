@@ -1,4 +1,4 @@
-﻿namespace Scheduler.Data
+﻿namespace ScheduleAppointment.Core
 {
     public class Class1
     {

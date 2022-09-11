@@ -1,4 +1,4 @@
-namespace Scheduler.IntegrationTests
+namespace ScheduleAppointment.IntegrationTests
 {
     public class UnitTest1
     {
