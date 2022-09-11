@@ -1,27 +1,27 @@
-﻿using Ardalis.HttpClientTestExtensions;
-using Hospital.Web;
-using Hospital.Web.ApiModels;
-using Xunit;
+﻿//using Ardalis.HttpClientTestExtensions;
+//using Hospital.Web;
+//using Hospital.Web.ApiModels;
+//using Xunit;
 
-namespace Hospital.FunctionalTests.ControllerApis
-{
-    [Collection("Sequential")]
-    public class ProjectCreate : IClassFixture<CustomWebApplicationFactory<WebMarker>>
-    {
-        private readonly HttpClient _client;
+//namespace Hospital.FunctionalTests.ControllerApis
+//{
+//    [Collection("Sequential")]
+//    public class ProjectCreate : IClassFixture<CustomWebApplicationFactory<WebMarker>>
+//    {
+//        private readonly HttpClient _client;
 
-        public ProjectCreate(CustomWebApplicationFactory<WebMarker> factory)
-        {
-            _client = factory.CreateClient();
-        }
+//        public ProjectCreate(CustomWebApplicationFactory<WebMarker> factory)
+//        {
+//            _client = factory.CreateClient();
+//        }
 
-        [Fact]
-        public async Task ReturnsOneProject()
-        {
-            var result = await _client.GetAndDeserializeAsync<IEnumerable<ProjectDTO>>("/api/projects");
+//        [Fact]
+//        public async Task ReturnsOneProject()
+//        {
+//            var result = await _client.GetAndDeserializeAsync<IEnumerable<ProjectDTO>>("/api/projects");
 
-            Assert.Single(result);
-            Assert.Contains(result, i => i.Name == SeedData.TestProject1.Name);
-        }
-    }
-}
+//            Assert.Single(result);
+//            Assert.Contains(result, i => i.Name == SeedData.TestProject1.Name);
+//        }
+//    }
+//}
