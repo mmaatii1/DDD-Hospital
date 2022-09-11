@@ -6,7 +6,7 @@ namespace Hospital.Web
 {
     public static class SeedData
     {
-        public static readonly Calendar TestProject1 = new Calendar("Test Project", PriorityStatus.Backlog);
+        public static readonly Calendar TestProject1 = new Calendar("Majkel Reszka", PriorityStatus.Backlog);
         public static readonly ToDoItem ToDoItem1 = new ToDoItem
         {
             Title = "Get Sample Working",
