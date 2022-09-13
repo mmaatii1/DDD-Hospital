@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
 using PatientManagement.Core.CQRS.Patient.Commands;
+using PatientManagement.Core.Interfaces;
 
 namespace PatientManagement.Core.Validators.Patient
 {
-    public class CreatePatientCommandValidator : AbstractValidator<CreatePatientCommand>
+    public class UpdatePatientCommandValidator : AbstractValidator<UpdatePatientCommand>
     {
-        public CreatePatientCommandValidator()
+        public UpdatePatientCommandValidator(IGenericRepository<Entities.Patient> repo)
         {
             RuleFor(x => x.EmailAddress)
                 .NotEmpty()
@@ -15,7 +16,8 @@ namespace PatientManagement.Core.Validators.Patient
             RuleFor(x => x.FullName)
                 .NotEmpty()
                 .MaximumLength(100);
+            RuleFor(x => x.Id)
+                .IsEntityExist(repo,"Patient");
         }
     }
-    
 }
