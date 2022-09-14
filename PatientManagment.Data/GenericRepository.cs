@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PatientManagement.Core.Interfaces;
+using System.Linq.Expressions;
 
 namespace PatientManagement.Data
 {
@@ -28,6 +29,11 @@ namespace PatientManagement.Data
             return entityToDelete;
         }
 
+        public IQueryable<TEntity> GetWithEntity<TProperty>(Expression<Func<TEntity, TProperty>> includeEntityOne)
+        {
+            return _dbSet.Include(includeEntityOne);
+        }
+
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
@@ -43,6 +49,11 @@ namespace PatientManagement.Data
            _dbSet.Update(entity);
            await _context.SaveChangesAsync();
            return entity;
+        }
+
+        public IQueryable<TEntity> GetWithEntity<TProperty, TPropertyTwo>(Expression<Func<TEntity, TProperty>> includeEntityOne, Expression<Func<TEntity, TPropertyTwo>>? includeEntityTwo)
+        {
+            return _dbSet.Include(includeEntityOne).Include(includeEntityTwo);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace PatientManagement.Core.CQRS.StuffMember.Handlers
         public async Task<IEnumerable<StuffMemberResponse>> Handle(GetAllStuffMembersQuery request,
             CancellationToken cancellationToken)
         {
-            var stuffMember = await _stuffMemberRepository.GetAllAsync();
+            var stuffMember = _stuffMemberRepository.GetWithEntity(x => x.Department,x=>x.TypeOfStuffMember);
             return _mapper.Map<IEnumerable<StuffMemberResponse>>(stuffMember);
         }
     }

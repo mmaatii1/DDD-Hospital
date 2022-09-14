@@ -3,6 +3,6 @@
     public class Room : BaseEntity
     {
         public int RoomNumber { get; set; }
-        public int DepartmentId { get; set; }
+        public Department Department { get; set; } = null!;
     }
 }

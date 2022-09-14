@@ -41,14 +41,6 @@ namespace PatientManagement.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Department");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Department where the surgeries are carried out",
-                            Name = "Surgeon"
-                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Patient", b =>
@@ -76,16 +68,6 @@ namespace PatientManagement.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Patients");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EmailAddress = "majkelreszka@gmail.com",
-                            FullName = "Majkel Reszka",
-                            Gender = 0,
-                            InsuranceNumber = 12353123
-                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Room", b =>
@@ -107,14 +89,6 @@ namespace PatientManagement.Data.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Rooms");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DepartmentId = 1,
-                            RoomNumber = 10
-                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.StuffMember", b =>
@@ -141,16 +115,7 @@ namespace PatientManagement.Data.Migrations
 
                     b.HasIndex("TypeOfStuffMemberId");
 
-                    b.ToTable("Doctors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DepartmentId = 1,
-                            FullName = "Kamil Ollik",
-                            TypeOfStuffMemberId = 1
-                        });
+                    b.ToTable("StuffMember");
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.TypeOfStuffMember", b =>
@@ -172,43 +137,39 @@ namespace PatientManagement.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TypesOfStuffMember");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Doctors which are qualified to do surgery",
-                            Name = "Surgeons"
-                        });
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Room", b =>
                 {
-                    b.HasOne("PatientManagement.Core.Entities.Department", null)
+                    b.HasOne("PatientManagement.Core.Entities.Department", "Department")
                         .WithMany("Rooms")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.StuffMember", b =>
                 {
-                    b.HasOne("PatientManagement.Core.Entities.Department", null)
-                        .WithMany("StuffMembers")
+                    b.HasOne("PatientManagement.Core.Entities.Department", "Department")
+                        .WithMany()
                         .HasForeignKey("DepartmentId");
 
-                    b.HasOne("PatientManagement.Core.Entities.TypeOfStuffMember", null)
+                    b.HasOne("PatientManagement.Core.Entities.TypeOfStuffMember", "TypeOfStuffMember")
                         .WithMany("StuffMembers")
                         .HasForeignKey("TypeOfStuffMemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("TypeOfStuffMember");
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.Department", b =>
                 {
                     b.Navigation("Rooms");
-
-                    b.Navigation("StuffMembers");
                 });
 
             modelBuilder.Entity("PatientManagement.Core.Entities.TypeOfStuffMember", b =>
