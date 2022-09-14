@@ -10,16 +10,18 @@ namespace PatientManagement.Core.CQRS.Room.Handlers
     {
         private readonly IGenericRepository<Entities.Room> _roomRepository;
         private readonly IMapper _mapper;
-        public GetAllRoomsQueryHandler(IGenericRepository<Entities.Room> repo, IMapper mapper)
+        private readonly IGenericRepository<Entities.Department> _departmentGenericRepository;
+        public GetAllRoomsQueryHandler(IGenericRepository<Entities.Room> repo, IMapper mapper, IGenericRepository<Entities.Department> departmentGenericRepository)
         {
             _mapper = mapper;
             _roomRepository = repo;
+            _departmentGenericRepository = departmentGenericRepository;
         }
 
         public async Task<IEnumerable<RoomResponse>> Handle(GetAllRoomsQuery request,
             CancellationToken cancellationToken)
         {
-            var rooms = await _roomRepository.GetAllAsync();
+            var rooms = _roomRepository.GetWithEntity(x=>x.Department);
             return _mapper.Map<IEnumerable<RoomResponse>>(rooms);
         }
     }

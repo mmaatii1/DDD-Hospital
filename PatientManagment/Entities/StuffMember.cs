@@ -2,8 +2,8 @@
 {
     public class StuffMember : BaseEntity
     {
-        public int? DepartmentId { get; set; }
-        public int TypeOfStuffMemberId { get; set; }
-        public string FullName { get; set; }
+        public Department? Department { get; set; }
+        public TypeOfStuffMember TypeOfStuffMember { get; set; } = null!;
+        public string FullName { get; set; } = null!;
     }
 }
