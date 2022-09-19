@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using PatientManagement.Core.Validators.Exceptions;
+using ApplicationException = PatientManagement.Core.Validators.Exceptions.ApplicationException;
 
 namespace Hospital.Infrastructure.Middleware
 {
@@ -56,7 +57,7 @@ namespace Hospital.Infrastructure.Middleware
     private static string GetTitle(Exception exception) =>
         exception switch
         {
-          PipelineException applicationException => applicationException.Title,
+          ApplicationException applicationException => applicationException.Title,
           _ => "Server Error"
         };
 

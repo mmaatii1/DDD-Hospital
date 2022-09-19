@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PatientManagement.Core.Interfaces;
 using System.Linq.Expressions;
+using PatientManagement.Core.Validators.Exceptions;
 
 namespace PatientManagement.Data
 {
@@ -46,9 +47,16 @@ namespace PatientManagement.Data
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-           _dbSet.Update(entity);
-           await _context.SaveChangesAsync();
-           return entity;
+           var updatedEntity = _dbSet.Update(entity);
+           try
+           {
+               await _context.SaveChangesAsync();
+               return entity;
+           }
+           catch (Exception exception)
+           {
+               return null!;
+           }
         }
 
         public IQueryable<TEntity> GetWithEntity<TProperty, TPropertyTwo>(Expression<Func<TEntity, TProperty>> includeEntityOne, Expression<Func<TEntity, TPropertyTwo>>? includeEntityTwo)

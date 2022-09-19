@@ -1,15 +1,15 @@
 ﻿using FluentValidation;
 using MediatR;
-using PatientManagement.Core.Validators.Exceptions;
+using ValidationException = PatientManagement.Core.Validators.Exceptions.ValidationException;
 
 namespace PatientManagement.Core.Validators
 {
-    public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public sealed class PipelineValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-        public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators) => _validators = validators;
+        public PipelineValidationBehavior(IEnumerable<IValidator<TRequest>> validators) => _validators = validators;
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
@@ -42,14 +42,5 @@ namespace PatientManagement.Core.Validators
             return await next();
         }
     }
-    public sealed class ValidationException : PipelineException
-    {
-        public ValidationException(IReadOnlyDictionary<string, string[]> errorsDictionary)
-            : base("Validation Failure", "One or more validation errors occurred")
-            => ErrorsDictionary = errorsDictionary;
-
-        public IReadOnlyDictionary<string, string[]> ErrorsDictionary { get; }
-    }
-
 
 }
