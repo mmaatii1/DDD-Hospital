@@ -16,8 +16,6 @@ namespace PatientManagement.Core.Validators.Patient
             RuleFor(x => x.FullName)
                 .NotEmpty()
                 .MaximumLength(100);
-            RuleFor(x => x.Id)
-                .IsEntityExist(repo,"Patient");
         }
     }
 }

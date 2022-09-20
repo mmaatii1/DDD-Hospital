@@ -25,6 +25,13 @@ namespace PatientManagement.Data
         public async Task<TEntity> DeleteAsync(int id)
         {
             var entityToDelete = await _dbSet.FindAsync(id);
+            
+            if (entityToDelete is null)
+            {
+                var getEntityType = _dbSet.EntityType;
+                var entityName = getEntityType.Name.ToString().Split('.').Last();
+                throw new EntityNotFoundException(entityName);
+            }
             _dbSet.Remove(entityToDelete);
             await _context.SaveChangesAsync();
             return entityToDelete;
@@ -46,8 +53,10 @@ namespace PatientManagement.Data
         }
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
-        {
-           var updatedEntity = _dbSet.Update(entity);
+        { 
+            //todo: this is weird, i had to do this like that due to the fact that if im checking for for 
+            //todo:FindEntity i have detached entity error. Maybe it could be done better
+            var updatedEntity = _dbSet.Update(entity);
            try
            {
                await _context.SaveChangesAsync();
@@ -55,7 +64,16 @@ namespace PatientManagement.Data
            }
            catch (Exception exception)
            {
-               return null!;
+               if (exception.Message.Contains(
+                       "The database operation was expected to affect 1 row(s), but actually affected 0 row(s);"))
+               {
+                   var entityName = updatedEntity.GetType().ToString().Split('.').Last();
+                   throw new EntityNotFoundException(entityName);
+               }
+               else
+               {
+                   throw new Exception(exception.Message);
+               }
            }
         }
 

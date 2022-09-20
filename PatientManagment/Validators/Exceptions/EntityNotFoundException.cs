@@ -2,8 +2,8 @@
 {
     public sealed class EntityNotFoundException : NotFoundException
     {
-        public EntityNotFoundException(int Id,Object entity)
-            : base($"The entity of type {entity} with the identifier {Id} was not found.")
+        public EntityNotFoundException(Object entity)
+            : base($"The entity of type {entity} with this identifier was not found.")
         {
         }
     }

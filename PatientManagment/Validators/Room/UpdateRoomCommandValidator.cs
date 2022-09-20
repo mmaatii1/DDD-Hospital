@@ -10,10 +10,6 @@ namespace PatientManagement.Core.Validators.Room
         {
             RuleFor(x => x.RoomNumber)
                 .GreaterThan(0);
-            RuleFor(x => x.Id)
-                .IsEntityExist(roomRepo, "Room");
-            RuleFor(x => x.DepartmentId)
-                .IsEntityExist(departmentRepo, "Department");
         }
     }
 }

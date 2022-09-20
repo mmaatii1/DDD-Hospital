@@ -12,10 +12,6 @@ namespace PatientManagement.Core.Validators.StuffMember
             RuleFor(x => x.FullName)
                 .NotEmpty()
                 .MaximumLength(100);
-            RuleFor(x => x.DepartmentId)
-                .IsEntityExist(departmentRepo,"Department");
-            RuleFor(x => x.TypeOfStuffMemberId)
-                .IsEntityExist(typeOfStuffMemberRepo,"TypeOfStuffMember");
         }
     }
 }
