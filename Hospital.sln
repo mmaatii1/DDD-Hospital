@@ -29,13 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientManagement.UnitTests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScheduleAppointment", "ScheduleAppointment", "{C4E3F144-A5B2-4750-8666-1B92DD7F9904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleAppointment.Core", "ScheduleAppointment.Core\ScheduleAppointment.Core.csproj", "{6B9522BE-01CA-429A-AA2A-294BEFB5A86B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleAppointment.Core", "ScheduleAppointment.Core\ScheduleAppointment.Core.csproj", "{6B9522BE-01CA-429A-AA2A-294BEFB5A86B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleAppointment.Data", "ScheduleAppointment.Data\ScheduleAppointment.Data.csproj", "{BDEABBD4-EDEA-4B9E-8653-4EF84B0B84AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleAppointment.Data", "ScheduleAppointment.Data\ScheduleAppointment.Data.csproj", "{BDEABBD4-EDEA-4B9E-8653-4EF84B0B84AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleAppointment.IntegrationTests", "ScheduleAppointment.IntegrationTests\ScheduleAppointment.IntegrationTests.csproj", "{8DDFDB87-FF20-47AF-968E-0C07D2B55C78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleAppointment.IntegrationTests", "ScheduleAppointment.IntegrationTests\ScheduleAppointment.IntegrationTests.csproj", "{8DDFDB87-FF20-47AF-968E-0C07D2B55C78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleAppointment.UnitTests", "ScheduleAppointment.UnitTests\ScheduleAppointment.UnitTests.csproj", "{2E40CAAB-25B0-4B84-8B50-C1706BFF52E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleAppointment.UnitTests", "ScheduleAppointment.UnitTests\ScheduleAppointment.UnitTests.csproj", "{2E40CAAB-25B0-4B84-8B50-C1706BFF52E3}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "HospitalNG", "HospitalNG\HospitalNG.esproj", "{7DD53599-E971-473D-A75B-5D7FCD10F03B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +105,12 @@ Global
 		{2E40CAAB-25B0-4B84-8B50-C1706BFF52E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E40CAAB-25B0-4B84-8B50-C1706BFF52E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E40CAAB-25B0-4B84-8B50-C1706BFF52E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD53599-E971-473D-A75B-5D7FCD10F03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD53599-E971-473D-A75B-5D7FCD10F03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD53599-E971-473D-A75B-5D7FCD10F03B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7DD53599-E971-473D-A75B-5D7FCD10F03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD53599-E971-473D-A75B-5D7FCD10F03B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD53599-E971-473D-A75B-5D7FCD10F03B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
