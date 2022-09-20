@@ -26,13 +26,13 @@ namespace Hospital.Infrastructure
       services.AddAutoMapper(typeof(Patient).Assembly);
       services.AddMediatR(typeof(Patient).Assembly);
       services.AddValidatorsFromAssemblyContaining<CreatePatientCommandValidator>();
-      services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+      services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PipelineValidationBehavior<,>));
       services.AddTransient<ExceptionHandlingMiddleware>();
       services.AddDbContext<PatientManagementContext>(options =>
         options.UseSqlServer(
           configuration.GetConnectionString("PatientManagement"),
           b => b.MigrationsAssembly(typeof(PatientManagementContext).Assembly.FullName)));
-
+      
     }
   }
 }

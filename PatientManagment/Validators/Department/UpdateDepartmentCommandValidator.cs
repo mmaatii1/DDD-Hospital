@@ -14,8 +14,7 @@ namespace PatientManagement.Core.Validators.Department
             RuleFor(x => x.Name)
                 .NotEmpty()
                 .MaximumLength(100);
-            RuleFor(x => x.Id)
-                .IsEntityExist(departmentRepo, "Department");
+            
         }
     }
 }

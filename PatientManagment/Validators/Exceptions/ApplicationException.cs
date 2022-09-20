@@ -1,8 +1,8 @@
 ﻿namespace PatientManagement.Core.Validators.Exceptions
 {
-    public abstract class PipelineException : Exception
+    public abstract class ApplicationException : Exception
     {
-        protected PipelineException(string title, string message)
+        protected ApplicationException(string title, string message)
             : base(message) =>
             Title = title;
 

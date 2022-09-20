@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using Ardalis.ListStartupServices;
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Hospital.Core;
 using Hospital.Infrastructure;

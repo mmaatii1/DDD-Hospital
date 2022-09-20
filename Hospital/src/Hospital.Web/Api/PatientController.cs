@@ -31,6 +31,8 @@ public class PatientController : BaseApiController
   }
 
   [HttpPut("{id}")]
+  [ProducesResponseType(StatusCodes.Status204NoContent)]
+  [ProducesResponseType(StatusCodes.Status404NotFound)]
   public async Task<IActionResult> UpdatePatient([FromBody] UpdatePatientRequest request, [FromRoute] int id)
   {
     var command = _mapper.Map<UpdatePatientCommand>(request);
