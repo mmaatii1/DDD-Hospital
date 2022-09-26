@@ -64,8 +64,7 @@ namespace PatientManagement.Data
            }
            catch (Exception exception)
            {
-               if (exception.Message.Contains(
-                       "The database operation was expected to affect 1 row(s), but actually affected 0 row(s);"))
+               if (exception.Message.Contains("The database operation was expected to affect 1 row(s), but actually affected 0 row(s);") || exception.Message.Contains("Attempted to update or delete an entity that does not exist in the store"))
                {
                    var entityName = updatedEntity.GetType().ToString().Split('.').Last();
                    throw new EntityNotFoundException(entityName);
