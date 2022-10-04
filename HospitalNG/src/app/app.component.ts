@@ -1,26 +1,25 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <nav class='navbar navbar-expand navbar-light bg-light'>
+      <a class='navbar-brand'>{{pageTitle}}</a>
+      <ul class='navbar-nav'>
+        <li class='nav-item'><a class='nav-link' routerLinkActive='active'
+              [routerLink]="['/welcome']">Home</a>
+        </li>
+        <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+              [routerLink]="['/patients']">Patient List</a>
+        </li>
+      </ul>
+    </nav>
+    <div class='container'>
+      <router-outlet></router-outlet>
+    </div>
+    `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public forecasts?: WeatherForecast[];
-
-  constructor(http: HttpClient) {
-    http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
-  }
-
-  title = 'HospitalNG';
-}
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+  pageTitle = 'Hospital management';
 }
