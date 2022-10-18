@@ -1,7 +1,7 @@
 import { PatientService } from './../patient.service';
 import { Subscription } from 'rxjs';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChildren } from '@angular/core';
-import { FormBuilder, FormControlName, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../patient';
 import { GenericValidator } from '../../shared/generic-validator';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
 
   pageTitle = "Add new Patient";
   errorMessage: string = "";
-  productForm: FormGroup | undefined;
+  patientForm: FormGroup | undefined;
 
   patient: Patient | undefined;
   private sub: Subscription | undefined;
@@ -49,17 +49,47 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
         gender:{
           required: "Gender is required",
           number: "It must be number"
+        },
+        phoneNumber:{
+          required: "Phone number is required",
+          number: "It must be number"
         }
       };
       this.genericValidator = new GenericValidator(this.validationMessages);
     }
 
   ngOnInit(): void {
+    this.patientForm = this.fb.group({
+      firstName: ["", [Validators.required]],
+      lastName: ["",[Validators.required]],
+      emailAddress:["",[Validators.required, Validators.email]],
+      insuranceNumber:["",[Validators.required, ]],
+      gender:["",[Validators.required]],
+      phoneNumber:["",[Validators.required]]
+    });
+
+    this.sub = this.route.params.subscribe(
+      params => {
+        this.getPatient(params['id']);
+      }
+    );
+  }
+
+  getPatient(id: number):void {
+    this.PatientService.getPatient(id)
+    .subscribe({
+      next: (patient: Patient) => this.displayPatient(patient),
+      error: err => this.errorMessage = err
+    });
+    
+  }
+  displayPatient(patient: Patient): void {
+    throw new Error('Method not implemented.');
   }
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
   }
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    this.sub?.unsubscribe();
   }
 }
