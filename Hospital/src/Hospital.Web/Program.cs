@@ -56,14 +56,9 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterModule(new DefaultInfrastructureModule(builder.Environment.EnvironmentName == "Development"));
 });
 
-var MyAllowSpecificOrigins = "http://localhost:4200";
 builder.Services.AddCors(options =>
 {
-  options.AddPolicy(name: MyAllowSpecificOrigins,
-    policy =>
-    {
-      policy.WithOrigins("http://localhost:4200");
-    });
+  options.AddPolicy("MyCors", builder => builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod());
 });
 //builder.Logging.AddAzureWebAppDiagnostics(); add this if deploying to Azure
 
@@ -80,7 +75,7 @@ else
     app.UseHsts();
 }
 app.UseRouting();
-app.UseCors(MyAllowSpecificOrigins);
+app.UseCors("MyCors");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseCookiePolicy();

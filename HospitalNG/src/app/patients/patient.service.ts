@@ -10,12 +10,12 @@ import { Patient } from './patient';
   providedIn: 'root'
 })
 export class PatientService {
-  private PatientsUrl = 'http://localhost:57678/api/patient';
+  private patientsUrl = 'http://localhost:57678/api/patient';
 
   constructor(private http: HttpClient) { }
 
   getPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.PatientsUrl)
+    return this.http.get<Patient[]>(this.patientsUrl)
       .pipe(
         tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)
@@ -26,17 +26,16 @@ export class PatientService {
     if (id === 0) {
       return of(this.initializePatient());
     }
-    const url = `${this.PatientsUrl}/${id}`;
+    const url = `${this.patientsUrl}/${id}`;
     return this.http.get<Patient>(url)
       .pipe(
-        tap(data => console.log('getPatient: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
 
   createPatient(Patient: Patient): Observable<Patient> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Patient>(this.PatientsUrl, Patient, { headers })
+    return this.http.post<Patient>(this.patientsUrl, Patient, { headers })
       .pipe(
         tap(data => console.log('createPatient: ' + JSON.stringify(data))),
         catchError(this.handleError)
@@ -45,7 +44,7 @@ export class PatientService {
 
   deletePatient(id: number): Observable<{}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.PatientsUrl}/${id}`;
+    const url = `${this.patientsUrl}/${id}`;
     return this.http.delete<Patient>(url, { headers })
       .pipe(
         tap(data => console.log('deletePatient: ' + id)),
@@ -55,7 +54,7 @@ export class PatientService {
 
   updatePatient(Patient: Patient): Observable<Patient> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.PatientsUrl}/${Patient.id}`;
+    const url = `${this.patientsUrl}/${Patient.id}`;
     return this.http.put<Patient>(url, Patient, { headers })
       .pipe(
         tap(() => console.log('updatePatient: ' + Patient.id)),

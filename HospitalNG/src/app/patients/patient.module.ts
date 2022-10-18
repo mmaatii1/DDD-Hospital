@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientDetailComponent } from './detail/patient-detail.component';
 import { PatientEditComponent } from './edit/patient-edit.component';
 import { PatientEditGuard } from './edit/patient-edit.guard';
+import { NewPatientComponent } from './new-patient/new-patient.component';
 
 
 
@@ -20,13 +21,15 @@ import { PatientEditGuard } from './edit/patient-edit.guard';
         path: 'patients/:id/edit',
         canDeactivate: [PatientEditGuard],
         component: PatientEditComponent
-      }
+      },
+      { path: 'patients/new', component: NewPatientComponent}
     ])
   ],
   declarations: [
     PatientListComponent,
     PatientDetailComponent,
-    PatientEditComponent
+    PatientEditComponent,
+    NewPatientComponent
   ],
   
 })

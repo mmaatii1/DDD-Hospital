@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.Web.Api
@@ -10,6 +11,7 @@ namespace Hospital.Web.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyCors")]
     public abstract class BaseApiController : Controller
     {
       protected readonly IMediator _mediator;
