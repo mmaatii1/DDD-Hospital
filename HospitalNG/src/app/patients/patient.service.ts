@@ -84,7 +84,9 @@ export class PatientService {
     // Return an initialized object
     return {
       id: 0,
-      fullName: "null",
+      firstName: "null",
+      lastName: "null",
+      phoneNumber: 0,
       insuranceNumber: 1,
       emailAddress: "null",
       gender: 1

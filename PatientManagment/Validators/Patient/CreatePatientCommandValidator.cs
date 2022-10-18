@@ -12,9 +12,14 @@ namespace PatientManagement.Core.Validators.Patient
                 .MaximumLength(100);
             RuleFor(x => x.InsuranceNumber)
                 .GreaterThan(0);
-            RuleFor(x => x.FullName)
+            RuleFor(x => x.FirstName)
                 .NotEmpty()
                 .MaximumLength(100);
+            RuleFor(x => x.LastName)
+                .NotEmpty()
+                .MaximumLength(100);
+            RuleFor(x => x.PhoneNumber)
+                .NotEmpty();
         }
     }
     

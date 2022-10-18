@@ -32,7 +32,7 @@ export class PatientListComponent implements OnInit {
   performFilter(filterBy: string): Patient[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.patients.filter((patient: Patient) =>
-      patient.fullName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+      patient.lastName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   toggleImage(): void {

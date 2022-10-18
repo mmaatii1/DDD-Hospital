@@ -1,0 +1,33 @@
+2022-10-18 20:09:50.117 +02:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-18 20:09:51.230 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-18 20:09:51.334 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-10-18 20:09:51.344 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-18 20:09:51.535 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-18 20:09:51.603 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-18 20:09:51.603 +02:00 [INF] Hosting environment: Development
+2022-10-18 20:09:51.603 +02:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-10-18 20:09:51.620 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-10-18 20:09:51.671 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-10-18 20:09:51.844 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-18 20:09:51.844 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-18 20:09:51.849 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 4.0708ms
+2022-10-18 20:09:51.849 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 232.4323ms
+2022-10-18 20:09:51.885 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.8410ms
+2022-10-18 20:09:52.208 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-10-18 20:09:52.365 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 156.8607ms
+2022-10-18 20:11:19.260 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-18 20:11:19.262 +02:00 [INF] CORS policy execution successful.
+2022-10-18 20:11:19.268 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-18 20:11:19.286 +02:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-18 20:11:19.694 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-18 20:11:20.593 +02:00 [INF] Executed DbCommand (300ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-18 20:11:20.705 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-18 20:11:20.827 +02:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 1534.8433ms
+2022-10-18 20:11:20.828 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-18 20:11:20.831 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 121 application/json;+charset=utf-8 1571.3205ms
