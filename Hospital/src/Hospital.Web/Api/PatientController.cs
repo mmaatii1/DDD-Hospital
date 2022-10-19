@@ -22,6 +22,14 @@ public class PatientController : BaseApiController
     return Ok(response);
   }
 
+  [HttpGet("{id}")]
+  public async Task<IActionResult> GetPatientById([FromRoute] int id)
+  {
+    var query = new GetPatientByIdQuery(id);
+    var response = await _mediator.Send(query);
+    return Ok(response);
+  }
+
   [HttpPost]
   public async Task<IActionResult> CreatePatient([FromBody] CreatePatientRequest request)
   {

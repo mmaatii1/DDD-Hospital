@@ -49,7 +49,15 @@ namespace PatientManagement.Data
 
         public async Task<TEntity> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            var entity =  await _dbSet.FindAsync(id);
+            if (entity is null)
+            {
+                var getEntityType = _dbSet.EntityType;
+                var entityName = getEntityType.Name.ToString().Split('.').Last();
+                throw new EntityNotFoundException(entityName);
+            }
+
+            return entity;
         }
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
