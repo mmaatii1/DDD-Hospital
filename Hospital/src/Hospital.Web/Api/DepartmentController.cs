@@ -23,7 +23,7 @@ public class DepartmentController : BaseApiController
   }
 
   [HttpGet("{id}")]
-  public async Task<IActionResult> GetAllDepartments([FromRoute] int id)
+  public async Task<IActionResult> GetDepartmentById([FromRoute] int id)
   {
     var query = new GetDepartmentByIdQuery(id);
     var response = await _mediator.Send(query);
