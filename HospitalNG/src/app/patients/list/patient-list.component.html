@@ -1,6 +1,14 @@
 <div class="card">
   <div class="card-header">
     {{ pageTitle }}
+    <div>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        [routerLink]="['/patients', '0']"
+      >
+        New
+      </button>
+    </div>
   </div>
 
   <div class="card-body">
@@ -52,6 +60,7 @@
             -->
             <td>
               <a [routerLink]="['/patients', patient.id]">
+                {{ patient.firstName }}
                 {{ patient.fullName }}
               </a>
             </td>

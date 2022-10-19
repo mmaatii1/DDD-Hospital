@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientDetailComponent } from './detail/patient-detail.component';
 import { PatientEditComponent } from './edit/patient-edit.component';
 import { PatientEditGuard } from './edit/patient-edit.guard';
+import { NewPatientComponent } from './new-patient/new-patient.component';
 
 
 
@@ -26,7 +27,8 @@ import { PatientEditGuard } from './edit/patient-edit.guard';
   declarations: [
     PatientListComponent,
     PatientDetailComponent,
-    PatientEditComponent
+    PatientEditComponent,
+    NewPatientComponent
   ],
   
 })

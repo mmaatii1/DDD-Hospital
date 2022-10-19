@@ -2,6 +2,6 @@
 
 namespace PatientManagement.Core.CQRS.Patient.Requests
 {
-    public record UpdatePatientRequest(string FullName, int InsuranceNumber, string EmailAddress,
+    public record UpdatePatientRequest(string FirstName, string LastName, int PhoneNumber, int InsuranceNumber, string EmailAddress,
         Gender Gender);
 }
