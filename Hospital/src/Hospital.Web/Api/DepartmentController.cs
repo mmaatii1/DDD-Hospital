@@ -22,6 +22,14 @@ public class DepartmentController : BaseApiController
     return Ok(response);
   }
 
+  [HttpGet("{id}")]
+  public async Task<IActionResult> GetAllDepartments([FromRoute] int id)
+  {
+    var query = new GetDepartmentByIdQuery(id);
+    var response = await _mediator.Send(query);
+    return Ok(response);
+  }
+
   [HttpPost]
   public async Task<IActionResult> CreateDepartment([FromBody] CreateDepartmentRequest request)
   {
