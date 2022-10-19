@@ -22,6 +22,14 @@ public class RoomController : BaseApiController
     return Ok(response);
   }
 
+  [HttpGet("{id}")]
+  public async Task<IActionResult> GetRoomById([FromRoute] int id)
+  {
+    var query = new GetRoomByIdQuery(id);
+    var response = await _mediator.Send(query);
+    return Ok(response);
+  }
+
   [HttpPost]
   public async Task<IActionResult> CreateRoom([FromBody] CreateRoomRequest request)
   {
