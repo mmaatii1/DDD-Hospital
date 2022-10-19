@@ -59,6 +59,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 builder.Services.AddCors(options =>
 {
   options.AddPolicy("MyCors", builder => builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod());
+
 });
 //builder.Logging.AddAzureWebAppDiagnostics(); add this if deploying to Azure
 

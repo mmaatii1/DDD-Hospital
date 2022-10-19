@@ -21,7 +21,7 @@ import { NewPatientComponent } from './new-patient/new-patient.component';
         path: 'patients/:id/edit',
         canDeactivate: [PatientEditGuard],
         component: PatientEditComponent
-      },
+      }
     ])
   ],
   declarations: [
