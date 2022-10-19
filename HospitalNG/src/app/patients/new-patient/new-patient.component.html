@@ -1,1 +1,155 @@
-<p>new-patient works!</p>
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="savePatient()" [formGroup]="patientForm">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="patientFirstNameId"
+          >Patient first name</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="patientFirstNameId"
+            type="text"
+            placeholder="FirstName (required)"
+            formControlName="firstName"
+            [ngClass]="{ 'is-invalid': displayMessage.firstName }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.firstName }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="patientlastNameId"
+          >patient last name</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="patientlastNameId"
+            type="text"
+            placeholder="LastName (required)"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': displayMessage.lastName }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.lastName }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="insuranceNumberId"
+          >patient insuranceNumber</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="insuranceNumberId"
+            type="text"
+            placeholder="Insurance Number"
+            formControlName="insuranceNumber"
+            [ngClass]="{ 'is-invalid': displayMessage.insuranceNumber }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.insuranceNumber }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="phoneNumberId"
+          >phone Number</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="phoneNumberId"
+            placeholder="Phone Number"
+            formControlName="phoneNumber"
+            [ngClass]="{ 'is-invalid': displayMessage.phoneNumber }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.phoneNumber }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="emailAddressId"
+          >emailAddress</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="emailAddressId"
+            placeholder="Email address"
+            formControlName="emailAddress"
+            [ngClass]="{ 'is-invalid': displayMessage.emailAddress }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.emailAddress }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="emailAddressId"
+          >gender</label
+        >
+        <select>
+          <option default>Pick a gender</option>
+          <option
+            *ngFor="let gender of genders"
+            [value]="gender.value"
+            (change)="onSelected(gender.value)"
+          >
+            {{ gender.viewValue }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button
+            class="btn btn-primary mr-3"
+            style="width: 80px"
+            type="submit"
+            [title]="
+              patientForm.valid
+                ? 'Save your entered data'
+                : 'Disabled until the form data is valid'
+            "
+          >
+            Save
+          </button>
+          <button
+            class="btn btn-outline-secondary mr-3"
+            style="width: 80px"
+            type="button"
+            title="Cancel your edits"
+            [routerLink]="['/patients']"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-outline-warning"
+            style="width: 80px"
+            type="button"
+            title="Delete this patient"
+            (click)="deletePatient()"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>
