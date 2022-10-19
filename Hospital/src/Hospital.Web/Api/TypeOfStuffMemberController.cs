@@ -22,6 +22,14 @@ public class TypeOfStuffMemberController : BaseApiController
     return Ok(response);
   }
 
+  [HttpGet("{id}")]
+  public async Task<IActionResult> GetTypeOfStuffMemberById([FromRoute] int id)
+  {
+    var query = new GetTypeOfStuffMemberByIdQuery(id);
+    var response = await _mediator.Send(query);
+    return Ok(response);
+  }
+
   [HttpPost]
   public async Task<IActionResult> CreateTypeOfStuffMember([FromBody] CreateTypeOfStuffMemberRequest request)
   {
