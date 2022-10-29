@@ -1,0 +1,30 @@
+2022-10-20 00:00:04.930 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-20 00:00:04.971 +02:00 [INF] CORS policy execution successful.
+2022-10-20 00:00:04.971 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-20 00:00:04.971 +02:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-20 00:00:04.972 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-20 00:00:04.980 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-20 00:00:04.980 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-20 00:00:04.981 +02:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 9.9166ms
+2022-10-20 00:00:04.981 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-20 00:00:04.981 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 121 application/json;+charset=utf-8 51.2220ms
+2022-10-20 00:02:47.034 +02:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient/undefined - -
+2022-10-20 00:02:47.035 +02:00 [INF] CORS policy execution successful.
+2022-10-20 00:02:47.055 +02:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient/undefined - - - 204 - - 21.2543ms
+2022-10-20 00:02:47.058 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/patient/undefined application/json 114
+2022-10-20 00:02:47.058 +02:00 [INF] CORS policy execution successful.
+2022-10-20 00:02:47.058 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-20 00:02:47.097 +02:00 [INF] Route matched with {action = "UpdatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePatient(PatientManagement.Core.CQRS.Patient.Requests.UpdatePatientRequest, Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-20 00:02:47.233 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-20 00:02:47.261 +02:00 [INF] Executed action Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web) in 163.0368ms
+2022-10-20 00:02:47.261 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-20 00:02:47.261 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/patient/undefined application/json 114 - 400 247 application/problem+json;+charset=utf-8 202.9096ms
+2022-10-20 00:03:05.806 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/undefined - -
+2022-10-20 00:03:05.814 +02:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-20 00:03:05.814 +02:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-20 00:03:05.816 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-20 00:03:05.819 +02:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 4.9949ms
+2022-10-20 00:03:05.819 +02:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-20 00:03:05.820 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/undefined - - - 400 247 application/problem+json;+charset=utf-8 13.9132ms

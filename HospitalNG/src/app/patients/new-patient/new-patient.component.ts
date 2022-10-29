@@ -1,63 +1,47 @@
+import { Gender } from './../gender';
 import { PatientService } from './../patient.service';
 import { Subscription, Observable, fromEvent, merge, debounceTime } from 'rxjs';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChildren } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../patient';
-import { GenericValidator } from '../../shared/generic-validator';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient.component.html',
   styleUrls: ['./new-patient.component.css']
 })
-export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[] | undefined;
+export class NewPatientComponent implements OnInit, OnDestroy {
 
-  pageTitle = "Add new Patient";
+  pageTitle = "Add New Patient";
   errorMessage: string = "";
   patientForm: FormGroup;
   patient: Patient = {} as Patient
   private sub: Subscription | undefined;
-  controlBlurs: Observable<any>[] |undefined;
   displayMessage: any = {};
-  private validationMessages: { [key: string]: { [key: string]: string } } | undefined;
-  private genericValidator: GenericValidator | undefined;
+
+  public validationMessages = {
+    'firstName': [
+      {type: 'required', message: 'First name is required'}
+    ]
+  }
+
+
+  genders: Gender[] = [
+    { value: 0, viewValue: "Male" },
+    { value: 1, viewValue: "Female" },
+  ];
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private PatientService: PatientService,) {
-    
-      this.patientForm = fb.group({
-        title: 'Complete me',
-        description: 'Now!'
-      })
 
-    this.validationMessages = {
-      firstName: {
-        required: "FirstName is required."
-      },
-      lastName: {
-        required: "LastName is required."
-      },
-      emailAddress: {
-        required: "Email is required.",
-        email: "It must be of type email"
-      },
-      insuranceNumber: {
-        required: "Insurance number is required",
-        number: "It must be number"
-      },
-      gender: {
-        required: "Gender is required",
-        number: "It must be number"
-      },
-      phoneNumber: {
-        required: "Phone number is required",
-        number: "It must be number"
-      }
-    };
-    this.genericValidator = new GenericValidator(this.validationMessages);
+    this.patientForm = fb.group({
+      title: '',
+      description: ''
+    })
+
+ 
   }
 
   ngOnInit(): void {
@@ -66,7 +50,6 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
       lastName: ["", [Validators.required]],
       emailAddress: ["", [Validators.required, Validators.email]],
       insuranceNumber: ["", [Validators.required,]],
-      gender: ["", [Validators.required]],
       phoneNumber: ["", [Validators.required]]
     });
 
@@ -78,6 +61,10 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getPatient(id: number): void {
+    if (id == 0) {
+      this.patient.id = 0;
+      return;
+    }
     this.PatientService.getPatient(id)
       .subscribe({
         next: (patient: Patient) => this.displayPatient(patient),
@@ -94,7 +81,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.patient.id === 0) {
       this.pageTitle = 'Add patient';
     } else {
-      this.pageTitle = `Edit patient: ${this.patient.lastName} `;
+      this.pageTitle = `Edit patient: ${this.patient.firstName} ${this.patient.lastName} `;
 
       this.patientForm?.patchValue({
         firstName: this.patient.firstName,
@@ -113,7 +100,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     else {
       if (confirm(`Really delete this patient: ${this.patient?.lastName},
-       this proccess cannot be undone`)) {
+       this process cannot be undone`)) {
         this.PatientService.deletePatient(this.patient?.id)
           .subscribe({
             next: () => this.onSaveComplete(),
@@ -122,7 +109,9 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
   }
-
+  onSelected(number: number): void {
+    this.patient.gender = number;
+  }
   savePatient(): void {
     if (this.patientForm?.valid) {
       if (this.patientForm.dirty) {
@@ -152,16 +141,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
     this.patientForm?.reset();
     this.router.navigate(['/patients']);
   }
-  ngAfterViewInit(): void {
-     const t = this.formInputElements
-      ?.map((formControl: ElementRef) => fromEvent(formControl.nativeElement, "blur"));
-
-    merge(this.patientForm?.valueChanges, ...[this.controlBlurs])
-      .pipe(debounceTime(800))
-      .subscribe(value => {
-        this.displayMessage = this.genericValidator?.processMessages(this.patientForm);
-      });
-  }
+  
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }

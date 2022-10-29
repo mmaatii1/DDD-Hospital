@@ -1,1 +1,170 @@
-<p>new-patient works!</p>
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="savePatient()" [formGroup]="patientForm">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="patientFirstNameId"
+          >First name</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="patientFirstNameId"
+            type="text"
+            placeholder="First name(required)"
+            formControlName="firstName"
+            [ngClass]="{ 'is-invalid': displayMessage.firstName }"
+          />
+          <div *ngFor="let validation of validationMessages.firstName">
+            <div
+              class="error-message"
+              *ngIf="
+                patientForm.get('firstName')?.hasError(validation.type) &&
+                (patientForm.get('firstName')?.dirty ||
+                  patientForm.get('firstName')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="patientlastNameId"
+          >Last name</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="patientlastNameId"
+            type="text"
+            placeholder="Last name(required)"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': displayMessage.lastName }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.lastName }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="insuranceNumberId"
+          >Insurance number</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="insuranceNumberId"
+            type="text"
+            placeholder="Insurance number"
+            formControlName="insuranceNumber"
+            [ngClass]="{ 'is-invalid': displayMessage.insuranceNumber }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.insuranceNumber }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="phoneNumberId"
+          >Phone number</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="phoneNumberId"
+            placeholder="Phone number"
+            formControlName="phoneNumber"
+            [ngClass]="{ 'is-invalid': displayMessage.phoneNumber }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.phoneNumber }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="emailAddressId"
+          >Email address</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="emailAddressId"
+            placeholder="Email address"
+            formControlName="emailAddress"
+            [ngClass]="{ 'is-invalid': displayMessage.emailAddress }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.emailAddress }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="emailAddressId"
+          >gender</label
+        >
+        <select>
+          <option *ngIf="patient.gender == 0" selected="selected">
+            {{ "Male" }}
+          </option>
+          <option *ngIf="patient.gender == 1" selected="selected">
+            {{ "Female" }}
+          </option>
+          <option *ngIf="patient.id == 0">Pick a gender</option>
+          <option
+            *ngFor="let gender of genders"
+            [value]="gender.value"
+            (change)="onSelected(gender.value)"
+          >
+            {{ gender.viewValue }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button
+            class="btn btn-primary mr-3"
+            style="width: 80px"
+            type="submit"
+            [title]="
+              patientForm.valid
+                ? 'Save your entered data'
+                : 'Disabled until the form data is valid'
+            "
+          >
+            Save
+          </button>
+          <button
+            class="btn btn-outline-secondary mr-3"
+            style="width: 80px"
+            type="button"
+            title="Cancel your edits"
+            [routerLink]="['/patients']"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-outline-warning"
+            style="width: 80px"
+            type="button"
+            title="Delete this patient"
+            (click)="deletePatient()"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>

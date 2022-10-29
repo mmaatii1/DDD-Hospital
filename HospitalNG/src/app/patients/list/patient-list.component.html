@@ -4,7 +4,7 @@
     <div>
       <button
         class="btn btn-outline-primary btn-sm"
-        [routerLink]="['/patients', '0']"
+        [routerLink]="['/patients', '0', 'edit']"
       >
         New
       </button>
@@ -61,10 +61,11 @@
             <td>
               <a [routerLink]="['/patients', patient.id]">
                 {{ patient.firstName }}
-                {{ patient.fullName }}
+                {{ patient.lastName }}
               </a>
             </td>
-            <td>{{ patient.gender }}</td>
+            <td *ngIf="patient.gender == 0">{{ "Male" }}</td>
+            <td *ngIf="patient.gender == 1">{{ "Female" }}</td>
             <td>{{ patient.insuranceNumber }}</td>
             <td>{{ patient.emailAddress }}</td>
             <td>
