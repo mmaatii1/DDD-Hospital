@@ -21,7 +21,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
   private sub: Subscription | undefined;
   controlBlurs: Observable<any>[] | undefined;
   displayMessage: any = {};
-  private validationMessages: { [key: string]: { [key: string]: string } } | undefined;
+  public validationMessages: { [key: string]: { [key: string]: string } } | undefined;
   private genericValidator: GenericValidator | undefined;
 
   genders: Gender[] = [
@@ -84,6 +84,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getPatient(id: number): void {
     if (id == 0) {
+      this.patient.id = 0;
       return;
     }
     this.PatientService.getPatient(id)
@@ -102,7 +103,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.patient.id === 0) {
       this.pageTitle = 'Add patient';
     } else {
-      this.pageTitle = `Edit patient: ${this.patient.lastName} `;
+      this.pageTitle = `Edit patient: ${this.patient.firstName} ${this.patient.lastName} `;
 
       this.patientForm?.patchValue({
         firstName: this.patient.firstName,
@@ -121,7 +122,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     else {
       if (confirm(`Really delete this patient: ${this.patient?.lastName},
-       this proccess cannot be undone`)) {
+       this process cannot be undone`)) {
         this.PatientService.deletePatient(this.patient?.id)
           .subscribe({
             next: () => this.onSaveComplete(),

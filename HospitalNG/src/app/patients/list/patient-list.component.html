@@ -64,7 +64,8 @@
                 {{ patient.lastName }}
               </a>
             </td>
-            <td>{{ patient.gender }}</td>
+            <td *ngIf="patient.gender == 0">{{ "Male" }}</td>
+            <td *ngIf="patient.gender == 1">{{ "Female" }}</td>
             <td>{{ patient.insuranceNumber }}</td>
             <td>{{ patient.emailAddress }}</td>
             <td>

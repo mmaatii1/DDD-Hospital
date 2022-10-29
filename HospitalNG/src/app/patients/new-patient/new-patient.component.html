@@ -7,14 +7,14 @@
     <form novalidate (ngSubmit)="savePatient()" [formGroup]="patientForm">
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="patientFirstNameId"
-          >Patient first name</label
+          >First name</label
         >
         <div class="col-md-8">
           <input
             class="form-control"
             id="patientFirstNameId"
             type="text"
-            placeholder="FirstName (required)"
+            placeholder="First name(required)"
             formControlName="firstName"
             [ngClass]="{ 'is-invalid': displayMessage.firstName }"
           />
@@ -26,14 +26,14 @@
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="patientlastNameId"
-          >patient last name</label
+          >Last name</label
         >
         <div class="col-md-8">
           <input
             class="form-control"
             id="patientlastNameId"
             type="text"
-            placeholder="LastName (required)"
+            placeholder="Last name(required)"
             formControlName="lastName"
             [ngClass]="{ 'is-invalid': displayMessage.lastName }"
           />
@@ -45,14 +45,14 @@
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="insuranceNumberId"
-          >patient insuranceNumber</label
+          >Insurance number</label
         >
         <div class="col-md-8">
           <input
             class="form-control"
             id="insuranceNumberId"
             type="text"
-            placeholder="Insurance Number"
+            placeholder="Insurance number"
             formControlName="insuranceNumber"
             [ngClass]="{ 'is-invalid': displayMessage.insuranceNumber }"
           />
@@ -64,13 +64,13 @@
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="phoneNumberId"
-          >phone Number</label
+          >Phone number</label
         >
         <div class="col-md-8">
           <input
             class="form-control"
             id="phoneNumberId"
-            placeholder="Phone Number"
+            placeholder="Phone number"
             formControlName="phoneNumber"
             [ngClass]="{ 'is-invalid': displayMessage.phoneNumber }"
           />
@@ -82,7 +82,7 @@
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="emailAddressId"
-          >emailAddress</label
+          >Email address</label
         >
         <div class="col-md-8">
           <input
@@ -103,7 +103,13 @@
           >gender</label
         >
         <select>
-          <option default>Pick a gender</option>
+          <option *ngIf="patient.gender == 0" selected="selected">
+            {{ "Male" }}
+          </option>
+          <option *ngIf="patient.gender == 1" selected="selected">
+            {{ "Female" }}
+          </option>
+          <option *ngIf="patient.id == 0">Pick a gender</option>
           <option
             *ngFor="let gender of genders"
             [value]="gender.value"
