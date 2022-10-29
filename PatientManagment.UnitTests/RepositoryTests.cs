@@ -84,7 +84,9 @@ namespace PatientManagement.UnitTests
             await _dbContext.SaveChangesAsync();
 
             entity.EmailAddress = actual.EmailAddress;
-            entity.FullName = actual.FullName;
+            entity.FirstName = actual.FirstName;
+            entity.PhoneNumber = actual.PhoneNumber;
+            entity.LastName = actual.LastName;
             entity.Gender = actual.Gender;
             entity.InsuranceNumber = actual.InsuranceNumber;
             var sut = new GenericRepository<Patient>(_dbContext);
