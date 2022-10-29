@@ -18,9 +18,18 @@
             formControlName="firstName"
             [ngClass]="{ 'is-invalid': displayMessage.firstName }"
           />
-          <span class="invalid-feedback">
-            {{ displayMessage.firstName }}
-          </span>
+          <div *ngFor="let validation of validationMessages.firstName">
+            <div
+              class="error-message"
+              *ngIf="
+                patientForm.get('firstName')?.hasError(validation.type) &&
+                (patientForm.get('firstName')?.dirty ||
+                  patientForm.get('firstName')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
         </div>
       </div>
 

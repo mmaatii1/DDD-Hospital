@@ -4,25 +4,27 @@ import { Subscription, Observable, fromEvent, merge, debounceTime } from 'rxjs';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChildren } from '@angular/core';
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../patient';
-import { GenericValidator } from '../../shared/generic-validator';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient.component.html',
   styleUrls: ['./new-patient.component.css']
 })
-export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[] | undefined;
+export class NewPatientComponent implements OnInit, OnDestroy {
 
   pageTitle = "Add New Patient";
   errorMessage: string = "";
   patientForm: FormGroup;
   patient: Patient = {} as Patient
   private sub: Subscription | undefined;
-  controlBlurs: Observable<any>[] | undefined;
   displayMessage: any = {};
-  public validationMessages: { [key: string]: { [key: string]: string } } | undefined;
-  private genericValidator: GenericValidator | undefined;
+
+  public validationMessages = {
+    'firstName': [
+      {type: 'required', message: 'First name is required'}
+    ]
+  }
+
 
   genders: Gender[] = [
     { value: 0, viewValue: "Male" },
@@ -39,31 +41,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
       description: ''
     })
 
-    this.validationMessages = {
-      firstName: {
-        required: "FirstName is required."
-      },
-      lastName: {
-        required: "LastName is required."
-      },
-      emailAddress: {
-        required: "Email is required.",
-        email: "It must be of type email"
-      },
-      insuranceNumber: {
-        required: "Insurance number is required",
-        number: "It must be number"
-      },
-      gender: {
-        required: "Gender is required",
-        number: "It must be number"
-      },
-      phoneNumber: {
-        required: "Phone number is required",
-        number: "It must be number"
-      }
-    };
-    this.genericValidator = new GenericValidator(this.validationMessages);
+ 
   }
 
   ngOnInit(): void {
@@ -163,16 +141,7 @@ export class NewPatientComponent implements OnInit, AfterViewInit, OnDestroy {
     this.patientForm?.reset();
     this.router.navigate(['/patients']);
   }
-  ngAfterViewInit(): void {
-    const t = this.formInputElements
-      ?.map((formControl: ElementRef) => fromEvent(formControl.nativeElement, "blur"));
-
-    merge(this.patientForm?.valueChanges, ...[this.controlBlurs])
-      .pipe(debounceTime(800))
-      .subscribe(value => {
-        this.displayMessage = this.genericValidator?.processMessages(this.patientForm);
-      });
-  }
+  
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
