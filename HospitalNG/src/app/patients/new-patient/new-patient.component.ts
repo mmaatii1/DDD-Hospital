@@ -5,6 +5,7 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChildren }
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../patient';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalComponent } from '../../shared/modal/modal.component';
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient.component.html',
@@ -21,10 +22,30 @@ export class NewPatientComponent implements OnInit, OnDestroy {
 
   public validationMessages = {
     'firstName': [
-      {type: 'required', message: 'First name is required'}
+      { type: 'required', message: 'First name is required' },
+      { type: 'pattern', message: 'First name must contain only letters' },
+    ],
+    'lastName': [
+      { type: 'required', message: 'Last name is required' },
+      { type: 'pattern', message: 'First name must contain only letters' },
+    ],
+    'insuranceNumber': [
+      { type: 'pattern', message: 'Insurance number must contain only numbers' },
+    ],
+    'emailAddress': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'email', message: 'Enter a valid email' }
+    ],
+    'phoneNumber': [
+      { type: 'pattern', message: 'Phone number must contain only numbers' }
+    ],
+    'gender': [
+      { type: 'required', message: 'Gender is required' }
     ]
   }
 
+  lettersPattern = '[A-Za-z]+$'
+  numbersPattern = '[0-9]+$'
 
   genders: Gender[] = [
     { value: 0, viewValue: "Male" },
@@ -41,16 +62,16 @@ export class NewPatientComponent implements OnInit, OnDestroy {
       description: ''
     })
 
- 
+
   }
 
   ngOnInit(): void {
     this.patientForm = this.fb.group({
-      firstName: ["", [Validators.required]],
-      lastName: ["", [Validators.required]],
+      firstName: ["", [Validators.required, Validators.pattern(this.lettersPattern)]],
+      lastName: ["", [Validators.required, Validators.pattern(this.lettersPattern)]],
       emailAddress: ["", [Validators.required, Validators.email]],
-      insuranceNumber: ["", [Validators.required,]],
-      phoneNumber: ["", [Validators.required]]
+      insuranceNumber: ["", [Validators.required, Validators.pattern(this.numbersPattern)]],
+      phoneNumber: ["", [Validators.required, , Validators.pattern(this.numbersPattern)]]
     });
 
     this.sub = this.route.params.subscribe(
@@ -141,7 +162,7 @@ export class NewPatientComponent implements OnInit, OnDestroy {
     this.patientForm?.reset();
     this.router.navigate(['/patients']);
   }
-  
+
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }

@@ -1,0 +1,914 @@
+2022-10-30 10:03:39.762 +01:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-30 10:03:41.007 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-30 10:03:41.398 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-10-30 10:03:41.410 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-30 10:03:41.609 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-30 10:03:41.771 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-30 10:03:41.772 +01:00 [INF] Hosting environment: Development
+2022-10-30 10:03:41.772 +01:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-10-30 10:03:41.796 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:03:41.841 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:03:41.843 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-10-30 10:03:41.880 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:03:41.891 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:03:42.262 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:03:55.445 +01:00 [INF] Executed DbCommand (304ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:03:55.566 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:03:55.719 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 13821.5342ms
+2022-10-30 10:03:55.721 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:03:55.734 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 269 application/json;+charset=utf-8 13942.1891ms
+2022-10-30 10:04:02.761 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 10:04:02.765 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:04:02.765 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:04:02.779 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:04:02.828 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:04:02.920 +01:00 [INF] Executed DbCommand (43ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:04:02.927 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:04:02.928 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 149.1793ms
+2022-10-30 10:04:02.928 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:04:02.929 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 168.2539ms
+2022-10-30 10:04:42.029 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:04:42.029 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:04:42.031 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:04:42.031 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:04:42.042 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:04:42.045 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:04:42.046 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:04:42.047 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 15.2822ms
+2022-10-30 10:04:42.047 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:04:42.047 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 269 application/json;+charset=utf-8 18.4606ms
+2022-10-30 10:04:43.257 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 10:04:43.257 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:04:43.257 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:04:43.257 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:04:43.259 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:04:43.266 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:04:43.266 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:04:43.267 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 9.1533ms
+2022-10-30 10:04:43.267 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:04:43.267 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 10.1347ms
+2022-10-30 10:06:04.984 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:06:04.985 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:06:04.985 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:06:04.985 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:06:04.987 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:06:04.989 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:06:04.990 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:06:04.990 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 5.0873ms
+2022-10-30 10:06:04.991 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:06:04.991 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 269 application/json;+charset=utf-8 6.7939ms
+2022-10-30 10:06:06.348 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 10:06:06.349 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:06:06.349 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:06:06.349 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:06:06.350 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:06:06.353 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:06:06.353 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:06:06.354 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 4.65ms
+2022-10-30 10:06:06.354 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:06:06.355 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 6.3034ms
+2022-10-30 10:19:35.273 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 10:19:35.273 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:19:35.273 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:19:35.274 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:19:35.275 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:19:36.098 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:19:36.098 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:19:36.099 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 824.8382ms
+2022-10-30 10:19:36.099 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:19:36.099 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 826.0506ms
+2022-10-30 10:19:43.644 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient/2 - -
+2022-10-30 10:19:43.644 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:19:43.645 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient/2 - - - 204 - - 1.2785ms
+2022-10-30 10:19:43.646 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/patient/2 application/json 138
+2022-10-30 10:19:43.647 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:19:43.647 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-30 10:19:43.650 +01:00 [INF] Route matched with {action = "UpdatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePatient(PatientManagement.Core.CQRS.Patient.Requests.UpdatePatientRequest, Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:19:43.706 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:19:43.722 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web) in 72.2731ms
+2022-10-30 10:19:43.722 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-30 10:19:43.722 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/patient/2 application/json 138 - 400 356 application/problem+json;+charset=utf-8 75.8890ms
+2022-10-30 10:19:51.485 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:19:51.486 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:19:51.486 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:19:51.486 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:19:51.488 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:19:51.490 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:19:51.491 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:19:51.492 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 5.7697ms
+2022-10-30 10:19:51.492 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:19:51.492 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 269 application/json;+charset=utf-8 7.1329ms
+2022-10-30 10:20:43.506 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient - -
+2022-10-30 10:20:43.506 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:20:43.507 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient - - - 204 - - 1.1923ms
+2022-10-30 10:20:43.508 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 121
+2022-10-30 10:20:43.509 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:20:43.509 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:20:43.511 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:20:43.513 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:20:43.514 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 2.7128ms
+2022-10-30 10:20:43.514 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:20:43.514 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 121 - 400 358 application/problem+json;+charset=utf-8 5.5108ms
+2022-10-30 10:20:44.364 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 121
+2022-10-30 10:20:44.364 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:20:44.364 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:20:44.364 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:20:44.365 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:20:44.365 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 0.8528ms
+2022-10-30 10:20:44.365 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:20:44.365 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 121 - 400 358 application/problem+json;+charset=utf-8 1.6262ms
+2022-10-30 10:20:46.058 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 121
+2022-10-30 10:20:46.058 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:20:46.058 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:20:46.058 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:20:46.058 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:20:46.059 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 0.7864ms
+2022-10-30 10:20:46.059 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:20:46.059 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 121 - 400 358 application/problem+json;+charset=utf-8 1.4668ms
+2022-10-30 10:23:04.352 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient - -
+2022-10-30 10:23:04.352 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:04.352 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient - - - 204 - - 0.7093ms
+2022-10-30 10:23:04.354 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 119
+2022-10-30 10:23:04.355 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:04.355 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:04.355 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:04.355 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:23:04.356 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 1.1779ms
+2022-10-30 10:23:04.356 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:04.356 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 119 - 400 358 application/problem+json;+charset=utf-8 2.1266ms
+2022-10-30 10:23:06.098 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 119
+2022-10-30 10:23:06.098 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:06.098 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:06.098 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:06.099 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:23:06.099 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 0.7612ms
+2022-10-30 10:23:06.099 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:06.099 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 119 - 400 358 application/problem+json;+charset=utf-8 1.4925ms
+2022-10-30 10:23:07.511 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 119
+2022-10-30 10:23:07.512 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:07.512 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:07.512 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:07.512 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-30 10:23:07.513 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 0.8234ms
+2022-10-30 10:23:07.513 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:07.513 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 119 - 400 358 application/problem+json;+charset=utf-8 1.5224ms
+2022-10-30 10:23:15.056 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient - -
+2022-10-30 10:23:15.056 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:15.057 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient - - - 204 - - 0.5629ms
+2022-10-30 10:23:15.058 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/patient application/json 120
+2022-10-30 10:23:15.058 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:15.058 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:15.058 +01:00 [INF] Route matched with {action = "CreatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(PatientManagement.Core.CQRS.Patient.Requests.CreatePatientRequest) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:15.106 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:15.214 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([EmailAddress], [FirstName], [Gender], [InsuranceNumber], [LastName], [PhoneNumber])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Patients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-10-30 10:23:15.249 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:23:15.270 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web) in 211.7217ms
+2022-10-30 10:23:15.270 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.CreatePatient (Hospital.Web)'
+2022-10-30 10:23:15.270 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/patient application/json 120 - 201 127 application/json;+charset=utf-8 212.5834ms
+2022-10-30 10:23:15.304 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:23:15.304 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:15.304 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:15.305 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:15.305 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:15.307 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:23:15.307 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:23:15.308 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 3.2069ms
+2022-10-30 10:23:15.308 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:15.308 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 4.0478ms
+2022-10-30 10:23:19.116 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:23:19.116 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:19.116 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:19.117 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:19.118 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:19.118 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:23:19.119 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:23:19.119 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.3788ms
+2022-10-30 10:23:19.119 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:19.119 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 3.2999ms
+2022-10-30 10:23:20.086 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 10:23:20.086 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:20.086 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:23:20.086 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:20.087 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:20.089 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:23:20.089 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:23:20.090 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.4647ms
+2022-10-30 10:23:20.090 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:23:20.090 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 4.3941ms
+2022-10-30 10:23:26.135 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:23:26.136 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:26.136 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:26.136 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:26.137 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:26.138 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:23:26.138 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:23:26.139 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.7ms
+2022-10-30 10:23:26.139 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:26.139 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 4.0039ms
+2022-10-30 10:23:27.538 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/3 - -
+2022-10-30 10:23:27.538 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:27.538 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:23:27.539 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:27.540 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:27.541 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:23:27.542 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:23:27.542 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.2431ms
+2022-10-30 10:23:27.542 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:23:27.542 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/3 - - - 200 127 application/json;+charset=utf-8 4.7671ms
+2022-10-30 10:23:52.896 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:23:52.897 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:23:52.897 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:52.897 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:23:52.898 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:23:52.900 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:23:52.900 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:23:52.900 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 3.3546ms
+2022-10-30 10:23:52.901 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:23:52.901 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 4.4628ms
+2022-10-30 10:25:31.336 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:25:31.336 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:25:31.337 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:25:31.337 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:25:31.338 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:25:31.339 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:25:31.339 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:25:31.339 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.5783ms
+2022-10-30 10:25:31.340 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:25:31.340 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 4.1669ms
+2022-10-30 10:25:34.013 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/3 - -
+2022-10-30 10:25:34.013 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:25:34.014 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:25:34.014 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:25:34.015 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:25:34.017 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:25:34.017 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:25:34.017 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.5847ms
+2022-10-30 10:25:34.017 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:25:34.018 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/3 - - - 200 127 application/json;+charset=utf-8 4.5338ms
+2022-10-30 10:25:35.776 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:25:35.776 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:25:35.776 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:25:35.777 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:25:35.777 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:25:35.778 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:25:35.778 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:25:35.779 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.0453ms
+2022-10-30 10:25:35.779 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:25:35.779 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 2.7993ms
+2022-10-30 10:25:36.663 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 10:25:36.663 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:25:36.663 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:25:36.664 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:25:36.665 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:25:36.666 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 10:25:36.667 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 10:25:36.667 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.6062ms
+2022-10-30 10:25:36.667 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 10:25:36.668 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 4.9399ms
+2022-10-30 10:25:42.017 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 10:25:42.017 +01:00 [INF] CORS policy execution successful.
+2022-10-30 10:25:42.017 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:25:42.017 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 10:25:42.018 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 10:25:42.019 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 10:25:42.020 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 10:25:42.020 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.7428ms
+2022-10-30 10:25:42.020 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 10:25:42.021 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 3.9254ms
+2022-10-30 11:05:47.705 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 11:05:47.709 +01:00 [INF] CORS policy execution successful.
+2022-10-30 11:05:47.711 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 11:05:47.714 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 11:05:47.723 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 11:05:48.520 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 11:05:48.523 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 11:05:48.525 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 810.6964ms
+2022-10-30 11:05:48.525 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 11:05:48.525 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 821.4266ms
+2022-10-30 11:05:49.954 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 11:05:49.954 +01:00 [INF] CORS policy execution successful.
+2022-10-30 11:05:49.954 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 11:05:49.954 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 11:05:49.956 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 11:05:49.963 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 11:05:49.963 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 11:05:49.964 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 9.2095ms
+2022-10-30 11:05:49.964 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 11:05:49.964 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 10.0277ms
+2022-10-30 11:05:54.311 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 11:05:54.311 +01:00 [INF] CORS policy execution successful.
+2022-10-30 11:05:54.311 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 11:05:54.311 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 11:05:54.313 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 11:05:54.314 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 11:05:54.314 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 11:05:54.315 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 3.5258ms
+2022-10-30 11:05:54.315 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 11:05:54.316 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 5.0016ms
+2022-10-30 12:10:49.535 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:10:49.536 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:10:49.536 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:10:49.536 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:10:49.539 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:10:50.675 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:10:50.676 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:10:50.677 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 1140.5286ms
+2022-10-30 12:10:50.677 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:10:50.677 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 1141.7256ms
+2022-10-30 12:10:50.707 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:10:50.707 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:10:50.707 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:10:50.707 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:10:50.709 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:10:50.724 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:10:50.724 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:10:50.725 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 17.8107ms
+2022-10-30 12:10:50.725 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:10:50.726 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 19.1151ms
+2022-10-30 12:10:54.258 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:10:54.258 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:10:54.258 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:10:54.258 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:10:54.260 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:10:54.260 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:10:54.261 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:10:54.261 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.9433ms
+2022-10-30 12:10:54.261 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:10:54.262 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 3.9332ms
+2022-10-30 12:11:30.051 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:11:30.051 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:11:30.051 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:11:30.051 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:11:30.053 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:11:30.055 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:11:30.055 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:11:30.056 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 4.3418ms
+2022-10-30 12:11:30.056 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:11:30.056 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 5.4993ms
+2022-10-30 12:11:43.474 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:11:43.474 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:11:43.474 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:11:43.474 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:11:43.475 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:11:43.476 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:11:43.477 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:11:43.477 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.6809ms
+2022-10-30 12:11:43.477 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:11:43.478 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 3.4411ms
+2022-10-30 12:11:59.113 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:11:59.113 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:11:59.114 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:11:59.114 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:11:59.115 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:11:59.118 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:11:59.118 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:11:59.119 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 4.9876ms
+2022-10-30 12:11:59.119 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:11:59.119 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 6.7814ms
+2022-10-30 12:12:01.389 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:12:01.390 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:12:01.391 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:12:01.391 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:12:01.392 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:12:01.393 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:12:01.393 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:12:01.394 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.9436ms
+2022-10-30 12:12:01.394 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:12:01.394 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 4.6792ms
+2022-10-30 12:12:32.940 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:12:32.941 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:12:32.941 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:12:32.941 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:12:32.943 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:12:32.948 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:12:32.948 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:12:32.949 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 7.8982ms
+2022-10-30 12:12:32.949 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:12:32.949 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 8.8643ms
+2022-10-30 12:12:34.612 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:12:34.612 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:12:34.613 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:12:34.613 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:12:34.615 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:12:34.616 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:12:34.617 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:12:34.618 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 4.5672ms
+2022-10-30 12:12:34.618 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:12:34.618 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 6.0278ms
+2022-10-30 12:12:35.898 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:12:35.898 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:12:35.899 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:12:35.899 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:12:35.901 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:12:35.903 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:12:35.904 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:12:35.904 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 5.4518ms
+2022-10-30 12:12:35.904 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:12:35.905 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 6.3601ms
+2022-10-30 12:12:51.027 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:12:51.027 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:12:51.028 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:12:51.028 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:12:51.029 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:12:51.031 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:12:51.031 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:12:51.032 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.566ms
+2022-10-30 12:12:51.032 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:12:51.032 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 4.7865ms
+2022-10-30 12:13:08.803 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:13:08.803 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:08.803 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:13:08.803 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:13:08.804 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:13:08.805 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:13:08.805 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:13:08.805 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 2.2394ms
+2022-10-30 12:13:08.805 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:13:08.806 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 3.0171ms
+2022-10-30 12:13:10.398 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:13:10.399 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:10.399 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:13:10.399 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:13:10.400 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:13:10.401 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:13:10.401 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:13:10.402 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.3416ms
+2022-10-30 12:13:10.402 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:13:10.402 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 397 application/json;+charset=utf-8 3.6432ms
+2022-10-30 12:13:11.502 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:13:11.503 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:11.503 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:13:11.503 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:13:11.504 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:13:11.505 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:13:11.506 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:13:11.506 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.1227ms
+2022-10-30 12:13:11.506 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:13:11.506 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 139 application/json;+charset=utf-8 3.8497ms
+2022-10-30 12:13:15.076 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient/2 - -
+2022-10-30 12:13:15.076 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:15.077 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient/2 - - - 204 - - 0.5641ms
+2022-10-30 12:13:15.078 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/patient/2 application/json 144
+2022-10-30 12:13:15.078 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:15.078 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-30 12:13:15.079 +01:00 [INF] Route matched with {action = "UpdatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePatient(PatientManagement.Core.CQRS.Patient.Requests.UpdatePatientRequest, Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:13:15.098 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:13:15.124 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Patients] SET [EmailAddress] = @p0, [FirstName] = @p1, [Gender] = @p2, [InsuranceNumber] = @p3, [LastName] = @p4, [PhoneNumber] = @p5
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+2022-10-30 12:13:15.127 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:13:15.127 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web) in 48.3867ms
+2022-10-30 12:13:15.127 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-30 12:13:15.127 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/patient/2 application/json 144 - 200 142 application/json;+charset=utf-8 49.4818ms
+2022-10-30 12:13:15.147 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:13:15.147 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:15.147 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:13:15.148 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:13:15.149 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:13:15.150 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:13:15.151 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:13:15.151 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 3.2458ms
+2022-10-30 12:13:15.151 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:13:15.151 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 4.2716ms
+2022-10-30 12:13:35.439 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:13:35.440 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:13:35.440 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:13:35.441 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:13:35.442 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:13:35.444 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:13:35.445 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:13:35.446 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 4.7748ms
+2022-10-30 12:13:35.446 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:13:35.447 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 7.4719ms
+2022-10-30 12:14:14.185 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:14:14.185 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:14.185 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:14:14.185 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:14.187 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:14.188 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:14:14.189 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:14:14.189 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.6563ms
+2022-10-30 12:14:14.189 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:14:14.189 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 4.4207ms
+2022-10-30 12:14:17.260 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:14:17.260 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:17.261 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:14:17.261 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:17.263 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:17.264 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:14:17.265 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:14:17.265 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 4.1909ms
+2022-10-30 12:14:17.265 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:14:17.265 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 5.0104ms
+2022-10-30 12:14:35.395 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:14:35.395 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:35.396 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:35.396 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:35.397 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:35.399 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:14:35.399 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:14:35.399 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 3.4855ms
+2022-10-30 12:14:35.399 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:35.399 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 4.2919ms
+2022-10-30 12:14:36.285 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:14:36.285 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:36.285 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:14:36.286 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:36.287 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:36.289 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:14:36.289 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:14:36.290 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 4.0799ms
+2022-10-30 12:14:36.290 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:14:36.290 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 4.7841ms
+2022-10-30 12:14:37.996 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:14:37.996 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:37.996 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:37.996 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:37.997 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:37.998 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:14:37.998 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:14:37.998 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.4847ms
+2022-10-30 12:14:37.999 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:37.999 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 3.1351ms
+2022-10-30 12:14:40.680 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:14:40.680 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:40.681 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:40.681 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:40.681 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:40.682 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:14:40.683 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:14:40.683 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.0819ms
+2022-10-30 12:14:40.683 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:40.683 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 3.1218ms
+2022-10-30 12:14:57.697 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:14:57.697 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:57.697 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:57.697 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:57.698 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:57.699 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:14:57.699 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:14:57.699 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 1.8294ms
+2022-10-30 12:14:57.699 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:57.700 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 2.6928ms
+2022-10-30 12:14:59.026 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:14:59.026 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:14:59.026 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:59.026 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:14:59.027 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:14:59.028 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:14:59.028 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:14:59.028 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.2107ms
+2022-10-30 12:14:59.029 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:14:59.029 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 3.1391ms
+2022-10-30 12:15:00.931 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:15:00.931 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:15:00.931 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:15:00.931 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:15:00.932 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:15:00.934 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:15:00.934 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:15:00.934 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 2.8698ms
+2022-10-30 12:15:00.934 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:15:00.934 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 3.6265ms
+2022-10-30 12:15:44.772 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:15:44.772 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:15:44.772 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:15:44.772 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:15:44.774 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:15:44.777 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:15:44.777 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:15:44.778 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 5.6004ms
+2022-10-30 12:15:44.778 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:15:44.778 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 6.6123ms
+2022-10-30 12:15:53.491 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:15:53.491 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:15:53.492 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:15:53.492 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:15:53.494 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:15:53.497 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:15:53.497 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:15:53.498 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 6.136ms
+2022-10-30 12:15:53.498 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:15:53.500 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 8.0482ms
+2022-10-30 12:16:03.366 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:16:03.366 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:16:03.366 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:03.366 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:16:03.368 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:16:03.370 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:16:03.371 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:16:03.371 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 5.0535ms
+2022-10-30 12:16:03.372 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:03.372 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 5.8126ms
+2022-10-30 12:16:42.446 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:16:42.447 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:16:42.447 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:42.447 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:16:42.449 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:16:42.453 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:16:42.453 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:16:42.453 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 5.7715ms
+2022-10-30 12:16:42.453 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:42.454 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 7.3552ms
+2022-10-30 12:16:53.997 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:16:53.997 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:16:53.998 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:53.998 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:16:53.998 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:16:54.000 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:16:54.000 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:16:54.000 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 2.4224ms
+2022-10-30 12:16:54.000 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:54.000 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 3.5094ms
+2022-10-30 12:16:55.699 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:16:55.700 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:16:55.700 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:55.700 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:16:55.701 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:16:55.702 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:16:55.702 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:16:55.703 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 2.7791ms
+2022-10-30 12:16:55.703 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:16:55.703 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 3.4374ms
+2022-10-30 12:17:01.107 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:17:01.108 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:17:01.108 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:17:01.108 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:17:01.109 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:17:01.110 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:17:01.111 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:17:01.111 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 2.8508ms
+2022-10-30 12:17:01.111 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:17:01.111 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 4.1068ms
+2022-10-30 12:17:03.039 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:17:03.039 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:17:03.040 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:17:03.040 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:17:03.041 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:17:03.042 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:17:03.043 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:17:03.043 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.012ms
+2022-10-30 12:17:03.043 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:17:03.043 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 4.0783ms
+2022-10-30 12:17:37.123 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:17:37.124 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:17:37.124 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:17:37.124 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:17:37.125 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:17:37.127 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:17:37.127 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:17:37.128 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 4.0938ms
+2022-10-30 12:17:37.128 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:17:37.129 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 5.4318ms
+2022-10-30 12:17:41.402 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:17:41.402 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:17:41.402 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:17:41.402 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:17:41.403 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:17:41.404 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:17:41.405 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:17:41.405 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.4515ms
+2022-10-30 12:17:41.405 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:17:41.406 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 3.5621ms
+2022-10-30 12:17:50.542 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:17:50.542 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:17:50.542 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:17:50.542 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:17:50.543 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:17:50.544 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:17:50.544 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:17:50.544 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.4009ms
+2022-10-30 12:17:50.544 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:17:50.545 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 3.0093ms
+2022-10-30 12:47:40.264 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:47:40.265 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:47:40.265 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:47:40.266 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:47:40.271 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:47:49.158 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:47:49.160 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:47:49.161 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 8895.2234ms
+2022-10-30 12:47:49.161 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:47:49.161 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 8898.3241ms
+2022-10-30 12:47:50.873 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:47:50.873 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:47:50.874 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:47:50.874 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:47:50.877 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:47:50.936 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:47:50.937 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:47:50.937 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 62.9825ms
+2022-10-30 12:47:50.937 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:47:50.937 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 63.9427ms
+2022-10-30 12:48:12.150 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:48:12.150 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:48:12.150 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:48:12.150 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:48:12.152 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:48:12.156 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:48:12.157 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:48:12.158 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 7.7029ms
+2022-10-30 12:48:12.158 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:48:12.159 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 8.5581ms
+2022-10-30 12:48:44.818 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:48:44.818 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:48:44.819 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:48:44.819 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:48:44.820 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:48:44.823 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:48:44.824 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:48:44.825 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 5.7374ms
+2022-10-30 12:48:44.825 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:48:44.825 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 6.7465ms
+2022-10-30 12:48:47.764 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/2 - -
+2022-10-30 12:48:47.765 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:48:47.765 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:48:47.765 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:48:47.766 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:48:47.768 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-30 12:48:47.768 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-30 12:48:47.768 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.2937ms
+2022-10-30 12:48:47.768 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-30 12:48:47.768 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/2 - - - 200 142 application/json;+charset=utf-8 3.9990ms
+2022-10-30 12:48:49.182 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 12:48:49.183 +01:00 [INF] CORS policy execution successful.
+2022-10-30 12:48:49.183 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:48:49.183 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 12:48:49.185 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 12:48:49.187 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 12:48:49.187 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 12:48:49.188 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 4.3433ms
+2022-10-30 12:48:49.188 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 12:48:49.188 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 5.9012ms

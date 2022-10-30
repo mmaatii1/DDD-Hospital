@@ -1,0 +1,12 @@
+.error-message {
+    color: red;
+}
+
+.form-control {
+    content: " *";
+}
+
+.select {
+    color: red;
+}
+

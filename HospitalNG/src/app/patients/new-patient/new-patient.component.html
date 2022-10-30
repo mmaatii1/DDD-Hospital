@@ -14,9 +14,8 @@
             class="form-control"
             id="patientFirstNameId"
             type="text"
-            placeholder="First name(required)"
+            placeholder="First name (required)"
             formControlName="firstName"
-            [ngClass]="{ 'is-invalid': displayMessage.firstName }"
           />
           <div *ngFor="let validation of validationMessages.firstName">
             <div
@@ -42,13 +41,21 @@
             class="form-control"
             id="patientlastNameId"
             type="text"
-            placeholder="Last name(required)"
+            placeholder="Last name (required)"
             formControlName="lastName"
-            [ngClass]="{ 'is-invalid': displayMessage.lastName }"
           />
-          <span class="invalid-feedback">
-            {{ displayMessage.lastName }}
-          </span>
+          <div *ngFor="let validation of validationMessages.lastName">
+            <div
+              class="error-message"
+              *ngIf="
+                patientForm.get('lastName')?.hasError(validation.type) &&
+                (patientForm.get('lastName')?.dirty ||
+                  patientForm.get('lastName')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -60,14 +67,21 @@
           <input
             class="form-control"
             id="insuranceNumberId"
-            type="text"
             placeholder="Insurance number"
             formControlName="insuranceNumber"
-            [ngClass]="{ 'is-invalid': displayMessage.insuranceNumber }"
           />
-          <span class="invalid-feedback">
-            {{ displayMessage.insuranceNumber }}
-          </span>
+          <div *ngFor="let validation of validationMessages.insuranceNumber">
+            <div
+              class="error-message"
+              *ngIf="
+                patientForm.get('insuranceNumber')?.hasError(validation.type) &&
+                (patientForm.get('insuranceNumber')?.dirty ||
+                  patientForm.get('insuranceNumber')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -81,11 +95,19 @@
             id="phoneNumberId"
             placeholder="Phone number"
             formControlName="phoneNumber"
-            [ngClass]="{ 'is-invalid': displayMessage.phoneNumber }"
           />
-          <span class="invalid-feedback">
-            {{ displayMessage.phoneNumber }}
-          </span>
+          <div *ngFor="let validation of validationMessages.phoneNumber">
+            <div
+              class="error-message"
+              *ngIf="
+                patientForm.get('phoneNumber')?.hasError(validation.type) &&
+                (patientForm.get('phoneNumber')?.dirty ||
+                  patientForm.get('phoneNumber')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -97,52 +119,70 @@
           <input
             class="form-control"
             id="emailAddressId"
-            placeholder="Email address"
+            placeholder="Email address (required)"
             formControlName="emailAddress"
             [ngClass]="{ 'is-invalid': displayMessage.emailAddress }"
           />
-          <span class="invalid-feedback">
-            {{ displayMessage.emailAddress }}
-          </span>
+          <div *ngFor="let validation of validationMessages.emailAddress">
+            <div
+              class="error-message"
+              *ngIf="
+                patientForm.get('emailAddress')?.hasError(validation.type) &&
+                (patientForm.get('emailAddress')?.dirty ||
+                  patientForm.get('emailAddress')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="emailAddressId"
-          >gender</label
-        >
-        <select>
-          <option *ngIf="patient.gender == 0" selected="selected">
-            {{ "Male" }}
-          </option>
-          <option *ngIf="patient.gender == 1" selected="selected">
-            {{ "Female" }}
-          </option>
-          <option *ngIf="patient.id == 0">Pick a gender</option>
-          <option
-            *ngFor="let gender of genders"
-            [value]="gender.value"
-            (change)="onSelected(gender.value)"
+        <label class="col-md-2 col-form-label" for="gender">Gender</label>
+        <div class="col-md-8">
+          <select class="form-select form-select-sm">
+            <option *ngIf="patient.gender == 0" selected="selected">
+              {{ "Male" }}
+            </option>
+            <option *ngIf="patient.gender == 1" selected="selected">
+              {{ "Female" }}
+            </option>
+            <option *ngIf="patient.id == 0">Pick a gender</option>
+            <option
+              *ngFor="let gender of genders"
+              [value]="gender.value"
+              (change)="onSelected(gender.value)"
+            >
+              {{ gender.viewValue }}
+            </option>
+          </select>
+        </div>
+        <div *ngFor="let validation of validationMessages.gender">
+          <div
+            class="error-message"
+            *ngIf="
+              patientForm.get('gender')?.hasError(validation.type) &&
+              (patientForm.get('gender')?.dirty ||
+                patientForm.get('gender')?.touched)
+            "
           >
-            {{ gender.viewValue }}
-          </option>
-        </select>
+            {{ validation.message }}
+          </div>
+        </div>
       </div>
 
       <div class="form-group row mb-2">
-        <div class="offset-md-2 col-md-4">
+        <div class="d-flex justify-content-around">
           <button
-            class="btn btn-primary mr-3"
-            style="width: 80px"
-            type="submit"
-            [title]="
-              patientForm.valid
-                ? 'Save your entered data'
-                : 'Disabled until the form data is valid'
-            "
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
           >
-            Save
+            Launch demo modal
           </button>
+
           <button
             class="btn btn-outline-secondary mr-3"
             style="width: 80px"
@@ -153,6 +193,7 @@
             Cancel
           </button>
           <button
+            *ngIf="patient.id != 0"
             class="btn btn-outline-warning"
             style="width: 80px"
             type="button"

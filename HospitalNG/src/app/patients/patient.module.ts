@@ -27,7 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     PatientListComponent,
     PatientDetailComponent,
-    NewPatientComponent
+    NewPatientComponent,
   ],
 
 })
