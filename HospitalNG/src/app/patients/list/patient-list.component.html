@@ -1,26 +1,19 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header d-flex justify-content-between">
     {{ pageTitle }}
-    <div>
-      <button
-        class="btn btn-outline-primary btn-sm"
-        [routerLink]="['/patients', '0', 'edit']"
-      >
-        New
-      </button>
-    </div>
+    <button
+      class="btn btn-outline-primary btn-sm"
+      [routerLink]="['/patients', '0', 'edit']"
+    >
+      New
+    </button>
   </div>
 
   <div class="card-body">
     <div class="row">
-      <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
+        Filter by:
         <input type="text" [(ngModel)]="listFilter" />
-      </div>
-    </div>
-    <div class="row" *ngIf="listFilter">
-      <div class="col-md-6">
-        <h4>Filtered by: {{ listFilter }}</h4>
       </div>
     </div>
 

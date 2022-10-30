@@ -175,12 +175,16 @@
       <div class="form-group row mb-2">
         <div class="d-flex justify-content-around">
           <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#exampleModalCenter"
+            class="btn btn-primary mr-3"
+            style="width: 80px"
+            type="submit"
+            [title]="
+              patientForm.valid
+                ? 'Save your entered data'
+                : 'Disabled until the form data is valid'
+            "
           >
-            Launch demo modal
+            Save
           </button>
 
           <button
@@ -192,13 +196,14 @@
           >
             Cancel
           </button>
+
           <button
             *ngIf="patient.id != 0"
             class="btn btn-outline-warning"
             style="width: 80px"
             type="button"
             title="Delete this patient"
-            (click)="deletePatient()"
+            (click)="open(content)"
           >
             Delete
           </button>
@@ -209,3 +214,41 @@
 
   <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ confirmation }}</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="dateOfBirth">{{
+          "You will delete: " +
+            patient.firstName +
+            " " +
+            patient.lastName +
+            ", this process cannot be undone."
+        }}</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="deletePatient()"
+      (click)="modal.close()"
+    >
+      Delete
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+      Cancel
+    </button>
+  </div>
+</ng-template>

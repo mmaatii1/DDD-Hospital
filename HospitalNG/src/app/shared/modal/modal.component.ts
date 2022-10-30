@@ -9,9 +9,12 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class ModalComponent {
 	closeResult = '';
-
-	constructor(private modalService: NgbModal) {}
-
+  title = '';
+	constructor(private modalService: NgbModal,
+    ) 
+    {
+    }
+  
 	open(content: any) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal.component-title' }).result.then(
 			(result) => {

@@ -912,3 +912,15 @@ FROM [Patients] AS [p]
 2022-10-30 12:48:49.188 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 4.3433ms
 2022-10-30 12:48:49.188 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
 2022-10-30 12:48:49.188 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 5.9012ms
+2022-10-30 14:09:35.201 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-30 14:09:35.207 +01:00 [INF] CORS policy execution successful.
+2022-10-30 14:09:35.209 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 14:09:35.212 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-30 14:09:35.230 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-30 14:09:42.359 +01:00 [INF] Executed DbCommand (187ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-30 14:09:42.367 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-30 14:09:42.371 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 7158.1499ms
+2022-10-30 14:09:42.371 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-30 14:09:42.374 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 400 application/json;+charset=utf-8 7177.4668ms

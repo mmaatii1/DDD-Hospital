@@ -1,3 +1,4 @@
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Gender } from './../gender';
 import { PatientService } from './../patient.service';
 import { Subscription, Observable, fromEvent, merge, debounceTime } from 'rxjs';
@@ -19,6 +20,7 @@ export class NewPatientComponent implements OnInit, OnDestroy {
   patient: Patient = {} as Patient
   private sub: Subscription | undefined;
   displayMessage: any = {};
+  confirmation = "Are you sure?";
 
   public validationMessages = {
     'firstName': [
@@ -55,7 +57,8 @@ export class NewPatientComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private PatientService: PatientService,) {
+    private PatientService: PatientService,
+    private modalService: NgbModal) {
 
     this.patientForm = fb.group({
       title: '',
@@ -120,8 +123,7 @@ export class NewPatientComponent implements OnInit, OnDestroy {
       this.onSaveComplete();
     }
     else {
-      if (confirm(`Really delete this patient: ${this.patient?.lastName},
-       this process cannot be undone`)) {
+      {
         this.PatientService.deletePatient(this.patient?.id)
           .subscribe({
             next: () => this.onSaveComplete(),
@@ -165,5 +167,12 @@ export class NewPatientComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
+  }
+
+  closeResult = '';
+  open(content: any) {
+
+    this.modalService.open(content).result;
+
   }
 }
