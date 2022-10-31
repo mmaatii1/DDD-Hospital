@@ -1,1 +1,254 @@
-<p>new-room works!</p>
+<div class="card">
+    <div class="card-header">
+      {{ pageTitle }}
+    </div>
+  
+    <div class="card-body">
+      <form novalidate (ngSubmit)="saveRoom()" [formGroup]="roomForm">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="roomNumberId"
+            >First name</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="roomNumberId"
+              type="text"
+              placeholder="First name (required)"
+              formControlName="roomNumber"
+            />
+            <div *ngFor="let validation of validationMessages.roomNumber">
+              <div
+                class="error-message"
+                *ngIf="
+                  roomForm.get('roomNumber')?.hasError(validation.type) &&
+                  (roomForm.get('roomNumber')?.dirty ||
+                    roomForm.get('roomNumber')?.touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+  <!--
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="roomlastNameId"
+            >Last name</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="roomlastNameId"
+              type="text"
+              placeholder="Last name (required)"
+              formControlName="lastName"
+            />
+            <div *ngFor="let validation of validationMessages.lastName">
+              <div
+                class="error-message"
+                *ngIf="
+                  roomForm.get('lastName')?.hasError(validation.type) &&
+                  (roomForm.get('lastName')?.dirty ||
+                    roomForm.get('lastName')?.touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="insuranceNumberId"
+            >Insurance number</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="insuranceNumberId"
+              placeholder="Insurance number"
+              formControlName="insuranceNumber"
+            />
+            <div *ngFor="let validation of validationMessages.insuranceNumber">
+              <div
+                class="error-message"
+                *ngIf="
+                  roomForm.get('insuranceNumber')?.hasError(validation.type) &&
+                  (roomForm.get('insuranceNumber')?.dirty ||
+                    roomForm.get('insuranceNumber')?.touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="phoneNumberId"
+            >Phone number</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="phoneNumberId"
+              placeholder="Phone number"
+              formControlName="phoneNumber"
+            />
+            <div *ngFor="let validation of validationMessages.phoneNumber">
+              <div
+                class="error-message"
+                *ngIf="
+                  roomForm.get('phoneNumber')?.hasError(validation.type) &&
+                  (roomForm.get('phoneNumber')?.dirty ||
+                    roomForm.get('phoneNumber')?.touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="emailAddressId"
+            >Email address</label
+          >
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="emailAddressId"
+              placeholder="Email address (required)"
+              formControlName="emailAddress"
+              [ngClass]="{ 'is-invalid': displayMessage.emailAddress }"
+            />
+            <div *ngFor="let validation of validationMessages.emailAddress">
+              <div
+                class="error-message"
+                *ngIf="
+                  roomForm.get('emailAddress')?.hasError(validation.type) &&
+                  (roomForm.get('emailAddress')?.dirty ||
+                    roomForm.get('emailAddress')?.touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="gender">Gender</label>
+          <div class="col-md-8">
+            <select class="form-select form-select-sm">
+              <option *ngIf="room.gender == 0" selected="selected">
+                {{ "Male" }}
+              </option>
+              <option *ngIf="room.gender == 1" selected="selected">
+                {{ "Female" }}
+              </option>
+              <option *ngIf="room.id == 0">Pick a gender</option>
+              <option
+                *ngFor="let gender of genders"
+                [value]="gender.value"
+                (change)="onSelected(gender.value)"
+              >
+                {{ gender.viewValue }}
+              </option>
+            </select>
+          </div>
+          <div *ngFor="let validation of validationMessages.gender">
+            <div
+              class="error-message"
+              *ngIf="
+                roomForm.get('gender')?.hasError(validation.type) &&
+                (roomForm.get('gender')?.dirty ||
+                  roomForm.get('gender')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <div class="d-flex justify-content-around">
+            <button
+              class="btn btn-primary mr-3"
+              style="width: 80px"
+              type="submit"
+              [title]="
+                roomForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
+              "
+            >
+              Save
+            </button>
+  
+            <button
+              class="btn btn-outline-secondary mr-3"
+              style="width: 80px"
+              type="button"
+              title="Cancel your edits"
+              [routerLink]="['/rooms']"
+            >
+              Cancel
+            </button>
+  
+            <button
+              *ngIf="room.id != 0"
+              class="btn btn-outline-warning"
+              style="width: 80px"
+              type="button"
+              title="Delete this room"
+              (click)="open(content)"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+  </div>
+  -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{ confirmation }}</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss()"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">{{
+            "You will delete: " +
+              room.roomNumber +
+              " " +
+              ", this process cannot be undone."
+          }}</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="deleteRoom()"
+        (click)="modal.close()"
+      >
+        Delete
+      </button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+        Cancel
+      </button>
+    </div>
+  </ng-template>
+  
