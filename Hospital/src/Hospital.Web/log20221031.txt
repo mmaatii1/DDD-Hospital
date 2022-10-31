@@ -4864,3 +4864,744 @@ FROM [Patients] AS [p]
 2022-10-31 20:48:21.250 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 2.1732ms
 2022-10-31 20:48:21.250 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
 2022-10-31 20:48:21.250 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Patient - - - 200 506 application/json;+charset=utf-8 2.7373ms
+2022-10-31 20:49:28.197 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-31 20:49:28.197 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:28.197 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-31 20:49:28.197 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-31 20:49:28.199 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:28.200 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-31 20:49:28.201 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:28.202 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 4.3844ms
+2022-10-31 20:49:28.202 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-31 20:49:28.203 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 506 application/json;+charset=utf-8 5.7318ms
+2022-10-31 20:49:32.204 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient/6 - -
+2022-10-31 20:49:32.204 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:32.204 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-31 20:49:32.204 +01:00 [INF] Route matched with {action = "GetPatientById", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientById(Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-31 20:49:32.205 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:32.207 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+WHERE [p].[Id] = @__p_0
+2022-10-31 20:49:32.207 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-31 20:49:32.208 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web) in 3.4058ms
+2022-10-31 20:49:32.208 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetPatientById (Hospital.Web)'
+2022-10-31 20:49:32.208 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient/6 - - - 200 124 application/json;+charset=utf-8 4.1193ms
+2022-10-31 20:49:33.926 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/patient/6 - -
+2022-10-31 20:49:33.926 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:33.926 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/patient/6 - - - 204 - - 0.5847ms
+2022-10-31 20:49:33.927 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/patient/6 application/json 126
+2022-10-31 20:49:33.928 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:33.928 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-31 20:49:33.928 +01:00 [INF] Route matched with {action = "UpdatePatient", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePatient(PatientManagement.Core.CQRS.Patient.Requests.UpdatePatientRequest, Int32) on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-31 20:49:33.929 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:34.030 +01:00 [INF] Executed DbCommand (100ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Patients] SET [EmailAddress] = @p0, [FirstName] = @p1, [Gender] = @p2, [InsuranceNumber] = @p3, [LastName] = @p4, [PhoneNumber] = @p5
+WHERE [Id] = @p6;
+SELECT @@ROWCOUNT;
+2022-10-31 20:49:34.031 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Patient.Responses.PatientResponse'.
+2022-10-31 20:49:34.032 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web) in 103.6798ms
+2022-10-31 20:49:34.032 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.UpdatePatient (Hospital.Web)'
+2022-10-31 20:49:34.032 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/patient/6 application/json 126 - 200 124 application/json;+charset=utf-8 104.4152ms
+2022-10-31 20:49:34.089 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/patient - -
+2022-10-31 20:49:34.089 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:34.089 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-31 20:49:34.089 +01:00 [INF] Route matched with {action = "GetAllPatients", controller = "Patient", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPatients() on controller Hospital.Web.Api.PatientController (Hospital.Web).
+2022-10-31 20:49:34.090 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:34.092 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[EmailAddress], [p].[FirstName], [p].[Gender], [p].[InsuranceNumber], [p].[LastName], [p].[PhoneNumber]
+FROM [Patients] AS [p]
+2022-10-31 20:49:34.092 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Patient.Responses.PatientResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:34.093 +01:00 [INF] Executed action Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web) in 3.8652ms
+2022-10-31 20:49:34.093 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.PatientController.GetAllPatients (Hospital.Web)'
+2022-10-31 20:49:34.093 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/patient - - - 200 506 application/json;+charset=utf-8 4.6870ms
+2022-10-31 20:49:35.504 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:49:35.504 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:35.504 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:35.504 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:35.505 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:35.509 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:49:35.509 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:35.510 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 5.1376ms
+2022-10-31 20:49:35.510 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:35.510 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 609 application/json;+charset=utf-8 5.8698ms
+2022-10-31 20:49:37.771 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/5 - -
+2022-10-31 20:49:37.771 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:37.771 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:37.772 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:37.773 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:37.774 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:49:37.774 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:37.774 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:37.774 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:49:37.776 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:37.776 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 20:49:37.777 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:37.777 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 5.3419ms
+2022-10-31 20:49:37.777 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:37.777 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/5 - - - 200 100 application/json;+charset=utf-8 6.2094ms
+2022-10-31 20:49:37.779 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:49:37.779 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:37.780 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 5.867ms
+2022-10-31 20:49:37.781 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:37.781 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 7.3151ms
+2022-10-31 20:49:39.586 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Room/5 - -
+2022-10-31 20:49:39.586 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:39.586 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Room/5 - - - 204 - - 0.3403ms
+2022-10-31 20:49:39.587 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/5 application/json 100
+2022-10-31 20:49:39.587 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:39.588 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:49:39.588 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:39.589 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:39.590 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:49:39.591 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:39.592 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 3.6893ms
+2022-10-31 20:49:39.592 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:49:39.592 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/5 application/json 100 - 200 94 application/json;+charset=utf-8 4.4362ms
+2022-10-31 20:49:39.612 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:49:39.612 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:39.612 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:39.612 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:39.613 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:39.615 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:49:39.616 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:39.616 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 3.5386ms
+2022-10-31 20:49:39.616 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:39.616 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 609 application/json;+charset=utf-8 4.0868ms
+2022-10-31 20:49:41.047 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/6 - -
+2022-10-31 20:49:41.047 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:41.047 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:41.048 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:41.049 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:41.052 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 20:49:41.052 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:41.052 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 4.5917ms
+2022-10-31 20:49:41.052 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:49:41.052 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:41.053 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:41.053 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:41.053 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/6 - - - 200 99 application/json;+charset=utf-8 5.9769ms
+2022-10-31 20:49:41.053 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:49:41.054 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:41.056 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:49:41.056 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:41.056 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 3.3415ms
+2022-10-31 20:49:41.057 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:41.057 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 4.3985ms
+2022-10-31 20:49:41.900 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Room/6 - -
+2022-10-31 20:49:41.901 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:41.901 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Room/6 - - - 204 - - 0.3939ms
+2022-10-31 20:49:41.902 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/6 application/json 99
+2022-10-31 20:49:41.902 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:41.902 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:49:41.902 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:41.903 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:41.904 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:49:41.904 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:41.904 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 2.1145ms
+2022-10-31 20:49:41.904 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:49:41.905 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/6 application/json 99 - 200 93 application/json;+charset=utf-8 2.6144ms
+2022-10-31 20:49:41.920 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:49:41.920 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:41.920 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:41.920 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:41.921 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:41.922 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:49:41.922 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:41.922 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 2.3365ms
+2022-10-31 20:49:41.923 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:41.923 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 609 application/json;+charset=utf-8 3.2410ms
+2022-10-31 20:49:42.807 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/7 - -
+2022-10-31 20:49:42.808 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:42.808 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:42.808 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:42.810 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:42.812 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 20:49:42.813 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:42.814 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 5.8175ms
+2022-10-31 20:49:42.814 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:42.814 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:49:42.814 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/7 - - - 200 98 application/json;+charset=utf-8 7.0244ms
+2022-10-31 20:49:42.815 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:42.815 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:42.816 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:49:42.817 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:42.817 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:49:42.818 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:42.818 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 2.1748ms
+2022-10-31 20:49:42.818 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:42.818 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 4.2443ms
+2022-10-31 20:49:43.560 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Room/7 - -
+2022-10-31 20:49:43.560 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:43.560 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Room/7 - - - 204 - - 0.4197ms
+2022-10-31 20:49:43.562 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/7 application/json 98
+2022-10-31 20:49:43.562 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:43.562 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:49:43.562 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:43.563 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:43.565 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:49:43.566 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:43.566 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 3.8608ms
+2022-10-31 20:49:43.566 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:49:43.566 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/7 application/json 98 - 200 92 application/json;+charset=utf-8 4.4461ms
+2022-10-31 20:49:43.585 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:49:43.585 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:43.585 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:43.586 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:43.586 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:43.587 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:49:43.587 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:43.587 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 1.768ms
+2022-10-31 20:49:43.587 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:49:43.588 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 609 application/json;+charset=utf-8 2.4529ms
+2022-10-31 20:49:49.933 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/7 - -
+2022-10-31 20:49:49.933 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:49.934 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:49.934 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:49:49.935 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:49.936 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 20:49:49.936 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:49:49.936 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 2.2752ms
+2022-10-31 20:49:49.936 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:49:49.936 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/7 - - - 200 98 application/json;+charset=utf-8 3.1518ms
+2022-10-31 20:49:49.937 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:49:49.937 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:49:49.937 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:49.937 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:49:49.938 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:49:49.938 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:49:49.939 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:49:49.939 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 1.5894ms
+2022-10-31 20:49:49.939 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:49:49.939 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 2.1325ms
+2022-10-31 20:50:47.814 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/7 - -
+2022-10-31 20:50:47.815 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:47.815 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:50:47.815 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:50:47.816 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:50:47.821 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 20:50:47.822 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:50:47.822 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 7.0592ms
+2022-10-31 20:50:47.822 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:50:47.823 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/7 - - - 200 98 application/json;+charset=utf-8 8.3704ms
+2022-10-31 20:50:47.824 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:50:47.824 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:47.825 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:50:47.825 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:50:47.825 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:50:47.828 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:50:47.829 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:50:47.830 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 5.0935ms
+2022-10-31 20:50:47.830 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:50:47.831 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 6.7369ms
+2022-10-31 20:50:50.553 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Room/7 - -
+2022-10-31 20:50:50.553 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:50.553 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Room/7 - - - 204 - - 0.3835ms
+2022-10-31 20:50:50.555 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/7 application/json 98
+2022-10-31 20:50:50.555 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:50.555 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:50:50.555 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:50:50.556 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:50:50.558 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:50:50.558 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:50:50.559 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 3.5881ms
+2022-10-31 20:50:50.559 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:50:50.559 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/7 application/json 98 - 200 92 application/json;+charset=utf-8 4.2541ms
+2022-10-31 20:50:50.593 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:50:50.593 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:50.594 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:50:50.594 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:50:50.595 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:50:50.597 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:50:50.597 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:50:50.598 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 3.6865ms
+2022-10-31 20:50:50.598 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:50:50.598 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 609 application/json;+charset=utf-8 4.7215ms
+2022-10-31 20:50:59.384 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/2 - -
+2022-10-31 20:50:59.384 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:59.384 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:50:59.384 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:50:59.385 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:50:59.386 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 20:50:59.386 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:50:59.386 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 1.9098ms
+2022-10-31 20:50:59.386 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 20:50:59.387 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/2 - - - 200 99 application/json;+charset=utf-8 2.6108ms
+2022-10-31 20:50:59.389 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:50:59.389 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:50:59.390 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:50:59.390 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:50:59.391 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:50:59.392 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:50:59.392 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:50:59.392 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 2.1887ms
+2022-10-31 20:50:59.392 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:50:59.392 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 3.2566ms
+2022-10-31 20:51:01.308 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Room/2 - -
+2022-10-31 20:51:01.308 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:51:01.308 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Room/2 - - - 204 - - 0.3294ms
+2022-10-31 20:51:01.310 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/2 application/json 99
+2022-10-31 20:51:01.310 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:51:01.310 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:51:01.310 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:51:01.311 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:51:01.312 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:51:01.312 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:51:01.312 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 2.2989ms
+2022-10-31 20:51:01.312 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:51:01.312 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/2 application/json 99 - 200 91 application/json;+charset=utf-8 2.9298ms
+2022-10-31 20:51:01.328 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:51:01.328 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:51:01.328 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:51:01.328 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:51:01.329 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:51:01.330 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:51:01.330 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:51:01.330 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 2.2879ms
+2022-10-31 20:51:01.331 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:51:01.331 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 609 application/json;+charset=utf-8 3.2335ms
+2022-10-31 20:52:08.429 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 94
+2022-10-31 20:52:08.429 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:52:08.430 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:08.430 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:52:08.432 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:52:08.434 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:52:08.434 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:52:08.435 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 4.925ms
+2022-10-31 20:52:08.435 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:08.435 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 94 - 200 91 application/json;+charset=utf-8 5.5336ms
+2022-10-31 20:52:33.692 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 94
+2022-10-31 20:52:33.693 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:52:33.693 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:33.693 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:52:33.694 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:52:33.696 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:52:33.697 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:52:33.697 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 3.8692ms
+2022-10-31 20:52:33.697 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:33.697 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 94 - 200 91 application/json;+charset=utf-8 4.5985ms
+2022-10-31 20:52:41.942 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 95
+2022-10-31 20:52:41.943 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:52:41.943 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:41.943 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:52:41.944 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:52:41.945 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:52:41.946 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:52:41.946 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 3.1464ms
+2022-10-31 20:52:41.946 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:41.946 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 95 - 200 91 application/json;+charset=utf-8 3.9619ms
+2022-10-31 20:52:46.313 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 34
+2022-10-31 20:52:46.313 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:52:46.313 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:46.313 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:52:46.315 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-31 20:52:46.315 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 1.7491ms
+2022-10-31 20:52:46.315 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:46.315 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 34 - 400 350 application/problem+json;+charset=utf-8 2.2730ms
+2022-10-31 20:52:50.992 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 33
+2022-10-31 20:52:50.992 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:52:50.992 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:50.992 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:52:50.992 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-10-31 20:52:50.993 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 0.5798ms
+2022-10-31 20:52:50.993 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:52:50.993 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 33 - 400 350 application/problem+json;+charset=utf-8 1.1650ms
+2022-10-31 20:53:04.927 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 35
+2022-10-31 20:53:04.927 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:53:04.927 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:04.927 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:53:04.928 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:53:04.930 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:53:04.931 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:53:04.931 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 3.9463ms
+2022-10-31 20:53:04.932 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:04.932 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 35 - 200 91 application/json;+charset=utf-8 4.5368ms
+2022-10-31 20:53:08.879 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 35
+2022-10-31 20:53:08.879 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:53:08.879 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:08.879 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:53:08.880 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:53:08.881 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:53:08.882 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:53:08.882 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 2.7055ms
+2022-10-31 20:53:08.882 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:08.882 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 35 - 200 91 application/json;+charset=utf-8 3.2695ms
+2022-10-31 20:53:12.868 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 35
+2022-10-31 20:53:12.868 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:53:12.868 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:12.868 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:53:12.869 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:53:12.870 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:53:12.871 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:53:12.871 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 2.364ms
+2022-10-31 20:53:12.871 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:12.871 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 35 - 200 91 application/json;+charset=utf-8 3.0949ms
+2022-10-31 20:53:24.191 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 20:53:24.191 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:53:24.191 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 20:53:24.192 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:53:24.193 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 20:53:24.193 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:53:24.193 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 2.0058ms
+2022-10-31 20:53:24.193 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 20:53:24.194 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 2.5588ms
+2022-10-31 20:53:50.814 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/5 application/json-patch+json 43
+2022-10-31 20:53:50.815 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:53:50.815 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:50.815 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:53:50.816 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:53:50.818 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:53:50.820 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:53:50.820 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 5.2007ms
+2022-10-31 20:53:50.820 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:53:50.821 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/5 application/json-patch+json 43 - 200 92 application/json;+charset=utf-8 6.1610ms
+2022-10-31 20:54:00.727 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:54:00.727 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:54:00.728 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:54:00.728 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:54:00.730 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:54:00.730 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:54:00.730 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 2.6633ms
+2022-10-31 20:54:00.730 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:54:00.730 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 601 application/json;+charset=utf-8 3.1788ms
+2022-10-31 20:59:28.551 +01:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-31 20:59:29.421 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-31 20:59:29.528 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-10-31 20:59:29.539 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-31 20:59:29.751 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-31 20:59:29.862 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-31 20:59:29.862 +01:00 [INF] Hosting environment: Development
+2022-10-31 20:59:29.862 +01:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-10-31 20:59:29.884 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-10-31 20:59:29.954 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-10-31 20:59:30.189 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 308.5072ms
+2022-10-31 20:59:30.229 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-31 20:59:30.236 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 6.7355ms
+2022-10-31 20:59:30.332 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-31 20:59:30.386 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.3121ms
+2022-10-31 20:59:31.052 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-10-31 20:59:31.201 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 148.6317ms
+2022-10-31 20:59:36.004 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:59:36.010 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:59:36.021 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:59:36.339 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:59:36.823 +01:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:59:36.914 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:59:37.012 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 983.226ms
+2022-10-31 20:59:37.012 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:59:37.016 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 601 application/json;+charset=utf-8 1010.9920ms
+2022-10-31 20:59:48.031 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 42
+2022-10-31 20:59:48.034 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:59:48.035 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:59:48.051 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:59:48.150 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:59:48.194 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 142.7843ms
+2022-10-31 20:59:48.195 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:59:48.195 +01:00 [ERR] One or more validation errors occurred
+PatientManagement.Core.Validators.Exceptions.ValidationException: One or more validation errors occurred
+   at PatientManagement.Core.Validators.PipelineValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\PipelineValidationBehavior.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.RoomController.UpdateRoom(UpdateRoomRequest request, Int32 id) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\RoomController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Hospital.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 19
+2022-10-31 20:59:48.276 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 42 - 422 - application/json 245.0701ms
+2022-10-31 20:59:54.000 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 45
+2022-10-31 20:59:54.000 +01:00 [INF] CORS policy execution successful.
+2022-10-31 20:59:54.001 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:59:54.001 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:59:54.012 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:59:54.144 +01:00 [INF] Executed DbCommand (30ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Rooms] SET [RoomNumber] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;
+2022-10-31 20:59:54.172 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 20:59:54.174 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 172.8819ms
+2022-10-31 20:59:54.174 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 20:59:54.175 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 45 - 200 94 application/json;+charset=utf-8 174.6105ms
+2022-10-31 20:59:59.860 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 20:59:59.860 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:59:59.861 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 20:59:59.861 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 20:59:59.866 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 20:59:59.867 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 20:59:59.868 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 7.0651ms
+2022-10-31 20:59:59.868 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 20:59:59.868 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 604 application/json;+charset=utf-8 7.8076ms
+2022-10-31 21:00:52.235 +01:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-31 21:00:53.136 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-31 21:00:53.221 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-10-31 21:00:53.231 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-31 21:00:53.428 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-31 21:00:53.492 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-31 21:00:53.493 +01:00 [INF] Hosting environment: Development
+2022-10-31 21:00:53.493 +01:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-10-31 21:00:53.510 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-10-31 21:00:53.575 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-10-31 21:00:53.780 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-31 21:00:53.781 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-31 21:00:53.785 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.9160ms
+2022-10-31 21:00:53.785 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 278.8087ms
+2022-10-31 21:00:53.827 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.1979ms
+2022-10-31 21:00:54.289 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-10-31 21:00:54.425 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 136.2793ms
+2022-10-31 21:00:56.708 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room/5 - -
+2022-10-31 21:00:56.709 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Department - -
+2022-10-31 21:00:56.710 +01:00 [INF] CORS policy execution successful.
+2022-10-31 21:00:56.710 +01:00 [INF] CORS policy execution successful.
+2022-10-31 21:00:56.714 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 21:00:56.714 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 21:00:56.729 +01:00 [INF] Route matched with {action = "GetAllDepartments", controller = "Department", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDepartments() on controller Hospital.Web.Api.DepartmentController (Hospital.Web).
+2022-10-31 21:00:56.733 +01:00 [INF] Route matched with {action = "GetRoomById", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoomById(Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 21:00:57.007 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 21:00:57.007 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 21:00:57.389 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Description], [d].[Name]
+FROM [Department] AS [d]
+2022-10-31 21:00:57.399 +01:00 [INF] Executed DbCommand (40ms) [Parameters=[@__request_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+WHERE [r].[Id] = @__request_Id_0
+2022-10-31 21:00:57.471 +01:00 [INF] Executing OkObjectResult, writing value of type 'PatientManagement.Core.CQRS.Room.Responses.RoomResponse'.
+2022-10-31 21:00:57.477 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Department.Responses.DepartmentResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 21:00:57.569 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web) in 829.4709ms
+2022-10-31 21:00:57.569 +01:00 [INF] Executed action Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web) in 834.2478ms
+2022-10-31 21:00:57.569 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetRoomById (Hospital.Web)'
+2022-10-31 21:00:57.570 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.DepartmentController.GetAllDepartments (Hospital.Web)'
+2022-10-31 21:00:57.572 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Department - - - 200 95 application/json;+charset=utf-8 863.3560ms
+2022-10-31 21:00:57.572 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room/5 - - - 200 98 application/json;+charset=utf-8 863.8621ms
+2022-10-31 21:00:59.702 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Room/5 - -
+2022-10-31 21:00:59.704 +01:00 [INF] CORS policy execution successful.
+2022-10-31 21:00:59.705 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Room/5 - - - 204 - - 3.2882ms
+2022-10-31 21:00:59.706 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/5 application/json 98
+2022-10-31 21:00:59.707 +01:00 [INF] CORS policy execution successful.
+2022-10-31 21:00:59.707 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 21:00:59.711 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 21:00:59.800 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 21:00:59.832 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 121.2091ms
+2022-10-31 21:00:59.832 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 21:00:59.833 +01:00 [ERR] Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at PatientManagement.Core.CQRS.Room.Handlers.UpdateRoomCommandHandler.Handle(UpdateRoomCommand command, CancellationToken cancellationToken) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\CQRS\Room\Handlers\UpdateRoomCommandHandler.cs:line 23
+   at PatientManagement.Core.Validators.PipelineValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\PipelineValidationBehavior.cs:line 42
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.RoomController.UpdateRoom(UpdateRoomRequest request, Int32 id) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\RoomController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Hospital.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 19
+2022-10-31 21:00:59.873 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/5 application/json 98 - 500 - application/json 166.8033ms
+2022-10-31 21:01:29.268 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Room - -
+2022-10-31 21:01:29.268 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 21:01:29.270 +01:00 [INF] Route matched with {action = "GetAllRooms", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllRooms() on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 21:01:29.275 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 21:01:29.290 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[DepartmentId], [r].[RoomNumber], [d].[Id], [d].[Description], [d].[Name]
+FROM [Rooms] AS [r]
+INNER JOIN [Department] AS [d] ON [r].[DepartmentId] = [d].[Id]
+2022-10-31 21:01:29.292 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.Room.Responses.RoomResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-31 21:01:29.293 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web) in 22.835ms
+2022-10-31 21:01:29.294 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.GetAllRooms (Hospital.Web)'
+2022-10-31 21:01:29.294 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Room - - - 200 604 application/json;+charset=utf-8 25.8836ms
+2022-10-31 21:01:37.693 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 42
+2022-10-31 21:01:37.693 +01:00 [INF] CORS policy execution successful.
+2022-10-31 21:01:37.694 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 21:01:37.694 +01:00 [INF] Route matched with {action = "UpdateRoom", controller = "Room", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRoom(PatientManagement.Core.CQRS.Room.Requests.UpdateRoomRequest, Int32) on controller Hospital.Web.Api.RoomController (Hospital.Web).
+2022-10-31 21:01:37.697 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-10-31 21:01:37.699 +01:00 [INF] Executed action Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web) in 4.226ms
+2022-10-31 21:01:37.699 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.RoomController.UpdateRoom (Hospital.Web)'
+2022-10-31 21:01:37.699 +01:00 [ERR] Object reference not set to an instance of an object.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at PatientManagement.Core.CQRS.Room.Handlers.UpdateRoomCommandHandler.Handle(UpdateRoomCommand command, CancellationToken cancellationToken) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\CQRS\Room\Handlers\UpdateRoomCommandHandler.cs:line 23
+   at PatientManagement.Core.Validators.PipelineValidationBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\PatientManagment\Validators\PipelineValidationBehavior.cs:line 42
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Hospital.Web.Api.RoomController.UpdateRoom(UpdateRoomRequest request, Int32 id) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\Api\RoomController.cs:line 46
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Hospital.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 19
+2022-10-31 21:01:37.702 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/Room/1 application/json-patch+json 42 - 500 - application/json 8.8610ms

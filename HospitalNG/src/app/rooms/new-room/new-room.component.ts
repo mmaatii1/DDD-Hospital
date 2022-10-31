@@ -57,7 +57,7 @@ export class NewRoomComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.roomForm = this.fb.group({
       roomNumber: ["", [Validators.required, Validators.pattern(this.numbersPattern)]],
-      departmentId: ["",[Validators.required]]
+      departmentId: ["", [Validators.required]]
     });
 
     this.sub = this.route.params.subscribe(
@@ -105,11 +105,10 @@ export class NewRoomComponent implements OnInit, OnDestroy {
     }
   }
 
-  changeDepartment(e: any): void {
-    let id = (e.target.value)
-    console.log(id)
+  changeDepartment(number: any): void {
+    let id =  number.target.value;
     this.roomForm.patchValue({
-      departmentId : id,
+      departmentId: id
     })
   }
 

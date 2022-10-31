@@ -86,6 +86,8 @@ export class RoomService {
       id: 0,
       roomNumber: 0,
       departmentId: 0,
+      departmentName: '',
+      departmentDescription: ''
     };
   }
 }
