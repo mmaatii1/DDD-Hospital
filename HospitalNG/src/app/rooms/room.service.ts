@@ -52,10 +52,10 @@ export class RoomService {
       );
   }
 
-  updateRoom(Room: updateRoom): Observable<updateRoom> {
+  updateRoom(Room: Room): Observable<Room> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.RoomsUrl}/${Room.id}`;
-    return this.http.put<updateRoom>(url, Room, { headers })
+    return this.http.put<Room>(url, Room, { headers })
       .pipe(
         tap(() => console.log('updateRoom: ' + Room.id)),
         // Return the Room on an update
@@ -86,8 +86,6 @@ export class RoomService {
       id: 0,
       roomNumber: 0,
       departmentId: 0,
-      departmentName: '',
-      departmentDescription: ''
     };
   }
 }
