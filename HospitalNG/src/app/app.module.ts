@@ -10,7 +10,7 @@ import { WelcomeComponent } from './home/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
