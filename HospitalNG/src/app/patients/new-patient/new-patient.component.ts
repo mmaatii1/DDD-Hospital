@@ -6,7 +6,6 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChildren }
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../patient';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModalComponent } from '../../shared/modal/modal.component';
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient.component.html',
@@ -132,12 +131,12 @@ export class NewPatientComponent implements OnInit, OnDestroy {
       }
     }
   }
-  onSelected(number: number): void {
-    this.patient.gender = number;
+  changeGender(number: any): void {
+    this.patient.gender = number.target.value;
   }
   savePatient(): void {
     if (this.patientForm?.valid) {
-      if (this.patientForm.dirty) {
+      if (this.patientForm.dirty || this.patientForm.pristine) {
         const p = { ...this.patient, ...this.patientForm.value };
 
         if (p.id === 0) {

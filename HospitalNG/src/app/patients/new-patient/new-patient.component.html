@@ -141,7 +141,7 @@
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="gender">Gender</label>
         <div class="col-md-8">
-          <select class="form-select form-select-sm">
+          <select (change) = "changeGender($event)" class="form-select form-select-sm">
             <option *ngIf="patient.gender == 0" selected="selected">
               {{ "Male" }}
             </option>
@@ -152,7 +152,6 @@
             <option
               *ngFor="let gender of genders"
               [value]="gender.value"
-              (change)="onSelected(gender.value)"
             >
               {{ gender.viewValue }}
             </option>
