@@ -1,3 +1,4 @@
+import { RoomModule } from './rooms/room.module';
 import { PatientModule } from './patients/patient.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -20,7 +21,8 @@ import { WelcomeComponent } from './home/welcome.component';
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    PatientModule
+    PatientModule,
+    RoomModule
   ],
   bootstrap: [AppComponent]
 })

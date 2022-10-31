@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { NewRoomComponent } from './new-room/new-room.component';
@@ -15,11 +14,16 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
     RoomDetailComponent,
   ],
   imports: [
-    CommonModule,
     SharedModule,
     RouterModule.forChild([
-      { path: 'rooms', component: RoomListComponent },
-      { path: 'rooms/:id', component: RoomDetailComponent },
+      {
+        path: 'rooms',
+        component: RoomListComponent
+      },
+      {
+        path: 'rooms/:id',
+        component: RoomDetailComponent
+      },
       {
         path: 'rooms/:id/edit',
         component: NewRoomComponent
