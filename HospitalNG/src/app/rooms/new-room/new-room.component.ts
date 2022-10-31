@@ -1,3 +1,4 @@
+import { DepartmentService } from './../../shared/department/department.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -5,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { Room } from '../Room';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RoomService } from '../room.service';
+import { Department } from '../../shared/department/department';
+import { updateRoom } from '../updateRoom';
 @Component({
   selector: 'app-new-Room',
   templateUrl: './new-Room.component.html',
@@ -16,16 +19,20 @@ export class NewRoomComponent implements OnInit, OnDestroy {
   errorMessage: string = "";
   roomForm: FormGroup;
   room: Room = {} as Room
+  updateRoom: updateRoom = {} as Room
   private sub: Subscription | undefined;
   displayMessage: any = {};
   confirmation = "Are you sure?";
+
+  departments: Department[] = [];
 
   public validationMessages = {
     'roomNumber': [
       { type: 'required', message: 'Room number is required' },
       { type: 'pattern', message: 'Room number must contain only numbers' },
     ],
-    
+    'departmentId': [{ type: 'required', message: 'Department is required' },]
+
   }
 
   lettersPattern = '[A-Za-z]+$'
@@ -36,7 +43,8 @@ export class NewRoomComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private roomService: RoomService,
-    private modalService: NgbModal) {
+    private modalService: NgbModal,
+    private departmentService: DepartmentService) {
 
     this.roomForm = fb.group({
       title: '',
@@ -49,6 +57,7 @@ export class NewRoomComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.roomForm = this.fb.group({
       roomNumber: ["", [Validators.required, Validators.pattern(this.numbersPattern)]],
+      departmentId: ["",[Validators.required]]
     });
 
     this.sub = this.route.params.subscribe(
@@ -56,7 +65,15 @@ export class NewRoomComponent implements OnInit, OnDestroy {
         this.getRoom(params['id']);
       }
     );
+
+    this.departmentService.getDepartments()
+      .subscribe({
+        next: departments => this.departments = departments,
+        error: err => this.errorMessage = err
+      });
   }
+
+
 
   getRoom(id: number): void {
     if (id == 0) {
@@ -68,8 +85,8 @@ export class NewRoomComponent implements OnInit, OnDestroy {
         next: (room: Room) => this.displayRoom(room),
         error: err => this.errorMessage = err
       });
-
   }
+
   displayRoom(room: Room): void {
     if (this.roomForm) {
       this.roomForm.reset();
@@ -82,9 +99,18 @@ export class NewRoomComponent implements OnInit, OnDestroy {
       this.pageTitle = `Edit Room: ${this.room.roomNumber}  `;
 
       this.roomForm?.patchValue({
-        firstName: this.room.roomNumber,
+        roomNumber: this.room.roomNumber,
+        departmentId: this.room.departmentId
       });
     }
+  }
+
+  changeDepartment(e: any): void {
+    let id = (e.target.value)
+    console.log(id)
+    this.roomForm.patchValue({
+      departmentId : id,
+    })
   }
 
   deleteRoom(): void {
@@ -101,10 +127,10 @@ export class NewRoomComponent implements OnInit, OnDestroy {
       }
     }
   }
- 
+
   saveRoom(): void {
     if (this.roomForm?.valid) {
-      if (this.roomForm.dirty) {
+      if (this.roomForm.pristine || this.roomForm.dirty) {
         const p = { ...this.room, ...this.roomForm.value };
 
         if (p.id === 0) {
@@ -129,7 +155,7 @@ export class NewRoomComponent implements OnInit, OnDestroy {
   }
   onSaveComplete() {
     this.roomForm?.reset();
-    this.router.navigate(['/Rooms']);
+    this.router.navigate(['/rooms']);
   }
 
   ngOnDestroy(): void {

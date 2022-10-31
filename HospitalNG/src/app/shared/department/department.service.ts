@@ -3,63 +3,62 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Room } from './Room';
-import { updateRoom } from './updateRoom';
+import { Department } from './department';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService {
-  private RoomsUrl = 'http://localhost:57678/api/Room';
+export class DepartmentService {
+  private departmentsUrl = 'http://localhost:57678/api/Department';
 
   constructor(private http: HttpClient) { }
 
-  getRooms(): Observable<Room[]> {
-    return this.http.get<Room[]>(this.RoomsUrl)
+  getDepartments(): Observable<Department[]> {
+    return this.http.get<Department[]>(this.departmentsUrl)
       .pipe(
         tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
 
-  getRoom(id: number): Observable<Room> {
+  getDepartment(id: number): Observable<Department> {
     if (id === 0) {
-      return of(this.initializeRoom());
+      return of(this.initializeDepartment());
     }
-    const url = `${this.RoomsUrl}/${id}`;
-    return this.http.get<Room>(url)
+    const url = `${this.departmentsUrl}/${id}`;
+    return this.http.get<Department>(url)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  createRoom(Room: Room): Observable<Room> {
+  createDepartment(department: Department): Observable<Department> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Room>(this.RoomsUrl, Room, { headers })
+    return this.http.post<Department>(this.departmentsUrl, department, { headers })
       .pipe(
-        tap(data => console.log('createRoom: ' + JSON.stringify(data))),
+        tap(data => console.log('createDepartment: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
 
-  deleteRoom(id: number): Observable<{}> {
+  deleteDepartment(id: number): Observable<{}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.RoomsUrl}/${id}`;
-    return this.http.delete<Room>(url, { headers })
+    const url = `${this.departmentsUrl}/${id}`;
+    return this.http.delete<Department>(url, { headers })
       .pipe(
-        tap(data => console.log('deleteRoom: ' + id)),
+        tap(data => console.log('deleteDepartment: ' + id)),
         catchError(this.handleError)
       );
   }
 
-  updateRoom(Room: updateRoom): Observable<updateRoom> {
+  updateDepartment(department: Department): Observable<Department> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.RoomsUrl}/${Room.id}`;
-    return this.http.put<updateRoom>(url, Room, { headers })
+    const url = `${this.departmentsUrl}/${department.id}`;
+    return this.http.put<Department>(url, department, { headers })
       .pipe(
-        tap(() => console.log('updateRoom: ' + Room.id)),
-        // Return the Room on an update
-        map(() => Room),
+        tap(() => console.log('updateDepartment: ' + department.id)),
+        // Return the Department on an update
+        map(() => department),
         catchError(this.handleError)
       );
   }
@@ -80,14 +79,12 @@ export class RoomService {
     return throwError(errorMessage);
   }
 
-  private initializeRoom(): Room {
+  private initializeDepartment(): Department {
     // Return an initialized object
     return {
       id: 0,
-      roomNumber: 0,
-      departmentId: 0,
-      departmentName: '',
-      departmentDescription: ''
+      name: '',
+      description: ''
     };
   }
 }
