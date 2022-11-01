@@ -4,10 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { DepartmentModule } from './department/department.module';
+import { TypeOfStuffMemberModule } from './typeOfStuffMember/type-of-stuff-member.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { DepartmentModule } from './department/department.module';
     ]),
     PatientModule,
     RoomModule,
-    DepartmentModule
+    DepartmentModule,
+    TypeOfStuffMemberModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+      {{ pageTitle }}
+      <button
+        class="btn btn-outline-primary btn-sm"
+        [routerLink]="['/typesOfStuffMembers', '0', 'edit']"
+      >
+        New
+      </button>
+    </div>
+  
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          Filter by:
+          <input type="text" [(ngModel)]="listFilter" />
+        </div>
+      </div>
+  
+      <div class="table-responsive">
+        <table class="table mb-0" *ngIf="typeOfStuffMembers && typeOfStuffMembers.length">
+          <thead>
+            <tr>
+              <!--
+              <th>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  (click)="toggleImage()"
+                >
+                  {{ showImage ? "Hide" : "Show" }} Image
+                </button>
+              </th>
+              -->
+              <th>typeOfStuffMember Number</th>
+              <th>Department Name</th>
+              <th>Department Description</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let typeOfStuffMember of filteredTypeOfStuffMembers">
+              <!--
+              <td>
+                <img
+                  *ngIf="showImage && typeOfStuffMember.imageUrl"
+                  [src]="typeOfStuffMember.imageUrl"
+                  [title]="typeOfStuffMember.typeOfStuffMemberName"
+                  [style.width.px]="imageWidth"
+                  [style.margin.px]="imageMargin"
+                />
+              </td>
+              -->
+              <td>
+                <a [routerLink]="['/typesOfStuffMembers', typeOfStuffMember.id]">
+                  {{ typeOfStuffMember.id }}
+                </a>
+              </td>
+              <td>{{ typeOfStuffMember.name }}</td>
+              <td>{{ typeOfStuffMember.description }}</td>
+              <td>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  [routerLink]="['/typesOfStuffMembers', typeOfStuffMember.id, 'edit']"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div>
+  
