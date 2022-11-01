@@ -2039,6 +2039,7 @@ SELECT @@ROWCOUNT;
 2022-11-01 15:40:10.885 +01:00 [INF] Executed action Hospital.Web.Api.StuffMemberController.UpdateStuffMember (Hospital.Web) in 3.886ms
 2022-11-01 15:40:10.885 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.StuffMemberController.UpdateStuffMember (Hospital.Web)'
 2022-11-01 15:40:10.885 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/StuffMember/2 application/json-patch+json 100 - 200 206 application/json;+charset=utf-8 4.5935ms
+<<<<<<< HEAD
 2022-11-01 15:46:32.408 +01:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
 2022-11-01 15:46:33.321 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
 2022-11-01 15:46:33.426 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
@@ -2690,3 +2691,5 @@ INNER JOIN [TypesOfStuffMember] AS [t] ON [s].[TypeOfStuffMemberId] = [t].[Id]
 2022-11-01 15:47:59.020 +01:00 [INF] Executed action Hospital.Web.Api.StuffMemberController.GetAllStuffMembers (Hospital.Web) in 3.5815ms
 2022-11-01 15:47:59.020 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.StuffMemberController.GetAllStuffMembers (Hospital.Web)'
 2022-11-01 15:47:59.021 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/StuffMember - - - 200 678 application/json;+charset=utf-8 4.1664ms
+=======
+>>>>>>> 0774043a89900ddbb88b6b08414aad7fb2544c1e
