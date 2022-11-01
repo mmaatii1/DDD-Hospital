@@ -20,6 +20,9 @@ import { Component } from '@angular/core';
     <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
           [routerLink]="['/typesOfStuffMembers']">Types of stuff member</a>
     </li>
+    <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+          [routerLink]="['/stuffMembers']">Stuff member</a>
+    </li>
   </ul>
 </nav>
 <div class='container'>
