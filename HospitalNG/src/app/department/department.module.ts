@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewDepartmentComponent } from './new-department/new-department.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { DepartmentDetailComponent } from './department-detail.component';
 
 
 

@@ -3,7 +3,7 @@
       {{ pageTitle }}
       <button
         class="btn btn-outline-primary btn-sm"
-        [routerLink]="['/department', '0', 'edit']"
+        [routerLink]="['/departments', '0', 'edit']"
       >
         New
       </button>
@@ -51,7 +51,7 @@
               </td>
               -->
               <td>
-                <a [routerLink]="['/department', department.id]">
+                <a [routerLink]="['/departments', department.id]">
                   {{ department.id }}
                 </a>
               </td>
@@ -60,7 +60,7 @@
               <td>
                 <button
                   class="btn btn-outline-primary btn-sm"
-                  [routerLink]="['/department', department.id, 'edit']"
+                  [routerLink]="['/departments', department.id, 'edit']"
                 >
                   Edit
                 </button>
