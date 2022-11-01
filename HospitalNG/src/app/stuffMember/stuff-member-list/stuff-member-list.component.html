@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    {{ pageTitle }}
+    <button
+      class="btn btn-outline-primary btn-sm"
+      [routerLink]="['/stuffMembers', '0', 'edit']"
+    >
+      New
+    </button>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        Filter by:
+        <input type="text" [(ngModel)]="listFilter" />
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table mb-0" *ngIf="stuffMembers && stuffMembers.length">
+        <thead>
+          <tr>
+            <!--
+              <th>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  (click)="toggleImage()"
+                >
+                  {{ showImage ? "Hide" : "Show" }} Image
+                </button>
+              </th>
+              -->
+            <th>Name</th>
+            <th>typeOfStuffMemberName</th>
+            <th>departmentName</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stuffMember of filteredStuffMembers">
+            <!--
+              <td>
+                <img
+                  *ngIf="showImage && stuffMember.imageUrl"
+                  [src]="stuffMember.imageUrl"
+                  [title]="stuffMember.stuffMemberName"
+                  [style.width.px]="imageWidth"
+                  [style.margin.px]="imageMargin"
+                />
+              </td>
+              -->
+            <td>
+              <a [routerLink]="['/stuffMembers', stuffMember.id]">
+                {{ stuffMember.firstName + " " + stuffMember.lastName }}
+              </a>
+            </td>
+            <td>{{ stuffMember.typeOfStuffMemberName }}</td>
+            <td>{{ stuffMember.departmentName }}</td>
+            <td>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                [routerLink]="['/stuffMembers', stuffMember.id, 'edit']"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>

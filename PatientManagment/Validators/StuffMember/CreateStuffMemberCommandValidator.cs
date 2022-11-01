@@ -9,7 +9,10 @@ namespace PatientManagement.Core.Validators.StuffMember
     {
         public CreateStuffMemberCommandValidator(IGenericRepository<Entities.Department> departmentRepo,IGenericRepository<Entities.TypeOfStuffMember> typeOfStuffMemberRepo)
         {
-            RuleFor(x => x.FullName)
+            RuleFor(x => x.FirstName)
+                .NotEmpty()
+                .MaximumLength(100);
+            RuleFor(x => x.LastName)
                 .NotEmpty()
                 .MaximumLength(100);
         }

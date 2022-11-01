@@ -16,9 +16,11 @@ namespace PatientManagement.Core.CQRS.Room
             CreateMap<CreateRoomRequest, CreateRoomCommand>();
             //update
             CreateMap<UpdateRoomCommand, Entities.Room>();
-            CreateMap<UpdateRoomCommand, RoomResponse>();
+            CreateMap<UpdateRoomCommand, RoomResponse>()
+                .ForMember(x => x.DepartmentId, x => x.MapFrom(d => d.Id));
             CreateMap<UpdateRoomRequest, UpdateRoomCommand>();
-            //delete
+
+                //delete
             CreateMap<Entities.Room, RoomResponse>();
             //get
             CreateMap<Entities.Department, RoomResponse>()

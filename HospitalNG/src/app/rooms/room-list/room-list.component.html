@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+      {{ pageTitle }}
+      <button
+        class="btn btn-outline-primary btn-sm"
+        [routerLink]="['/rooms', '0', 'edit']"
+      >
+        New
+      </button>
+    </div>
+  
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          Filter by:
+          <input type="text" [(ngModel)]="listFilter" />
+        </div>
+      </div>
+  
+      <div class="table-responsive">
+        <table class="table mb-0" *ngIf="rooms && rooms.length">
+          <thead>
+            <tr>
+              <!--
+              <th>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  (click)="toggleImage()"
+                >
+                  {{ showImage ? "Hide" : "Show" }} Image
+                </button>
+              </th>
+              -->
+              <th>Room Number</th>
+              <th>Department Name</th>
+              <th>Department Description</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let room of filteredRooms">
+              <!--
+              <td>
+                <img
+                  *ngIf="showImage && room.imageUrl"
+                  [src]="room.imageUrl"
+                  [title]="room.roomName"
+                  [style.width.px]="imageWidth"
+                  [style.margin.px]="imageMargin"
+                />
+              </td>
+              -->
+              <td>
+                <a [routerLink]="['/rooms', room.id]">
+                  {{ room.roomNumber }}
+                </a>
+              </td>
+              <td>{{ room.departmentName }}</td>
+              <td>{{ room.departmentDescription }}</td>
+              <td>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  [routerLink]="['/rooms', room.id, 'edit']"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div>
+  

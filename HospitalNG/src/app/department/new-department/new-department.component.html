@@ -1,0 +1,140 @@
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="saveDepartment()" [formGroup]="departmentForm">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="name"
+          >Department name</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="nameId"
+            type="text"
+            placeholder="Department name (required)"
+            formControlName="name"
+          />
+          <div *ngFor="let validation of validationMessages.name">
+            <div
+              class="error-message"
+              *ngIf="
+                departmentForm.get('name')?.hasError(validation.type) &&
+                (departmentForm.get('name')?.dirty ||
+                  departmentForm.get('name')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="description"
+          >Department Description</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="description"
+            type="text"
+            placeholder="Department Description"
+            formControlName="description"
+          />
+          <div *ngFor="let validation of validationMessages.description">
+            <div
+              class="error-message"
+              *ngIf="
+                departmentForm.get('description')?.hasError(validation.type) &&
+                (departmentForm.get('description')?.dirty ||
+                  departmentForm.get('description')?.touched)
+              "
+            >
+              {{ validation.message }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="d-flex justify-content-around">
+          <button
+            class="btn btn-primary mr-3"
+            style="width: 80px"
+            type="submit"
+            [title]="
+              departmentForm.valid
+                ? 'Save your entered data'
+                : 'Disabled until the form data is valid'
+            "
+          >
+            Save
+          </button>
+
+          <button
+            class="btn btn-outline-secondary mr-3"
+            style="width: 80px"
+            type="button"
+            title="Cancel your edits"
+            [routerLink]="['/Departments']"
+          >
+            Cancel
+          </button>
+
+          <button
+            *ngIf="department.id != 0"
+            class="btn btn-outline-warning"
+            style="width: 80px"
+            type="button"
+            title="Delete this Department"
+            (click)="open(content)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ confirmation }}</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="dateOfBirth">{{
+          "You will delete: " +
+            department.name +
+            " " +
+            ", this process cannot be undone."
+        }}</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="deleteDepartment()"
+      (click)="modal.close()"
+    >
+      Delete
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+      Cancel
+    </button>
+  </div>
+</ng-template>
