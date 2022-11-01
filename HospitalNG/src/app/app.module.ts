@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { DepartmentModule } from './department/department.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WelcomeComponent } from './home/welcome.component';
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
     PatientModule,
-    RoomModule
+    RoomModule,
+    DepartmentModule
   ],
   bootstrap: [AppComponent]
 })

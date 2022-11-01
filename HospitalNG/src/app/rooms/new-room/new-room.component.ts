@@ -7,7 +7,6 @@ import { Room } from '../Room';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RoomService } from '../room.service';
 import { Department } from '../../shared/department/department';
-import { updateRoom } from '../updateRoom';
 @Component({
   selector: 'app-new-Room',
   templateUrl: './new-Room.component.html',
@@ -19,7 +18,6 @@ export class NewRoomComponent implements OnInit, OnDestroy {
   errorMessage: string = "";
   roomForm: FormGroup;
   room: Room = {} as Room
-  updateRoom: updateRoom = {} as Room
   private sub: Subscription | undefined;
   displayMessage: any = {};
   confirmation = "Are you sure?";
