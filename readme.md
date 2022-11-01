@@ -41,9 +41,9 @@
     <br />
     <a href="https://github.com/github_username/repo_name">View Demo</a>
     ·
-    <a href="[https://github.com/github_username/repo_name/issues](https://github.com/mmaatii1/DDD-Hospital/issues)">Report Bug</a>
+    <a href="https://github.com/mmaatii1/DDD-Hospital/issues">Report Bug</a>
     ·
-    <a href="[https://github.com/github_username/repo_name/issues](https://github.com/mmaatii1/DDD-Hospital/issues)">Request Feature</a>
+    <a href="https://github.com/mmaatii1/DDD-Hospital/issues">Request Feature</a>
   </p>
 </div>
 
@@ -224,7 +224,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [Angular-url]: https://angular.io/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-[.NET]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white
+[.NET]: https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white
 [Net-url]: https://learn.microsoft.com/pl-pl/dotnet/
 [C#]: https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white
 [C#-url]: https://learn.microsoft.com/pl-pl/dotnet/csharp/ 
