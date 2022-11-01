@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Room } from './Room';
-import { updateRoom } from './updateRoom';
 
 @Injectable({
   providedIn: 'root'
