@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { DepartmentModule } from './department/department.module';
 import { TypeOfStuffMemberModule } from './typeOfStuffMember/type-of-stuff-member.module';
+import { StuffMemberModule } from './stuffMember/stuff-member.module'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TypeOfStuffMemberModule } from './typeOfStuffMember/type-of-stuff-membe
     PatientModule,
     RoomModule,
     DepartmentModule,
-    TypeOfStuffMemberModule
+    TypeOfStuffMemberModule,
+    StuffMemberModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { StuffMember } from '../stuffMember';
+import { StuffMemberService } from '../stuff-member.service';
 @Component({
   selector: 'app-stuff-member-list',
   templateUrl: './stuff-member-list.component.html',
@@ -20,18 +21,18 @@ export class StuffMemberListComponent implements OnInit {
   set listFilter(value: string) {
     this._listFilter = value;
     this.filteredStuffMembers = this.listFilter
-      ? this.performFilter(this.listFilter) : this.StuffMembers;
+      ? this.performFilter(this.listFilter) : this.stuffMembers;
   }
 
   filteredStuffMembers: StuffMember[] = [];
-  StuffMembers: StuffMember[] = [];
+  stuffMembers: StuffMember[] = [];
 
-  constructor(private StuffMemberService: StuffMemberService) { }
+  constructor(private stuffMemberService: StuffMemberService) { }
 
   performFilter(filterBy: string): StuffMember[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.StuffMembers.filter((StuffMember: StuffMember) =>
-      StuffMember.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    return this.stuffMembers.filter((stuffMember: StuffMember) =>
+      stuffMember.lastName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   toggleImage(): void {
@@ -39,10 +40,10 @@ export class StuffMemberListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.StuffMemberService.getStuffMembers().subscribe({
-      next: StuffMembers => {
-        this.StuffMembers = StuffMembers;
-        this.filteredStuffMembers = this.StuffMembers;
+    this.stuffMemberService.getStuffMembers().subscribe({
+      next: stuffMembers => {
+        this.stuffMembers = stuffMembers;
+        this.filteredStuffMembers = this.stuffMembers;
       },
       error: err => this.errorMessage = err
     });

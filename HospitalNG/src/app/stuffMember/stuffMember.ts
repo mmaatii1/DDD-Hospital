@@ -1,4 +1,4 @@
-export class StuffMember{
+export interface StuffMember{
     id : number;
     departmentId: number;
     departmentName: string;
