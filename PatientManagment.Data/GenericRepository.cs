@@ -37,7 +37,7 @@ namespace PatientManagement.Data
             return entityToDelete;
         }
 
-        public IQueryable<TEntity> GetWithEntity<TProperty>(Expression<Func<TEntity, TProperty>> includeEntityOne)
+        public IEnumerable<TEntity> GetWithEntity<TProperty>(Expression<Func<TEntity, TProperty>> includeEntityOne)
         {
             return _dbSet.Include(includeEntityOne);
         }
@@ -62,8 +62,6 @@ namespace PatientManagement.Data
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         { 
-            //todo: this is weird, i had to do this like that due to the fact that if im checking for for 
-            //todo:FindEntity i have detached entity error. Maybe it could be done better
             var updatedEntity = _dbSet.Update(entity);
            try
            {
@@ -72,7 +70,8 @@ namespace PatientManagement.Data
            }
            catch (Exception exception)
            {
-               if (exception.Message.Contains("The database operation was expected to affect 1 row(s), but actually affected 0 row(s);") || exception.Message.Contains("Attempted to update or delete an entity that does not exist in the store"))
+               if (exception.Message.Contains("The database operation was expected to affect 1 row(s), but actually affected 0 row(s);") 
+                   || exception.Message.Contains("Attempted to update or delete an entity that does not exist in the store"))
                {
                    var entityName = updatedEntity.GetType().ToString().Split('.').Last();
                    throw new EntityNotFoundException(entityName);
@@ -84,7 +83,7 @@ namespace PatientManagement.Data
            }
         }
 
-        public IQueryable<TEntity> GetWithEntity<TProperty, TPropertyTwo>(Expression<Func<TEntity, TProperty>> includeEntityOne, Expression<Func<TEntity, TPropertyTwo>>? includeEntityTwo)
+        public IEnumerable<TEntity> GetWithEntity<TProperty, TPropertyTwo>(Expression<Func<TEntity, TProperty>> includeEntityOne, Expression<Func<TEntity, TPropertyTwo>>? includeEntityTwo)
         {
             return _dbSet.Include(includeEntityOne).Include(includeEntityTwo);
         }

@@ -29,9 +29,11 @@ namespace PatientManagement.Core.CQRS.StuffMember.Handlers
             var stuffMemberToUpdate = _mapper.Map<Entities.StuffMember>(command);
             var department = await _departmentRepo.GetByIdAsync(command.DepartmentId);
             var typeOfStuffMember = await _typeOfStuffMemberRepo.GetByIdAsync(command.TypeOfStuffMemberId);
+
             stuffMemberToUpdate.Department = department;
             stuffMemberToUpdate.TypeOfStuffMember = typeOfStuffMember;
             var updatedStuffMember = await _stuffMemberRepository.UpdateAsync(stuffMemberToUpdate);
+
             return _mapper.Map<StuffMemberResponse>(updatedStuffMember);
         }
     }

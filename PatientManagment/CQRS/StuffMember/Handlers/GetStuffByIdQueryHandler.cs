@@ -23,7 +23,7 @@ namespace PatientManagement.Core.CQRS.StuffMember.Handlers
                 .GetWithEntity(x => x.Department, x => x.TypeOfStuffMember)
                 .FirstOrDefault(c => c.Id == request.Id);
 
-            return _mapper.Map<StuffMemberResponse>(stuffMember);
+            return await Task.FromResult(_mapper.Map<StuffMemberResponse>(stuffMember));
         }
     }
 }
