@@ -54,6 +54,4 @@ public class StuffMemberController : BaseApiController
     var response = await _mediator.Send(command);
     return Ok(response);
   }
-
 }
-

@@ -1,0 +1,46 @@
+2022-11-17 09:29:18.826 +01:00 [INF] User profile is available. Using 'C:\Users\mmaat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-11-17 09:29:19.721 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-11-17 09:29:19.960 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-11-17 09:29:19.971 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-11-17 09:29:20.159 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-11-17 09:29:20.268 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-17 09:29:20.268 +01:00 [INF] Hosting environment: Development
+2022-11-17 09:29:20.268 +01:00 [INF] Content root path: C:\Users\mmaat\OneDrive\Pulpit\PROGRAMOWANIE\Hospital\Hospital\src\Hospital.Web\
+2022-11-17 09:29:20.289 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2022-11-17 09:29:20.372 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-11-17 09:29:21.110 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - -
+2022-11-17 09:29:21.110 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - -
+2022-11-17 09:29:21.110 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - -
+2022-11-17 09:29:21.111 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-11-17 09:29:21.115 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.6382ms
+2022-11-17 09:29:21.116 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 830.4319ms
+2022-11-17 09:29:21.126 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-11-17 09:29:21.126 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-11-17 09:29:21.128 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - - - 200 143943 text/css 18.2620ms
+2022-11-17 09:29:21.134 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-11-17 09:29:21.137 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - - - 200 339486 application/javascript 26.6421ms
+2022-11-17 09:29:21.171 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - - - 200 1095087 application/javascript 60.8864ms
+2022-11-17 09:29:21.238 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-11-17 09:29:21.297 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.0268ms
+2022-11-17 09:29:21.482 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/favicon-32x32.png - -
+2022-11-17 09:29:21.483 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-11-17 09:29:21.483 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/favicon-32x32.png - - - 200 628 image/png 1.2867ms
+2022-11-17 09:29:21.748 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2022-11-17 09:29:21.891 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 142.6913ms
+2022-11-17 09:29:26.882 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/StuffMember - -
+2022-11-17 09:29:26.887 +01:00 [INF] Executing endpoint 'Hospital.Web.Api.StuffMemberController.GetAllStuffMembers (Hospital.Web)'
+2022-11-17 09:29:26.902 +01:00 [INF] Route matched with {action = "GetAllStuffMembers", controller = "StuffMember", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllStuffMembers() on controller Hospital.Web.Api.StuffMemberController (Hospital.Web).
+2022-11-17 09:29:27.230 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'PatientManagementContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: MigrationsAssembly=PatientManagement.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2022-11-17 09:29:31.894 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[DepartmentId], [s].[FirstName], [s].[LastName], [s].[TypeOfStuffMemberId], [d].[Id], [d].[Description], [d].[Name], [t].[Id], [t].[Description], [t].[Name]
+FROM [StuffMember] AS [s]
+LEFT JOIN [Department] AS [d] ON [s].[DepartmentId] = [d].[Id]
+INNER JOIN [TypesOfStuffMember] AS [t] ON [s].[TypeOfStuffMemberId] = [t].[Id]
+2022-11-17 09:29:32.002 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PatientManagement.Core.CQRS.StuffMember.Responses.StuffMemberResponse, PatientManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-11-17 09:29:32.110 +01:00 [INF] Executed action Hospital.Web.Api.StuffMemberController.GetAllStuffMembers (Hospital.Web) in 5202.8403ms
+2022-11-17 09:29:32.110 +01:00 [INF] Executed endpoint 'Hospital.Web.Api.StuffMemberController.GetAllStuffMembers (Hospital.Web)'
+2022-11-17 09:29:32.113 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/StuffMember - - - 200 678 application/json;+charset=utf-8 5231.1940ms
