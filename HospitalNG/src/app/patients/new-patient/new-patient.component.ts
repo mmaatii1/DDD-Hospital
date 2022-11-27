@@ -6,6 +6,8 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChildren }
 import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../patient';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient.component.html',
@@ -117,13 +119,13 @@ export class NewPatientComponent implements OnInit, OnDestroy {
     }
   }
 
-  deletePatient(): void {
-    if (this.patient?.id === 0) {
+  deletePatient(patientId: number): void {
+    if (patientId === 0) {
       this.onSaveComplete();
     }
     else {
       {
-        this.PatientService.deletePatient(this.patient?.id)
+        this.PatientService.deletePatient(patientId)
           .subscribe({
             next: () => this.onSaveComplete(),
             error: err => this.errorMessage = err
@@ -149,7 +151,8 @@ export class NewPatientComponent implements OnInit, OnDestroy {
           this.PatientService.updatePatient(p)
             .subscribe({
               next: () => this.onSaveComplete(),
-              error: err => this.errorMessage = err
+              error: err => this.errorMessage = err,
+              complete: () => this.updateSuccessNotification(this.patient.firstName),
             });
         }
       } else {
@@ -160,6 +163,7 @@ export class NewPatientComponent implements OnInit, OnDestroy {
     }
   }
   onSaveComplete() {
+    this.createSuccessNotification(this.patientForm.value.firstName)
     this.patientForm?.reset();
     this.router.navigate(['/patients']);
   }
@@ -169,9 +173,28 @@ export class NewPatientComponent implements OnInit, OnDestroy {
   }
 
   closeResult = '';
-  open(content: any) {
-
-    this.modalService.open(content).result;
-
+  createSuccessNotification(patientName: string) {
+    Swal.fire('Create', `Successfully created new patient named ${patientName}`, 'success');
+  }
+  updateSuccessNotification(patientName: string) {
+    Swal.fire('Update', `Successfully update patient named ${patientName}`, 'success');
+  }
+  alertConfirmation() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `This process is irreversible. You will delete ${this.patient.firstName} + ${this.patient.lastName}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.deletePatient(this.patient.id);
+        console.log(this.patient.id);
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.', 'error');
+      }
+    });
   }
 }

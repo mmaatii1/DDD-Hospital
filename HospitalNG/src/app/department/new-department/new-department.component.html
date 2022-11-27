@@ -1,15 +1,15 @@
-<div class="card">
+<div class="card mt-4">
   <div class="card-header">
     {{ pageTitle }}
   </div>
 
   <div class="card-body">
     <form novalidate (ngSubmit)="saveDepartment()" [formGroup]="departmentForm">
-      <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="name"
+      <div class="form-group row mb-4">
+        <label class="col-sm-3 col-form-label" for="name"
           >Department name</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="nameId"
@@ -26,17 +26,19 @@
                   departmentForm.get('name')?.touched)
               "
             >
-              {{ validation.message }}
+              <div class="invalid-feedback d-block">
+                {{ validation.message }}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="description"
+      <div class="form-group row mb-4">
+        <label class="col-sm-3 col-form-label" for="description"
           >Department Description</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="description"
@@ -90,7 +92,7 @@
             style="width: 80px"
             type="button"
             title="Delete this Department"
-            (click)="open(content)"
+            (click)="alertConfirmation()"
           >
             Delete
           </button>
@@ -101,40 +103,3 @@
 
   <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
 </div>
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{ confirmation }}</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modal.dismiss()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="mb-3">
-        <label for="dateOfBirth">{{
-          "You will delete: " +
-            department.name +
-            " " +
-            ", this process cannot be undone."
-        }}</label>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="deleteDepartment()"
-      (click)="modal.close()"
-    >
-      Delete
-    </button>
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
-      Cancel
-    </button>
-  </div>
-</ng-template>

@@ -1,15 +1,15 @@
-<div class="card">
+<div class="card mt-4">
   <div class="card-header">
     {{ pageTitle }}
   </div>
 
   <div class="card-body">
     <form novalidate (ngSubmit)="savePatient()" [formGroup]="patientForm">
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <label class="col-md-2 col-form-label" for="patientFirstNameId"
           >First name</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="patientFirstNameId"
@@ -26,17 +26,19 @@
                   patientForm.get('firstName')?.touched)
               "
             >
+            <div class="invalid-feedback d-block">
               {{ validation.message }}
+            </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <label class="col-md-2 col-form-label" for="patientlastNameId"
           >Last name</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="patientlastNameId"
@@ -53,17 +55,19 @@
                   patientForm.get('lastName')?.touched)
               "
             >
+            <div class="invalid-feedback d-block">
               {{ validation.message }}
+            </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <label class="col-md-2 col-form-label" for="insuranceNumberId"
           >Insurance number</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="insuranceNumberId"
@@ -79,17 +83,19 @@
                   patientForm.get('insuranceNumber')?.touched)
               "
             >
+            <div class="invalid-feedback d-block">
               {{ validation.message }}
+            </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <label class="col-md-2 col-form-label" for="phoneNumberId"
           >Phone number</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="phoneNumberId"
@@ -105,17 +111,19 @@
                   patientForm.get('phoneNumber')?.touched)
               "
             >
+            <div class="invalid-feedback d-block">
               {{ validation.message }}
+            </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <label class="col-md-2 col-form-label" for="emailAddressId"
           >Email address</label
         >
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <input
             class="form-control"
             id="emailAddressId"
@@ -132,16 +140,21 @@
                   patientForm.get('emailAddress')?.touched)
               "
             >
+            <div class="invalid-feedback d-block">
               {{ validation.message }}
+            </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <label class="col-md-2 col-form-label" for="gender">Gender</label>
-        <div class="col-md-8">
-          <select (change) = "changeGender($event)" class="form-select form-select-sm">
+        <div class="col-sm-7">
+          <select
+            (change)="changeGender($event)"
+            class="form-select form-select-sm"
+          >
             <option *ngIf="patient.gender == 0" selected="selected">
               {{ "Male" }}
             </option>
@@ -149,10 +162,7 @@
               {{ "Female" }}
             </option>
             <option *ngIf="patient.id == 0">Pick a gender</option>
-            <option
-              *ngFor="let gender of genders"
-              [value]="gender.value"
-            >
+            <option *ngFor="let gender of genders" [value]="gender.value">
               {{ gender.viewValue }}
             </option>
           </select>
@@ -166,12 +176,14 @@
                 patientForm.get('gender')?.touched)
             "
           >
+          <div class="invalid-feedback d-block">
             {{ validation.message }}
+          </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row mb-2">
+      <div class="form-group row mb-4">
         <div class="d-flex justify-content-around">
           <button
             class="btn btn-primary mr-3"
@@ -202,7 +214,7 @@
             style="width: 80px"
             type="button"
             title="Delete this patient"
-            (click)="open(content)"
+            (click)="alertConfirmation()"
           >
             Delete
           </button>
@@ -214,40 +226,3 @@
   <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
 </div>
 
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{ confirmation }}</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modal.dismiss()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="mb-3">
-        <label for="dateOfBirth">{{
-          "You will delete: " +
-            patient.firstName +
-            " " +
-            patient.lastName +
-            ", this process cannot be undone."
-        }}</label>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="deletePatient()"
-      (click)="modal.close()"
-    >
-      Delete
-    </button>
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
-      Cancel
-    </button>
-  </div>
-</ng-template>

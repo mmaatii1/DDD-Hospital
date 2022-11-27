@@ -7,6 +7,7 @@ import { Room } from '../Room';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RoomService } from '../room.service';
 import { Department } from '../../shared/department/department';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-Room',
   templateUrl: './new-Room.component.html',
@@ -110,13 +111,13 @@ export class NewRoomComponent implements OnInit, OnDestroy {
     })
   }
 
-  deleteRoom(): void {
-    if (this.room?.id === 0) {
+  deleteRoom(roomNumber: number): void {
+    if (roomNumber === 0) {
       this.onSaveComplete();
     }
     else {
       {
-        this.roomService.deleteRoom(this.room?.id)
+        this.roomService.deleteRoom(roomNumber)
           .subscribe({
             next: () => this.onSaveComplete(),
             error: err => this.errorMessage = err
@@ -140,7 +141,8 @@ export class NewRoomComponent implements OnInit, OnDestroy {
           this.roomService.updateRoom(p)
             .subscribe({
               next: () => this.onSaveComplete(),
-              error: err => this.errorMessage = err
+              error: err => this.errorMessage = err,
+              complete: () => this.updateSuccessNotification(this.room.roomNumber),
             });
         }
       } else {
@@ -151,6 +153,7 @@ export class NewRoomComponent implements OnInit, OnDestroy {
     }
   }
   onSaveComplete() {
+    this.createSuccessNotification(this.roomForm.value.roomNumber)
     this.roomForm?.reset();
     this.router.navigate(['/rooms']);
   }
@@ -160,9 +163,29 @@ export class NewRoomComponent implements OnInit, OnDestroy {
   }
 
   closeResult = '';
-  open(content: any) {
 
-    this.modalService.open(content).result;
-
+  createSuccessNotification(roomNumber: number) {
+    Swal.fire('Create', `Successfully created new room named ${roomNumber}`, 'success');
+  }
+  updateSuccessNotification(roomNumber: number) {
+    Swal.fire('Update', `Successfully update room named ${roomNumber}`, 'success');
+  }
+  alertConfirmation() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `This process is irreversible. You will delete ${this.room.roomNumber}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteRoom(this.room.id);
+        console.log(this.room.id);
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.', 'error');
+      }
+    });
   }
 }
