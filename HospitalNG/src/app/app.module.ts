@@ -21,7 +21,7 @@ import { StuffMemberModule } from './stuffMember/stuff-member.module';
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+      { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
     ]),
     PatientModule,
     RoomModule,
