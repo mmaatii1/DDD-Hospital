@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 import { TypeOfStuffMemberService } from '../../shared/typeOfStuffMember/type-of-stuff-member.service';
 import { TypeOfStuffMember } from '../../shared/typeOfStuffMember/typeOfStuffMember';
 
@@ -91,13 +92,13 @@ export class NewTypeOfStuffMemberComponent implements OnInit, OnDestroy {
     }
   }
 
-  deleteTypeOfStuffMember(): void {
-    if (this.typeOfStuffMember?.id === 0) {
+  deleteTypeOfStuffMember(typeOfStuffMemberId: number): void {
+    if (typeOfStuffMemberId === 0) {
       this.onSaveComplete();
     }
     else {
       {
-        this.typeOfStuffMemberService.deleteTypeOfStuffMember(this.typeOfStuffMember?.id)
+        this.typeOfStuffMemberService.deleteTypeOfStuffMember(typeOfStuffMemberId)
           .subscribe({
             next: () => this.onSaveComplete(),
             error: err => this.errorMessage = err
@@ -121,7 +122,8 @@ export class NewTypeOfStuffMemberComponent implements OnInit, OnDestroy {
           this.typeOfStuffMemberService.updateTypeOfStuffMember(p)
             .subscribe({
               next: () => this.onSaveComplete(),
-              error: err => this.errorMessage = err
+              error: err => this.errorMessage = err,
+              complete: () => this.updateSuccessNotification(this.typeOfStuffMember.name),
             });
         }
       } else {
@@ -132,6 +134,7 @@ export class NewTypeOfStuffMemberComponent implements OnInit, OnDestroy {
     }
   }
   onSaveComplete() {
+    this.createSuccessNotification(this.typeOfStuffMemberForm.value.name)
     this.typeOfStuffMemberForm?.reset();
     this.router.navigate(['/typesOfStuffMembers']);
   }
@@ -140,8 +143,28 @@ export class NewTypeOfStuffMemberComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-  closeResult = '';
-  open(content: any) {
-    this.modalService.open(content).result;
+  createSuccessNotification(typeOfStuffMemberName: string) {
+    Swal.fire('Create', `Successfully created new Type Of Stuff Member named ${typeOfStuffMemberName}`, 'success');
+  }
+  updateSuccessNotification(typeOfStuffMemberName: string) {
+    Swal.fire('Update', `Successfully update Type Of Stuff Member named ${typeOfStuffMemberName}`, 'success');
+  }
+  alertConfirmation() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `This process is irreversible. You will delete ${this.typeOfStuffMember.name}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteTypeOfStuffMember(this.typeOfStuffMember.id);
+        console.log(this.typeOfStuffMember.id);
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.', 'error');
+      }
+    });
   }
 }

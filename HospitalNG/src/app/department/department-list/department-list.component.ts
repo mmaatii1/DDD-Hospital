@@ -8,7 +8,7 @@ import { DepartmentService } from '../../shared/department/department.service';
 })
 export class DepartmentListComponent implements OnInit {
 
-  pageTitle = 'Department List';
+  pageTitle = 'Departments';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;

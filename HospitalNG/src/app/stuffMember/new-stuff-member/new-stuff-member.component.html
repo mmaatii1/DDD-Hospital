@@ -1,15 +1,20 @@
-<div class="card">
-    <div class="card-header">
-      {{ pageTitle }}
+<div class="card-group d-flex flex-column">
+  <div class="text-white bg-dark mt-5 p-4">
+    <div class="card-header mb-5">
+      <h2>{{ pageTitle }}</h2>
     </div>
-  
+
     <div class="card-body">
-      <form novalidate (ngSubmit)="saveStuffMember()" [formGroup]="stuffMemberForm">
-        <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="stuffMemberFirstNameId"
+      <form
+        novalidate
+        (ngSubmit)="saveStuffMember()"
+        [formGroup]="stuffMemberForm"
+      >
+        <div class="form-group row mb-4">
+          <label class="col-sm-3 col-form-label" for="stuffMemberFirstNameId"
             >First name</label
           >
-          <div class="col-md-8">
+          <div class="col-sm-7">
             <input
               class="form-control"
               id="stuffMemberFirstNameId"
@@ -26,17 +31,19 @@
                     stuffMemberForm.get('firstName')?.touched)
                 "
               >
-                {{ validation.message }}
+                <div class="invalid-feedback d-block">
+                  {{ validation.message }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-  
-        <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="stuffMemberlastNameId"
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-3 col-form-label" for="stuffMemberlastNameId"
             >Last name</label
           >
-          <div class="col-md-8">
+          <div class="col-sm-7">
             <input
               class="form-control"
               id="stuffMemberlastNameId"
@@ -53,19 +60,24 @@
                     stuffMemberForm.get('lastName')?.touched)
                 "
               >
-                {{ validation.message }}
+                <div class="invalid-feedback d-block">
+                  {{ validation.message }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-  
-      
-  
-        <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="departmentId">departmentId</label>
-          <div class="col-md-8">
-            <select (change) = "changeDepartmentId($event)" class="form-select form-select-sm">
-              <option *ngIf="stuffMember.id == 0">Pick a departmentId</option>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-3 col-form-label" for="departmentId"
+            >Department</label
+          >
+          <div class="col-sm-7">
+            <select
+              (change)="changeDepartmentId($event)"
+              class="form-select form-select-sm"
+            >
+              <option *ngIf="stuffMember.id == 0">Pick a department </option>
               <option
                 *ngFor="let departmentId of departments"
                 [value]="departmentId.id"
@@ -78,48 +90,64 @@
             <div
               class="error-message"
               *ngIf="
-                stuffMemberForm.get('departmentId')?.hasError(validation.type) &&
+                stuffMemberForm
+                  .get('departmentId')
+                  ?.hasError(validation.type) &&
                 (stuffMemberForm.get('departmentId')?.dirty ||
                   stuffMemberForm.get('departmentId')?.touched)
               "
             >
-              {{ validation.message }}
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group row mb-2">
-            <label class="col-md-2 col-form-label" for="typeOfStuffMemberId">typeOfStuffMemberId</label>
-            <div class="col-md-8">
-              <select (change) = "changeTypeOfStuffMemberId($event)" class="form-select form-select-sm">
-                <option *ngIf="stuffMember.id == 0">Pick a typeOfStuffMemberId</option>
-                <option
-                  *ngFor="let types of typesOfStuffMember"
-                  [value]="types.id"
-                >
-                  {{ types.name }}
-                </option>
-              </select>
-            </div>
-            <div *ngFor="let validation of validationMessages.typeOfStuffMemberId">
-              <div
-                class="error-message"
-                *ngIf="
-                  stuffMemberForm.get('typesOfStuffMemberId')?.hasError(validation.type) &&
-                  (stuffMemberForm.get('typesOfStuffMemberId')?.dirty ||
-                    stuffMemberForm.get('typesOfStuffMemberId')?.touched)
-                "
-              >
+              <div class="invalid-feedback d-block">
                 {{ validation.message }}
               </div>
             </div>
           </div>
+        </div>
 
-        <div class="form-group row mb-2">
+        <div class="form-group row mb-3">
+          <label class="col-sm-3 col-form-label" for="typeOfStuffMemberId"
+            >Type of stuff member</label
+          >
+          <div class="col-sm-7">
+            <select
+              (change)="changeTypeOfStuffMemberId($event)"
+              class="form-select form-select-sm"
+            >
+              <option *ngIf="stuffMember.id == 0">
+                Pick a type of stuff member
+              </option>
+              <option
+                *ngFor="let types of typesOfStuffMember"
+                [value]="types.id"
+              >
+                {{ types.name }}
+              </option>
+            </select>
+          </div>
+          <div
+            *ngFor="let validation of validationMessages.typeOfStuffMemberId"
+          >
+            <div
+              class="error-message"
+              *ngIf="
+                stuffMemberForm
+                  .get('typesOfStuffMemberId')
+                  ?.hasError(validation.type) &&
+                (stuffMemberForm.get('typesOfStuffMemberId')?.dirty ||
+                  stuffMemberForm.get('typesOfStuffMemberId')?.touched)
+              "
+            >
+              <div class="invalid-feedback d-block">
+                {{ validation.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mt-5">
           <div class="d-flex justify-content-around">
             <button
-              class="btn btn-primary mr-3"
-              style="width: 80px"
+              class="btn btn-primary btn-lg"
               type="submit"
               [title]="
                 stuffMemberForm.valid
@@ -129,24 +157,22 @@
             >
               Save
             </button>
-  
+
             <button
-              class="btn btn-outline-secondary mr-3"
-              style="width: 80px"
+              class="btn btn-outline-secondary btn-lg"
               type="button"
               title="Cancel your edits"
               [routerLink]="['/stuffMembers']"
             >
               Cancel
             </button>
-  
+
             <button
               *ngIf="stuffMember.id != 0"
-              class="btn btn-outline-warning"
-              style="width: 80px"
+              class="btn btn-outline-warning btn-lg"
               type="button"
               title="Delete this stuffMember"
-              (click)="open(content)"
+              (click)="alertConfirmation()"
             >
               Delete
             </button>
@@ -154,45 +180,9 @@
         </div>
       </form>
     </div>
-  
-    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
   </div>
-  
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">{{ confirmation }}</h4>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="modal.dismiss()"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3">
-          <label for="dateOfBirth">{{
-            "You will delete: " +
-              stuffMember.firstName +
-              " " +
-              stuffMember.lastName +
-              ", this process cannot be undone."
-          }}</label>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        (click)="deleteStuffMember()"
-        (click)="modal.close()"
-      >
-        Delete
-      </button>
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
-        Cancel
-      </button>
-    </div>
-  </ng-template>
-  
+</div>

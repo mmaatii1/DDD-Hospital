@@ -8,7 +8,7 @@ import { TypeOfStuffMemberService } from '../../shared/typeOfStuffMember/type-of
 })
 export class TypeOfStuffMemberListComponent implements OnInit {
 
-  pageTitle = 'TypeOfStuffMember List';
+  pageTitle = 'Types Of Stuff Member';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;

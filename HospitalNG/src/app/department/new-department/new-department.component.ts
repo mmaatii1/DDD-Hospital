@@ -5,6 +5,7 @@ import { Department } from '../../shared/department/department';
 import { DepartmentService } from '../../shared/department/department.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-Department',
@@ -35,7 +36,6 @@ export class NewDepartmentComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private modalService: NgbModal,
     private departmentService: DepartmentService) {
 
     this.departmentForm = fb.group({
@@ -104,13 +104,39 @@ export class NewDepartmentComponent implements OnInit, OnDestroy {
     })
   }
 
-  deleteDepartment(): void {
+  createSuccessNotification(departmentName: string) {
+    Swal.fire('Create', `Successfully created new department named ${departmentName}`, 'success');
+  }
+  updateSuccessNotification(departmentName: string) {
+    Swal.fire('Update', `Successfully update department named ${departmentName}`, 'success');
+  }
+  alertConfirmation() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `This process is irreversible. You will delete ${this.department.name}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteDepartment(this.department.id);
+        console.log(this.department.id);
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.', 'error');
+      }
+    });
+  }
+
+
+  deleteDepartment(departmentId: number): void {
     if (this.department?.id === 0) {
       this.onSaveComplete();
     }
     else {
       {
-        this.departmentService.deleteDepartment(this.department?.id)
+        this.departmentService.deleteDepartment(departmentId)
           .subscribe({
             next: () => this.onSaveComplete(),
             error: err => this.errorMessage = err
@@ -128,13 +154,14 @@ export class NewDepartmentComponent implements OnInit, OnDestroy {
           this.departmentService.createDepartment(p)
             .subscribe({
               next: () => this.onSaveComplete(),
-              error: err => this.errorMessage = err
+              error: err => this.errorMessage = err,
             });
         } else {
           this.departmentService.updateDepartment(p)
             .subscribe({
               next: () => this.onSaveComplete(),
-              error: err => this.errorMessage = err
+              error: err => this.errorMessage = err,
+              complete: () => this.updateSuccessNotification(this.department.name),
             });
         }
       } else {
@@ -145,6 +172,7 @@ export class NewDepartmentComponent implements OnInit, OnDestroy {
     }
   }
   onSaveComplete() {
+    this.createSuccessNotification(this.departmentForm.value.name)
     this.departmentForm?.reset();
     this.router.navigate(['/departments']);
   }
@@ -154,9 +182,5 @@ export class NewDepartmentComponent implements OnInit, OnDestroy {
   }
 
   closeResult = '';
-  open(content: any) {
 
-    this.modalService.open(content).result;
-
-  }
 }

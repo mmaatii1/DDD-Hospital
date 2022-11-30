@@ -9,6 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { StuffMemberService } from '../stuff-member.service';
 import { DepartmentService } from '../../shared/department/department.service';
 import { TypeOfStuffMember } from '../../shared/typeOfStuffMember/typeOfStuffMember';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-stuff-member',
@@ -25,7 +26,6 @@ export class NewStuffMemberComponent implements OnInit, OnDestroy {
    departments: Department[] = [];
    typesOfStuffMember: TypeOfStuffMember[] = [];
   displayMessage: any = {};
-  confirmation = "Are you sure?";
 
   public validationMessages = {
     'firstName': [
@@ -119,13 +119,13 @@ export class NewStuffMemberComponent implements OnInit, OnDestroy {
     }
   }
 
-  deleteStuffMember(): void {
-    if (this.stuffMember?.id === 0) {
+  deleteStuffMember(stuffMemberId: number): void {
+    if (stuffMemberId === 0) {
       this.onSaveComplete();
     }
     else {
       {
-        this.stuffMemberService.deleteStuffMember(this.stuffMember?.id)
+        this.stuffMemberService.deleteStuffMember(stuffMemberId)
           .subscribe({
             next: () => this.onSaveComplete(),
             error: err => this.errorMessage = err
@@ -163,7 +163,8 @@ export class NewStuffMemberComponent implements OnInit, OnDestroy {
           this.stuffMemberService.updateStuffMember(p)
             .subscribe({
               next: () => this.onSaveComplete(),
-              error: err => this.errorMessage = err
+              error: err => this.errorMessage = err,
+              complete: () => this.updateSuccessNotification(this.stuffMember.firstName),
             });
         }
       } else {
@@ -175,6 +176,7 @@ export class NewStuffMemberComponent implements OnInit, OnDestroy {
   }
   
   onSaveComplete() {
+    this.createSuccessNotification(this.stuffMemberForm.value.firstName)
     this.stuffMemberForm?.reset();
     this.router.navigate(['/stuffMembers']);
   }
@@ -183,8 +185,28 @@ export class NewStuffMemberComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-  closeResult = '';
-  open(content: any) {
-    this.modalService.open(content).result;
+  createSuccessNotification(stuffMember: string) {
+    Swal.fire('Create', `Successfully created new stuffMember named ${stuffMember}`, 'success');
+  }
+  updateSuccessNotification(stuffMember: string) {
+    Swal.fire('Update', `Successfully update stuffMember named ${stuffMember}`, 'success');
+  }
+  alertConfirmation() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `This process is irreversible. You will delete ${this.stuffMember.firstName}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.deleteStuffMember(this.stuffMember.id);
+        console.log(this.stuffMember.id);
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.', 'error');
+      }
+    });
   }
 }

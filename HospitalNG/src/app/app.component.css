@@ -1,0 +1,17 @@
+.page-title {
+    margin-left: 5vw;
+}
+
+.last-nav-item {
+    margin-right: 5vw;
+}
+
+.page-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    height: 93vh;
+}
+
+.navbar {
+    height: 7vh;
+}

@@ -8,7 +8,7 @@ import { RoomService } from '../room.service';
 })
 export class RoomListComponent implements OnInit {
 
-  pageTitle = 'Room List';
+  pageTitle = 'Rooms';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
