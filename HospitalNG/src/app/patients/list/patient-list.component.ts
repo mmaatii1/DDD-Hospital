@@ -8,7 +8,7 @@ import { PatientService } from '../patient.service';
 })
 export class PatientListComponent implements OnInit {
 
-  pageTitle = 'Patient List';
+  pageTitle = 'Patients';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;

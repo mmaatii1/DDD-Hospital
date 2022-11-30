@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { StuffMember } from './stuffMember';
@@ -21,16 +20,7 @@ export class StuffMemberService {
       );
   }
 
-  getStuffMember(id: number): Observable<StuffMember> {
-    if (id === 0) {
-      return of(this.initializeStuffMember());
-    }
-    const url = `${this.stuffMembersUrl}/${id}`;
-    return this.http.get<StuffMember>(url)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
+  
 
   createStuffMember(StuffMember: StuffMember): Observable<StuffMember> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -47,6 +37,17 @@ export class StuffMemberService {
     return this.http.delete<StuffMember>(url, { headers })
       .pipe(
         tap(data => console.log('deleteStuffMember: ' + id)),
+        catchError(this.handleError)
+      );
+  }
+  
+  getStuffMember(id: number): Observable<StuffMember> {
+    if (id === 0) {
+      return of(this.initializeStuffMember());
+    }
+    const url = `${this.stuffMembersUrl}/${id}`;
+    return this.http.get<StuffMember>(url)
+      .pipe(
         catchError(this.handleError)
       );
   }

@@ -1,27 +1,30 @@
-<div class="card">
+<div class="card-group d-flex flex-column">
+  <div class="text-white bg-dark mt-5 p-4">
     <div class="card-header d-flex justify-content-between">
-      {{ pageTitle }}
+      <h2>{{ pageTitle }}</h2>
       <button
-        class="btn btn-outline-primary btn-sm"
+        class="btn btn-outline-primary btn-lg"
         [routerLink]="['/rooms', '0', 'edit']"
       >
         New
       </button>
     </div>
-  
+
     <div class="card-body">
-      <div class="row">
-        <div class="col-md-4">
+      <div class="row mt-2 mb-2">
+        <div class="col-4">
           Filter by:
           <input type="text" [(ngModel)]="listFilter" />
         </div>
       </div>
-  
-      <div class="table-responsive">
-        <table class="table mb-0" *ngIf="rooms && rooms.length">
-          <thead>
-            <tr>
-              <!--
+
+      <table
+        class="table table-striped table-dark"
+        *ngIf="rooms && rooms.length"
+      >
+        <thead>
+          <tr>
+            <!--
               <th>
                 <button
                   class="btn btn-outline-primary btn-sm"
@@ -31,15 +34,15 @@
                 </button>
               </th>
               -->
-              <th>Room Number</th>
-              <th>Department Name</th>
-              <th>Department Description</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let room of filteredRooms">
-              <!--
+            <th>Room Number</th>
+            <th>Department Name</th>
+            <th>Department Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of filteredRooms">
+            <!--
               <td>
                 <img
                   *ngIf="showImage && room.imageUrl"
@@ -50,29 +53,28 @@
                 />
               </td>
               -->
-              <td>
-                <a [routerLink]="['/rooms', room.id]">
-                  {{ room.roomNumber }}
-                </a>
-              </td>
-              <td>{{ room.departmentName }}</td>
-              <td>{{ room.departmentDescription }}</td>
-              <td>
-                <button
-                  class="btn btn-outline-primary btn-sm"
-                  [routerLink]="['/rooms', room.id, 'edit']"
-                >
-                  Edit
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <td>
+              <a [routerLink]="['/rooms', room.id]">
+                {{ room.roomNumber }}
+              </a>
+            </td>
+            <td>{{ room.departmentName }}</td>
+            <td>{{ room.departmentDescription }}</td>
+            <td>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                [routerLink]="['/rooms', room.id, 'edit']"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
+
   <div *ngIf="errorMessage" class="alert alert-danger">
     Error: {{ errorMessage }}
   </div>
-  
+</div>

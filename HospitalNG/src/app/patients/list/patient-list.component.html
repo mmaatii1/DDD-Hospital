@@ -1,41 +1,34 @@
-<div class="card">
-  <div class="card-header d-flex justify-content-between">
-    {{ pageTitle }}
-    <button
-      class="btn btn-outline-primary btn-sm"
-      [routerLink]="['/patients', '0', 'edit']"
-    >
-      New
-    </button>
-  </div>
-
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-4">
-        Filter by:
-        <input type="text" [(ngModel)]="listFilter" />
-      </div>
+<div class="card-group d-flex flex-column">
+  <div class="text-white bg-dark mt-5 p-4">
+    <div class="card-header d-flex justify-content-between">
+      <h2>{{ pageTitle }}</h2>
+      <button
+        class="btn btn-outline-primary btn-lg"
+        [routerLink]="['/patients', '0', 'edit']"
+      >
+        New
+      </button>
     </div>
 
-    <div class="table-responsive">
-      <table class="table mb-0" *ngIf="patients && patients.length">
+    <div class="card-body">
+      <div class="row mt-2 mb-2">
+        <div class="col-4">
+          Filter by:
+          <input type="text" [(ngModel)]="listFilter" />
+        </div>
+      </div>
+
+      <table
+        class="table table-striped table-dark"
+        *ngIf="patients && patients.length"
+      >
         <thead>
           <tr>
-            <!--
-            <th>
-              <button
-                class="btn btn-outline-primary btn-sm"
-                (click)="toggleImage()"
-              >
-                {{ showImage ? "Hide" : "Show" }} Image
-              </button>
-            </th>
-            -->
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Insurance Number</th>
-            <th>Email Address</th>
-            <th></th>
+            <th scope="col">Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Insurance Number</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -74,8 +67,8 @@
       </table>
     </div>
   </div>
-</div>
 
-<div *ngIf="errorMessage" class="alert alert-danger">
-  Error: {{ errorMessage }}
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div>
 </div>

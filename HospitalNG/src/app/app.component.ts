@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `<nav class='navbar navbar-expand navbar-light bg-light'>
-  <a class='navbar-brand'>{{pageTitle}}</a>
-  <ul class='navbar-nav'>
+      selector: 'app-root',
+      template: `<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+  <a class='navbar-brand page-title'>{{pageTitle}}</a>
+  <ul class='navbar-nav  align-items-center'>
     <li class='nav-item'><a class='nav-link' routerLinkActive='active'
           [routerLink]="['/welcome']">Home</a>
     </li>
@@ -20,16 +20,16 @@ import { Component } from '@angular/core';
     <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
           [routerLink]="['/typesOfStuffMembers']">Types of stuff member</a>
     </li>
-    <li class='nav-item'><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
+    <li class='nav-item'><a class='nav-link last-nav-item' routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
           [routerLink]="['/stuffMembers']">Stuff member</a>
     </li>
   </ul>
 </nav>
-<div class='container'>
+<div class='page-container bg-secondary'>
   <router-outlet></router-outlet>
 </div>`,
-  styleUrls: ['./app.component.css']
+      styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'Hospital management';
+      pageTitle = 'Hospital management';
 }

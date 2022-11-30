@@ -26,7 +26,6 @@ export class NewStuffMemberComponent implements OnInit, OnDestroy {
    departments: Department[] = [];
    typesOfStuffMember: TypeOfStuffMember[] = [];
   displayMessage: any = {};
-  confirmation = "Are you sure?";
 
   public validationMessages = {
     'firstName': [

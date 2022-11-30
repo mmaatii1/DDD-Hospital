@@ -1,105 +1,112 @@
-<div class="card mt-4">
-  <div class="card-header">
-    {{ pageTitle }}
-  </div>
+<div class="card-group d-flex flex-column">
+  <div class="text-white bg-dark mt-5 p-4">
+    <div class="card-header mb-5">
+      <h2>{{ pageTitle }}</h2>
+    </div>
 
-  <div class="card-body">
-    <form novalidate (ngSubmit)="saveDepartment()" [formGroup]="departmentForm">
-      <div class="form-group row mb-4">
-        <label class="col-sm-3 col-form-label" for="name"
-          >Department name</label
-        >
-        <div class="col-sm-7">
-          <input
-            class="form-control"
-            id="nameId"
-            type="text"
-            placeholder="Department name (required)"
-            formControlName="name"
-          />
-          <div *ngFor="let validation of validationMessages.name">
-            <div
-              class="error-message"
-              *ngIf="
-                departmentForm.get('name')?.hasError(validation.type) &&
-                (departmentForm.get('name')?.dirty ||
-                  departmentForm.get('name')?.touched)
-              "
-            >
-              <div class="invalid-feedback d-block">
+    <div class="card-body">
+      <form
+        novalidate
+        (ngSubmit)="saveDepartment()"
+        [formGroup]="departmentForm"
+      >
+        <div class="form-group row mb-4">
+          <label class="col-sm-3 col-form-label" for="name"
+            >Department name</label
+          >
+          <div class="col-sm-7">
+            <input
+              class="form-control"
+              id="nameId"
+              type="text"
+              placeholder="Department name (required)"
+              formControlName="name"
+            />
+            <div *ngFor="let validation of validationMessages.name">
+              <div
+                class="error-message"
+                *ngIf="
+                  departmentForm.get('name')?.hasError(validation.type) &&
+                  (departmentForm.get('name')?.dirty ||
+                    departmentForm.get('name')?.touched)
+                "
+              >
+                <div class="invalid-feedback d-block">
+                  {{ validation.message }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label class="col-sm-3 col-form-label" for="description"
+            >Department Description</label
+          >
+          <div class="col-sm-7">
+            <input
+              class="form-control"
+              id="description"
+              type="text"
+              placeholder="Department Description"
+              formControlName="description"
+            />
+            <div *ngFor="let validation of validationMessages.description">
+              <div
+                class="error-message"
+                *ngIf="
+                  departmentForm
+                    .get('description')
+                    ?.hasError(validation.type) &&
+                  (departmentForm.get('description')?.dirty ||
+                    departmentForm.get('description')?.touched)
+                "
+              >
                 {{ validation.message }}
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="form-group row mb-4">
-        <label class="col-sm-3 col-form-label" for="description"
-          >Department Description</label
-        >
-        <div class="col-sm-7">
-          <input
-            class="form-control"
-            id="description"
-            type="text"
-            placeholder="Department Description"
-            formControlName="description"
-          />
-          <div *ngFor="let validation of validationMessages.description">
-            <div
-              class="error-message"
-              *ngIf="
-                departmentForm.get('description')?.hasError(validation.type) &&
-                (departmentForm.get('description')?.dirty ||
-                  departmentForm.get('description')?.touched)
+        <div class="form-group row">
+          <div class="d-flex justify-content-around pt-4">
+            <button
+              class="btn btn-primary btn-lg"
+              type="submit"
+              [title]="
+                departmentForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
               "
             >
-              {{ validation.message }}
-            </div>
+              Save
+            </button>
+
+            <button
+              class="btn btn-outline-secondary btn-lg"
+              type="button"
+              title="Cancel your edits"
+              [routerLink]="['/Departments']"
+            >
+              Cancel
+            </button>
+
+            <button
+              *ngIf="department.id != 0"
+              class="btn btn-outline-warning btn-lg"
+              type="button"
+              title="Delete this Department"
+              (click)="alertConfirmation()"
+            >
+              Delete
+            </button>
           </div>
         </div>
-      </div>
+      </form>
+    </div>
 
-      <div class="form-group row mb-2">
-        <div class="d-flex justify-content-around">
-          <button
-            class="btn btn-primary mr-3"
-            style="width: 80px"
-            type="submit"
-            [title]="
-              departmentForm.valid
-                ? 'Save your entered data'
-                : 'Disabled until the form data is valid'
-            "
-          >
-            Save
-          </button>
-
-          <button
-            class="btn btn-outline-secondary mr-3"
-            style="width: 80px"
-            type="button"
-            title="Cancel your edits"
-            [routerLink]="['/Departments']"
-          >
-            Cancel
-          </button>
-
-          <button
-            *ngIf="department.id != 0"
-            class="btn btn-outline-warning"
-            style="width: 80px"
-            type="button"
-            title="Delete this Department"
-            (click)="alertConfirmation()"
-          >
-            Delete
-          </button>
-        </div>
-      </div>
-    </form>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
   </div>
-
-  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
 </div>

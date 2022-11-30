@@ -8,7 +8,7 @@ import { StuffMemberService } from '../stuff-member.service';
 })
 export class StuffMemberListComponent implements OnInit {
 
-  pageTitle = 'StuffMember List';
+  pageTitle = 'Stuff Members';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
